@@ -1,1 +1,38 @@
 # TaxisTo
+
+Know which taxi to take, where it's actually going, and what it'll cost — before you're standing at the rank.
+
+## Why this exists
+
+You want to go somewhere. You don't know which taxi to take, where to get off, or what it's going to cost until you're already there asking someone. There's no way to check any of that beforehand.
+
+Meanwhile, taxis are losing riders to Uber — not because they're worse, but because Uber is *visible*. Open the app, know the price, know it's coming, get in. Taxis do all of that in practice, but none of it shows up before you commit.
+
+Take Johannesburg. A taxi heading into Jozi isn't one route — it's several. Some go to Bree, some to the MTN rank, some somewhere else entirely. If you don't already know the system, you can end up in the wrong queue, on the wrong taxi, going somewhere you didn't mean to.
+
+TaxisTo fixes that. Tell it where you actually want to end up, and it tells you exactly which taxi and which route gets you there — the same certainty Uber gives you about which car is coming, applied to a network that already goes almost everywhere and already costs less.
+
+## What it does
+
+- **Route matching** — enter where you are and where you're going, get back the specific taxi and route that actually gets you there, including changes across multiple ranks if the trip needs it.
+- **Fares, from the people who know them** — no dataset anywhere publishes minibus taxi fares, so commuters fill that in themselves: a one-tap confirm on a fare we already have, or a quick correction if it's changed. The price gets more accurate the more the network is used, without anyone needing to run a survey team to check it.
+- **Pickup beyond the route** — a commuter who isn't standing directly on a route can request a nearby meeting point; a driver checking in on their own time can see who's waiting nearby and decide if it's worth a short detour. No live GPS tracking, no dispatch system — just the same WhatsApp-based interaction the rest of the app runs on.
+
+## Interface
+
+WhatsApp-first. No app to install, no data cost to search or contribute — message a number, get a route back.
+
+## Tech stack
+
+- **Backend:** Python, FastAPI
+- **Frontend:** React
+- **Messaging:** Twilio and/or the WhatsApp Business API
+- **Mapping:** Google Maps API
+
+## Status
+
+Pre-build. This repository accompanies a Geekulcha 2026 hackathon submission — the routing approach, data pipeline, and fare-crowdsourcing mechanic have been designed and validated against real South African taxi route data, and this repo will hold the implementation once development starts.
+
+## Team
+
+Built by GenCode — Johannesburg.
