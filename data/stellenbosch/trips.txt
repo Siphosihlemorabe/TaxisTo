@@ -1,0 +1,152 @@
+route_id,service_id,trip_id,trip_headsign,trip_short_name,direction_id,shape_id
+route1,weekdays,3552,Bergzicht,Bergzicht to Cloetesville,0,3552
+route1,weekdays,3553,Bergzicht,Bergzicht to Cloetesville,1,3553
+route2,weekdays,37837559,Bergzicht,Bergzicht to Jamestown,0,37837559
+route2,weekdays,37838137,Bergzicht,Bergzicht to Jamestown,1,37838137
+route2,weekdays,37840809,Bergzicht,Bergzicht to Jamestown,0,37840809
+route2,weekdays,37841698,Bergzicht,Bergzicht to Jamestown,1,37841698
+route2,weekdays,37843894,Bergzicht,Bergzicht to Jamestown,1,37843894
+route2,weekdays,37844399,Bergzicht,Bergzicht to Jamestown,0,37844399
+route2,weekdays,37845146,Bergzicht,Bergzicht to Jamestown,0,37845146
+route2,weekdays,37845397,Bergzicht,Bergzicht to Jamestown,0,37845397
+route2,weekdays,37845624,Bergzicht,Bergzicht to Jamestown,1,37845624
+route2,weekdays,37846209,Bergzicht,Bergzicht to Jamestown,1,37846209
+route2,weekdays,37847423,Bergzicht,Bergzicht to Jamestown,0,37847423
+route2,weekdays,37847535,Bergzicht,Bergzicht to Jamestown,1,37847535
+route1,weekdays,37852501,Bergzicht,Bergzicht to Cloetesville,0,37852501
+route1,weekdays,37852918,Bergzicht,Bergzicht to Cloetesville,1,37852918
+route1,weekdays,37853301,Bergzicht,Bergzicht to Cloetesville,0,37853301
+route1,weekdays,37853618,Bergzicht,Bergzicht to Cloetesville,1,37853618
+route3,weekdays,37855618,Bergzicht,Bergzicht to Somerset West,0,37855618
+route3,weekdays,37855894,Bergzicht,Bergzicht to Somerset West,1,37855894
+route3,weekdays,37855969,Bergzicht,Bergzicht to Somerset West,0,37855969
+route3,weekdays,37856620,Bergzicht,Bergzicht to Somerset West,1,37856620
+route3,weekdays,37856713,Bergzicht,Bergzicht to Somerset West,0,37856713
+route3,weekdays,37856842,Bergzicht,Bergzicht to Somerset West,1,37856842
+route3,weekdays,37857270,Bergzicht,Bergzicht to Somerset West,1,37857270
+route3,weekdays,37857368,Bergzicht,Bergzicht to Somerset West,0,37857368
+route3,weekdays,37857511,Bergzicht,Bergzicht to Somerset West,1,37857511
+route3,weekdays,37857798,Bergzicht,Bergzicht to Somerset West,0,37857798
+route3,weekdays,37858087,Bergzicht,Bergzicht to Somerset West,1,37858087
+route3,weekdays,37858413,Bergzicht,Bergzicht to Somerset West,0,37858413
+route2,weekdays,37858933,Bergzicht,Bergzicht to Jamestown,0,37858933
+route2,weekdays,37859494,Bergzicht,Bergzicht to Jamestown,1,37859494
+route2,weekdays,37862618,Bergzicht,Bergzicht to Jamestown,0,37862618
+route2,weekdays,37863328,Bergzicht,Bergzicht to Jamestown,1,37863328
+route2,weekdays,37866180,Bergzicht,Bergzicht to Jamestown,0,37866180
+route2,weekdays,37866650,Bergzicht,Bergzicht to Jamestown,1,37866650
+route1,weekdays,37869869,Bergzicht,Bergzicht to Cloetesville,1,37869869
+route1,weekdays,37871313,Bergzicht,Bergzicht to Cloetesville,0,37871313
+route1,weekdays,37872348,Bergzicht,Bergzicht to Cloetesville,0,37872348
+route1,weekdays,37872909,Bergzicht,Bergzicht to Cloetesville,1,37872909
+route1,weekdays,37873239,Bergzicht,Bergzicht to Cloetesville,0,37873239
+route1,weekdays,37873689,Bergzicht,Bergzicht to Cloetesville,1,37873689
+route3,weekdays,37874729,Bergzicht,Bergzicht to Somerset West,1,37874729
+route3,weekdays,37875052,Bergzicht,Bergzicht to Somerset West,0,37875052
+route2,weekdays,37875253,Bergzicht,Bergzicht to Jamestown,0,37875253
+route2,weekdays,37875479,Bergzicht,Bergzicht to Jamestown,1,37875479
+route2,weekdays,37875920,Bergzicht,Bergzicht to Jamestown,0,37875920
+route2,weekdays,37876620,Bergzicht,Bergzicht to Jamestown,1,37876620
+route2,weekdays,37877190,Bergzicht,Bergzicht to Jamestown,0,37877190
+route2,weekdays,37877383,Bergzicht,Bergzicht to Jamestown,1,37877383
+route3,weekdays,37878074,Bergzicht,Bergzicht to Somerset West,0,37878074
+route3,weekdays,37878772,Bergzicht,Bergzicht to Somerset West,0,37878772
+route3,weekdays,37879083,Bergzicht,Bergzicht to Somerset West,1,37879083
+route3,weekdays,37879873,Bergzicht,Bergzicht to Somerset West,1,37879873
+route3,weekdays,37880237,Bergzicht,Bergzicht to Somerset West,0,37880237
+route2,saturdays,37880852,Bergzicht,Bergzicht to Jamestown,0,37880852
+route2,saturdays,37881619,Bergzicht,Bergzicht to Jamestown,1,37881619
+route2,saturdays,37883326,Bergzicht,Bergzicht to Jamestown,0,37883326
+route2,saturdays,37887305,Bergzicht,Bergzicht to Jamestown,1,37887305
+route1,saturdays,37890268,Bergzicht,Bergzicht to Cloetesville,0,37890268
+route1,saturdays,37890899,Bergzicht,Bergzicht to Cloetesville,1,37890899
+route1,saturdays,37892852,Bergzicht,Bergzicht to Cloetesville,0,37892852
+route1,saturdays,37893282,Bergzicht,Bergzicht to Cloetesville,1,37893282
+route1,saturdays,37896054,Bergzicht,Bergzicht to Cloetesville,0,37896054
+route1,saturdays,37896415,Bergzicht,Bergzicht to Cloetesville,1,37896415
+route3,saturdays,37897018,Bergzicht,Bergzicht to Somerset West,1,37897018
+route3,saturdays,37898188,Bergzicht,Bergzicht to Somerset West,0,37898188
+route3,saturdays,37899449,Bergzicht,Bergzicht to Somerset West,1,37899449
+route3,saturdays,37900644,Bergzicht,Bergzicht to Somerset West,0,37900644
+route3,saturdays,37901739,Bergzicht,Bergzicht to Somerset West,1,37901739
+route2,saturdays,37901942,Bergzicht,Bergzicht to Jamestown,0,37901942
+route2,saturdays,37902191,Bergzicht,Bergzicht to Jamestown,1,37902191
+route2,saturdays,37902528,Bergzicht,Bergzicht to Jamestown,1,37902528
+route2,saturdays,37902743,Bergzicht,Bergzicht to Jamestown,0,37902743
+route2,saturdays,37904178,Bergzicht,Bergzicht to Jamestown,1,37904178
+route4,weekdays,37910126,Bergzicht,Bergzicht to Idasvallei,0,37910126
+route4,weekdays,37910335,Bergzicht,Bergzicht to Idasvallei,1,37910335
+route4,weekdays,37911026,Bergzicht,Bergzicht to Idasvallei,1,37911026
+route4,weekdays,37911171,Bergzicht,Bergzicht to Idasvallei,0,37911171
+route2,weekdays,37921709,Bergzicht,Bergzicht to Jamestown,0,37921709
+route2,weekdays,37922282,Bergzicht,Bergzicht to Jamestown,1,37922282
+route2,weekdays,37925842,Bergzicht,Bergzicht to Jamestown,0,37925842
+route2,weekdays,37926835,Bergzicht,Bergzicht to Jamestown,1,37926835
+route2,weekdays,37930508,Bergzicht,Bergzicht to Jamestown,0,37930508
+route2,weekdays,37931027,Bergzicht,Bergzicht to Jamestown,1,37931027
+route1,weekdays,37933754,Bergzicht,Bergzicht to Cloetesville,0,37933754
+route1,weekdays,37934433,Bergzicht,Bergzicht to Cloetesville,1,37934433
+route1,weekdays,37936377,Bergzicht,Bergzicht to Cloetesville,0,37936377
+route1,weekdays,37936937,Bergzicht,Bergzicht to Cloetesville,1,37936937
+route1,weekdays,37937362,Bergzicht,Bergzicht to Cloetesville,0,37937362
+route1,weekdays,37937787,Bergzicht,Bergzicht to Cloetesville,1,37937787
+route4,weekdays,37939641,Bergzicht,Bergzicht to Idasvallei,0,37939641
+route4,weekdays,37939761,Bergzicht,Bergzicht to Idasvallei,1,37939761
+route2,weekdays,37955773,Bergzicht,Bergzicht to Jamestown,0,37955773
+route2,weekdays,37956472,Bergzicht,Bergzicht to Jamestown,1,37956472
+route2,weekdays,37958744,Bergzicht,Bergzicht to Jamestown,0,37958744
+route2,weekdays,37959564,Bergzicht,Bergzicht to Jamestown,1,37959564
+route2,weekdays,37962427,Bergzicht,Bergzicht to Jamestown,0,37962427
+route2,weekdays,37962968,Bergzicht,Bergzicht to Jamestown,1,37962968
+route4,weekdays,37981581,Bergzicht,Bergzicht to Idasvallei,0,37981581
+route4,weekdays,37982284,Bergzicht,Bergzicht to Idasvallei,1,37982284
+route4,weekdays,37982521,Bergzicht,Bergzicht to Idasvallei,0,37982521
+route4,weekdays,37982676,Bergzicht,Bergzicht to Idasvallei,1,37982676
+route2,weekdays,37987277,Bergzicht,Bergzicht to Jamestown,0,37987277
+route2,weekdays,37987936,Bergzicht,Bergzicht to Jamestown,1,37987936
+route2,weekdays,37991664,Bergzicht,Bergzicht to Jamestown,0,37991664
+route2,weekdays,37992647,Bergzicht,Bergzicht to Jamestown,1,37992647
+route2,weekdays,37994638,Bergzicht,Bergzicht to Jamestown,1,37994638
+route2,weekdays,37995031,Bergzicht,Bergzicht to Jamestown,0,37995031
+route4,weekdays,37998030,Bergzicht,Bergzicht to Idasvallei,0,37998030
+route4,weekdays,37998216,Bergzicht,Bergzicht to Idasvallei,1,37998216
+route1,weekdays,38000017,Bergzicht,Bergzicht to Cloetesville,0,38000017
+route1,weekdays,38000460,Bergzicht,Bergzicht to Cloetesville,1,38000460
+route1,weekdays,38003768,Bergzicht,Bergzicht to Cloetesville,0,38003768
+route1,weekdays,38004046,Bergzicht,Bergzicht to Cloetesville,1,38004046
+route1,weekdays,38005577,Bergzicht,Bergzicht to Cloetesville,0,38005577
+route1,weekdays,38006006,Bergzicht,Bergzicht to Cloetesville,1,38006006
+route2,weekdays,38012941,Bergzicht,Bergzicht to Jamestown,0,38012941
+route2,weekdays,38013433,Bergzicht,Bergzicht to Jamestown,1,38013433
+route2,weekdays,38017161,Bergzicht,Bergzicht to Jamestown,0,38017161
+route2,weekdays,38018131,Bergzicht,Bergzicht to Jamestown,1,38018131
+route2,weekdays,38019851,Bergzicht,Bergzicht to Jamestown,0,38019851
+route2,weekdays,38020404,Bergzicht,Bergzicht to Jamestown,1,38020404
+route2,saturdays,38029306,Bergzicht,Bergzicht to Jamestown,0,38029306
+route2,saturdays,38030099,Bergzicht,Bergzicht to Jamestown,1,38030099
+route2,saturdays,38031317,Bergzicht,Bergzicht to Jamestown,1,38031317
+route2,saturdays,38031934,Bergzicht,Bergzicht to Jamestown,0,38031934
+route4,saturdays,38036199,Bergzicht,Bergzicht to Idasvallei,1,38036199
+route1,saturdays,38037073,Bergzicht,Bergzicht to Cloetesville,0,38037073
+route1,saturdays,38038099,Bergzicht,Bergzicht to Cloetesville,1,38038099
+route1,saturdays,38040470,Bergzicht,Bergzicht to Cloetesville,1,38040470
+route1,saturdays,38040681,Bergzicht,Bergzicht to Cloetesville,0,38040681
+route1,saturdays,38043209,Bergzicht,Bergzicht to Cloetesville,1,38043209
+route2,saturdays,38075872,Bergzicht,Bergzicht to Jamestown,0,38075872
+route2,saturdays,38076649,Bergzicht,Bergzicht to Jamestown,1,38076649
+route2,saturdays,38079362,Bergzicht,Bergzicht to Jamestown,0,38079362
+route2,saturdays,38079968,Bergzicht,Bergzicht to Jamestown,1,38079968
+route2,weekdays,38141673,Bergzicht,Bergzicht to Jamestown,0,38141673
+route2,weekdays,38141910,Bergzicht,Bergzicht to Jamestown,1,38141910
+route2,weekdays,38142413,Bergzicht,Bergzicht to Jamestown,0,38142413
+route2,weekdays,38142724,Bergzicht,Bergzicht to Jamestown,1,38142724
+route2,weekdays,38143307,Bergzicht,Bergzicht to Jamestown,0,38143307
+route2,weekdays,38143614,Bergzicht,Bergzicht to Jamestown,1,38143614
+route2,weekdays,38144299,Bergzicht,Bergzicht to Jamestown,0,38144299
+route2,weekdays,38144442,Bergzicht,Bergzicht to Jamestown,1,38144442
+route2,weekdays,38144657,Bergzicht,Bergzicht to Jamestown,0,38144657
+route2,weekdays,38144872,Bergzicht,Bergzicht to Jamestown,1,38144872
+route2,weekdays,38145623,Bergzicht,Bergzicht to Jamestown,1,38145623
+route2,weekdays,38146120,Bergzicht,Bergzicht to Jamestown,0,38146120
+route2,saturdays,38146715,Bergzicht,Bergzicht to Jamestown,0,38146715
+route2,saturdays,38146909,Bergzicht,Bergzicht to Jamestown,1,38146909
