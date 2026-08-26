@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "_doc": {
+    "purpose": "Every judgement call made about Cape Town taxi-route place names. Edited by hand; consumed by scripts/pipeline/places.py. Editing this file and re-running is the supported way to change or undo a merge.",
+    "aliases": "Keyed on the POST-tidy() display string - spaces, commas and parentheses preserved, apostrophes already removed, uppercase. Value 'to' is the replacement, also a post-tidy() string.",
+    "preferred": "Keyed on canonical_key() - A-Z and 0-9 only, no spaces or punctuation. Chooses the display form for a group whose members are all equally valid spellings. NOT interchangeable with 'aliases' keys.",
+    "rules": "Regex transforms applied after the alias table, in sorted id order. Set enabled=false to switch one off.",
+    "keep_distinct": "Hard block: no two members of a group may end up as the same canonical place. Blocks alias entries, regex rules and canonical_key grouping alike. This is the per-merge undo.",
+    "after_editing": "python scripts/clean_routes.py validate-config && python scripts/clean_routes.py run"
+  },
+
+  "aliases": {
+    "EERSTERIVER": {
+      "to": "EERSTE RIVER",
+      "reason": "unspaced form of the same suburb",
+      "evidence": "geometry", "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "EERSTERIVIER": {
+      "to": "EERSTE RIVER",
+      "reason": "Afrikaans spelling of the same suburb",
+      "evidence": "geometry", "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "EERSTE RIVIER STASIE": {
+      "to": "EERSTE RIVER STATION",
+      "reason": "Afrikaans name for the same railway station ('stasie' = 'station')",
+      "evidence": "geometry", "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "GUGULETU": {
+      "to": "GUGULETHU",
+      "reason": "the official spelling carries the H",
+      "evidence": "external", "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "HOUTBAY": {
+      "to": "HOUT BAY",
+      "reason": "spacing variant of one place",
+      "evidence": "geometry", "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "MELKBOS": {
+      "to": "MELKBOSSTRAND",
+      "reason": "common short form of Melkbosstrand",
+      "evidence": "geometry", "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "CASSA BLANCA (STRAND)": {
+      "to": "CASSABLANCA",
+      "reason": "spacing variant; the parenthesised town is a locator, not part of the name",
+      "evidence": "geometry", "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "TYGERVALLEY CENTRE": {
+      "to": "TYGERVALLEY SHOPPING CENTRE",
+      "reason": "short and full name of the same shopping centre",
+      "evidence": "geometry", "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "SANDRIF": {
+      "to": "SANDRIFT",
+      "reason": "three spellings of one place, all within 389 m; file plurality chosen",
+      "evidence": "geometry", "confidence": "low", "source": "findings.md#issue-5",
+      "open_question": "The Milnerton suburb is commonly written Sanddrift. Which of the three is correct is still unconfirmed - needs a local check. To switch, change the 'to' on this entry and SANDDRIFT below, then re-run."
+    },
+    "SANDDRIFT": {
+      "to": "SANDRIFT",
+      "reason": "three spellings of one place, all within 389 m; file plurality chosen",
+      "evidence": "geometry", "confidence": "low", "source": "findings.md#issue-5",
+      "open_question": "The Milnerton suburb is commonly written Sanddrift. This entry is the one most likely to be backwards."
+    },
+    "PHILIPPI STATION TRANSPORT INTERCHANGE": {
+      "to": "PHILIPPI STATION",
+      "reason": "full facility wording for the same station",
+      "evidence": "geometry", "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "NYANGA STATION PUBLIC TRANSPORT INTERCHANGE": {
+      "to": "NYANGA STATION",
+      "reason": "full facility wording for the same station",
+      "evidence": "geometry", "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "NYANGA TERM": {
+      "to": "NYANGA TERMINUS",
+      "reason": "truncated form of the same terminus",
+      "evidence": "geometry", "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "RAILWAY STATION (SOMERSET WEST)": {
+      "to": "SOMERSET WEST STATION",
+      "reason": "the name was written back-to-front; same facility",
+      "evidence": "geometry", "confidence": "high", "source": "findings.md#pass-5"
+    }
+  },
+
+  "preferred": {
+    "TABLEVIEW": {
+      "to": "TABLE VIEW",
+      "reason": "the spaced form is the conventional spelling of the suburb",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "SUMMERGREENS": {
+      "to": "SUMMER GREENS",
+      "reason": "the spaced form is the conventional spelling of the suburb",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "MELKBOSSTRAND": {
+      "to": "MELKBOSSTRAND",
+      "reason": "one word, unlike the spaced MELKBOS STRAND variant in the file",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "BLOUBERGSTRAND": {
+      "to": "BLOUBERGSTRAND",
+      "reason": "one word, unlike the spaced BLOUBERG STRAND variant in the file",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "LOWERCROSSROADS": {
+      "to": "LOWER CROSS ROADS",
+      "reason": "matches the spacing of the parent place CROSS ROADS",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "SAXONSEAATLANTIS": {
+      "to": "SAXONSEA ATLANTIS",
+      "reason": "SAXONSEA is one word; the township name follows it as a locator",
+      "confidence": "high", "source": "findings.md#issue-7"
+    },
+    "CAPETOWNSTATIONDECK": {
+      "to": "CAPE TOWN STATION DECK",
+      "reason": "spaced form; a distinct rank from CAPE TOWN STATION, not rolled up into it",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "CROSSROADSJOBURGSTORES": {
+      "to": "CROSS ROADS (JO-BURG STORES)",
+      "reason": "the landmark is a locator within Cross Roads, so it belongs in brackets",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "TOWNCENTREMITCHELLSPLAIN": {
+      "to": "TOWN CENTRE (MITCHELLS PLAIN)",
+      "reason": "bracketed locator form, consistent across the file's sub-places",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "SANLAMCENTREPAROW": {
+      "to": "SANLAM CENTRE, PAROW",
+      "reason": "comma form, matching the other 'landmark, suburb' values",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "METROINDUSTRYPAARDENEILAND": {
+      "to": "METRO INDUSTRY (PAARDEN EILAND)",
+      "reason": "bracketed locator form; PAARDEN EILAND is two words",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "KRAMATWAYMACASSAR": {
+      "to": "KRAMAT WAY (MACASSAR)",
+      "reason": "bracketed locator form for a street within Macassar",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "MITCHELLSPLAINCALYPSOSQUARE": {
+      "to": "MITCHELLS PLAIN (CALYPSO SQUARE)",
+      "reason": "bracketed sub-place form; kept distinct from MITCHELLS PLAIN itself",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "MITCHELLSPLAINTOWNCENTRE": {
+      "to": "MITCHELLS PLAIN (TOWN CENTRE)",
+      "reason": "bracketed sub-place form; kept distinct from MITCHELLS PLAIN itself",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "EINDHOVENDELFT": {
+      "to": "EINDHOVEN, DELFT",
+      "reason": "comma form; Eindhoven is a section of Delft",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "LEIDENDELFT": {
+      "to": "LEIDEN, DELFT",
+      "reason": "comma form; Leiden is a section of Delft",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "FABRIEKSAREAATLANTIS": {
+      "to": "FABRIEKS AREA, ATLANTIS",
+      "reason": "comma form; the industrial area is a section of Atlantis",
+      "confidence": "high", "source": "findings.md#pass-5"
+    },
+    "LOURENSFORDSOMERSETWEST": {
+      "to": "LOURENSFORD, SOMERSET WEST",
+      "reason": "comma form; Lourensford is a section of Somerset West",
+      "confidence": "high", "source": "findings.md#pass-5"
+    }
+  },
+
+  "rules": {
+    "collapse_railway_station": {
+      "enabled": true,
+      "pattern": "\\bRAILWAY\\s+STATION\\b",
+      "replacement": "STATION",
+      "reason": "'X RAILWAY STATION' and 'X STATION' are the same facility",
+      "safety_note": "KOEBERG POWER STATION is untouched because it contains no 'RAILWAY'",
+      "source": "findings.md#pass-5"
+    },
+    "singularise_stations": {
+      "enabled": true,
+      "pattern": "\\bSTATIONS\\b",
+      "replacement": "STATION",
+      "reason": "the plural is a typo in every observed use (e.g. KOEBERG RAILWAY STATIONS)",
+      "source": "findings.md#pass-4"
+    }
+  },
+
+  "keep_distinct": [
+    {
+      "id": "koeberg-power-vs-rail",
+      "members": ["KOEBERG POWER STATION", "KOEBERG STATION"],
+      "reason": "near-identical strings, but 27.8 km apart - a power station and a railway station, not one place",
+      "evidence_m": 27800,
+      "source": "findings.md#pass-4"
+    },
+    {
+      "id": "norwood-northwood",
+      "members": ["NORWOOD", "NORTHWOOD"],
+      "reason": "edit-distance 2 but 10.8 km apart - two different suburbs. The counter-example that ruled out fuzzy matching.",
+      "evidence_m": 10800,
+      "source": "findings.md#pass-4"
+    },
+    {
+      "id": "de-nova-vs-du-noon",
+      "members": ["DE NOVA", "DU NOON"],
+      "reason": "look-alike names 24 km apart - different places",
+      "evidence_m": 24000,
+      "source": "findings.md#pass-4"
+    },
+    {
+      "id": "helderberg-wes-vs-west",
+      "members": ["HELDERVUE (SOMERSET WES)", "HELDERVUE (SOMERSET WEST)"],
+      "reason": "'Somerset-Wes' is the legitimate Afrikaans town name, not a dropped T, and the endpoints sit 1,159 m apart",
+      "evidence_m": 1159,
+      "source": "findings.md#issue-6"
+    }
+  ]
+}

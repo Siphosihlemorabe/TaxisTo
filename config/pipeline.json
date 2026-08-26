@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "_doc": "Thresholds for the CLAUDE.md cleaning steps. Changing any of these means re-running the whole pipeline, since steps 4-6 feed each other. Every value here is echoed into output/quality_report.json so a report is self-contained.",
+
+  "source": {
+    "path": "data/cpt/Taxi_Routes.geojson",
+    "id_field": "OBJECTID",
+    "origin_field": "ORGN",
+    "destination_field": "DSTN",
+    "source_length_field": "Shape__Length",
+    "source_length_units": "metres",
+    "ignore_properties": [
+      "canonical_origin", "canonical_destination", "via_origin", "via_destination",
+      "measured_length_m", "canonical", "variants", "issues"
+    ],
+    "_ignore_note": "Derived fields are outputs, never inputs. An earlier version of the normalisation script wrote these back into the source file (and into git history), so they are stripped at read time regardless of what the file contains - otherwise a bug that read last run's canonical_origin would confirm itself."
+  },
+
+  "geometry": {
+    "min_points": 2,
+    "_min_points_note": "A line with fewer than 2 points cannot be routed and has nothing worth preserving, so it is dropped rather than flagged (CLAUDE.md step 1). Observed minimum in the current source is 11, so this drops nothing today.",
+
+    "bbox": {
+      "min_lon": 17.6, "max_lon": 19.4,
+      "min_lat": -34.6, "max_lat": -32.9
+    },
+    "_bbox_note": "Cape Town metro plus the Atlantis/Darling corridor to the north. Observed data spans lon 18.137-18.911, lat -34.271 to -33.058, so this is a guardrail against a future bad export rather than a filter on today's file. 0 violations expected.",
+
+    "length_mismatch_ratio": 0.10,
+    "_length_mismatch_note": "Flags when measured_length_m disagrees with the source Shape__Length by more than this fraction. Observed ratio spans 0.9980-1.0021 (max deviation 0.21%), which confirms Shape__Length is already metres. 0 flags expected; a non-zero count means the source changed.",
+
+    "short_stub_m": 500,
+    "_short_stub_note": "A 'route' shorter than this is almost certainly truncated geometry rather than a real taxi service. Flagged, never dropped - but it does disqualify a route from being chosen as canonical in step 6.",
+
+    "loop_endpoint_tolerance_m": 100
+  },
+
+  "labels": {
+    "consensus_method": "median",
+    "_consensus_note": "Median, not mean - one endpoint mislabelled 40 km away must not drag the place's location with it, which is exactly what step 5 is trying to detect.",
+
+    "min_consensus_support": 3,
+    "_support_note": "A place claimed by fewer than 3 endpoints cannot be used to judge those endpoints: with 1, the consensus IS the endpoint and the distance is always 0; with 2, the error splits evenly and both are flagged or neither. 158 of 379 canonical places are single-use, so without this floor step 5 would silently pass them.",
+
+    "endpoint_tolerance_m": 1000,
+    "endpoint_severe_m": 5000,
+    "_tolerance_note": "How far a route endpoint may sit from the consensus location of the place it claims before being flagged as mislabelled. Warn at 1 km, escalate to error at 5 km. Township-sized places legitimately spread ~1.1 km (CROSS ROADS), so expect some of the 1-2 km band to be place size rather than error.",
+
+    "merge_spread_warn_m": 1000,
+    "_spread_note": "Reported when the members merged into one canonical place have consensus locations further apart than this. Not a hard failure - it flags a merge for review rather than rejecting it."
+  },
+
+  "parallel": {
+    "rule": "shortest_unflagged",
+    "blocking_issues": [
+      "short_stub",
+      "endpoint_far_from_consensus",
+      "self_loop_induced_by_normalisation",
+      "duplicate_geometry_secondary"
+    ],
+    "tie_break": ["measured_length_m", "OBJECTID"],
+    "direction_sensitive": true,
+    "_rule_note": "Plain 'shortest wins' is wrong on this data: MFULENI -> KILLARNEY has routes of 387 m, 69,691 m and 71,410 m, and the 387 m one is an 11-point stub whose endpoint sits 23.9 km from Killarney. Routes already flagged by steps 4-5 are excluded first; the shortest of what survives wins. If every route in a group is flagged, the whole group is reconsidered and the choice is marked 'fallback_all_flagged'.",
+    "_direction_note": "A -> B and B -> A are different services with different geometry and are never folded together."
+  },
+
+  "policy": {
+    "drop_issues": ["no_usable_geometry"],
+    "_policy_note": "Only CLAUDE.md step 1 drops. Everything else is kept and flagged, and every drop is listed individually in the quality report so it stays traceable and countable."
+  },
+
+  "output": {
+    "dir": "output",
+    "coord_precision": 6,
+    "metre_precision": 1,
+    "ratio_precision": 4,
+    "_precision_note": "Fixed rounding before serialisation so artifacts are byte-identical across runs and platforms, which is what makes normalisation_map.json diffable."
+  }
+}

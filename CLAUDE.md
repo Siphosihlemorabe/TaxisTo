@@ -56,11 +56,30 @@ to do so.
 7. **Emit outputs:** the cleaned dataset, a separate flagged-routes file,
    and a quality report summarising counts at each step.
 
-## Open decisions — set these before running the full pipeline
-These were deliberately left as choices, not fixed rules. State your
-answer here (or tell Claude directly) before cleaning the full dataset,
-since changing any of them after the fact means re-running everything
-downstream.
+## Running the pipeline
+
+```
+python scripts/clean_routes.py run                  # all seven steps -> output/
+python scripts/clean_routes.py run --dry-run        # counts only, writes nothing
+python scripts/clean_routes.py validate-config      # check config/ after editing
+python scripts/clean_routes.py explain "GUGULETU"   # why did this name change?
+python scripts/clean_routes.py revert --verify      # prove normalisation is lossless
+python scripts/clean_routes.py diff --baseline <old normalisation_map.json>
+```
+
+Standard library only — no `pip install` needed. `requirements.txt` pins test
+tooling. `data/` is input only; the pipeline refuses to write under it.
+
+To change any place-name decision, edit `config/place_aliases.json` and re-run.
+Never edit the transforms in `scripts/pipeline/places.py` for a data fix — the
+whole point of the config file is that judgement calls live outside the code
+where they can be reviewed and reverted.
+
+## Open decisions — ALL SETTLED (Pass 6)
+These were deliberately left as choices. They are now set in
+`config/pipeline.json`, which is the live source of truth — the values below
+are a summary and the file carries the evidence for each. Changing any of them
+still means re-running everything downstream, since steps 4–6 feed each other.
 
 - **Naming — SETTLED: deterministic rules + an explicit alias table, not
   fuzzy matching.** Implemented in `scripts/normalise_places.py`; see
@@ -73,23 +92,56 @@ downstream.
   more than 1 km are reported for review rather than trusted. To change a
   merge, edit the alias table and re-run — raw `ORGN`/`DSTN` are preserved,
   so normalisation is reversible.
-- **Geometry thresholds:** what counts as "out of bounds" (a bounding box
-  — confirm the coordinates), and what length-mismatch ratio triggers a
-  flag rather than being accepted as normal variance.
-- **Label/geometry tolerance:** how far (in metres) can a route's
-  endpoint sit from its place's consensus location before it's flagged
-  as mislabelled?
-- **Parallel routes:** keep the shortest as canonical, or some other rule
-  (e.g. most common length, most recently updated)?
-- **Drop vs. flag policy:** confirm which issue types get dropped outright
-  (only "no geometry," per step 1) versus kept-but-flagged (everything else).
+- **Geometry thresholds — SETTLED.** Out of bounds is lon `17.6–19.4`,
+  lat `-34.6 to -32.9` (Cape Town metro plus the Atlantis/Darling corridor).
+  Length mismatch flags at **±10%** between `measured_length_m` and
+  `Shape__Length`. Both are guards rather than filters on today's data: the
+  observed length ratio spans 0.9980–1.0021 and every coordinate is well
+  inside the box, so each currently flags zero routes. That agreement is
+  itself the finding — it confirms `Shape__Length` is already metres.
+- **Label/geometry tolerance — SETTLED.** **1,000 m** to flag, escalating to
+  an error past **5,000 m**. Crucially, a place claimed by fewer than **3**
+  endpoints is exempt: with one endpoint the consensus *is* that endpoint, so
+  the distance is always 0 and the check proves nothing. 213 of 379 places
+  fall below that floor and are flagged `endpoint_consensus_unverifiable` —
+  skipped, not passed.
+- **Parallel routes — SETTLED: shortest of the *unflagged*.** Ties break on
+  lowest `OBJECTID`, and grouping is direction-sensitive (A→B and B→A are
+  different services). Plain "shortest" is wrong here: `MFULENI → KILLARNEY`
+  carries routes of 387 m, 69,691 m and 71,410 m, and the 387 m one is a stub
+  whose endpoint sits 23.9 km from Killarney. Routes already flagged by steps
+  4–5 are excluded first; each group records what it excluded and why.
+- **Drop vs. flag policy — SETTLED.** Only "no usable geometry" (step 1)
+  drops, and nothing currently qualifies. Everything else is kept and flagged.
+  Separately, 24 routes with an *error*-severity issue are held out of
+  `routes_clean.geojson` — they are not dropped, they are in
+  `routes_flagged.geojson` in full and listed individually in the quality
+  report, but routing on an endpoint 5+ km from its label gives a wrong answer.
 
 ## Conventions
-- Python, pandas + shapely + networkx — matches the existing routing engine.
+- Python, standard library only. The "pandas + shapely + networkx" convention
+  describes the **routing engine** that consumes this data; the cleaning
+  pipeline needs none of them (haversine, median, JSON, regex are all stdlib)
+  and none are installed here, so it runs on a bare interpreter. If the engine
+  wants a DataFrame it can read `output/routes_clean.geojson`.
+- Judgement calls live in `config/`, never in code. A data fix is a JSON edit.
 - Never silently drop a row without logging it in the quality report —
   every removed or flagged route should be traceable and countable.
 - No fabricated or estimated data. If a value can't be derived from the
   source file, leave it null and flag it — don't guess.
-- Prefer explicit, named intermediate files (`routes_clean.geojson`,
-  `routes_flagged.geojson`, `quality_report.json`) over silent in-memory
-  transforms, so each step's output can be checked independently.
+- Prefer explicit, named intermediate files over silent in-memory transforms,
+  so each step's output can be checked independently. The pipeline emits five,
+  all deterministic and byte-identical across runs on identical input:
+
+  | file | what it is |
+  |---|---|
+  | `output/routes_clean.geojson` | the routing engine's input |
+  | `output/routes_flagged.geojson` | review queue — overlaps clean, not a removal list |
+  | `output/normalisation_map.json` | why every place name resolved as it did |
+  | `output/quality_report.json` | per-step funnel, issue counts, review queue |
+  | `output/places.json` | canonical place gazetteer with consensus locations |
+
+  The two geojsons are gitignored (13 MB + 4 MB, regenerated in seconds). The
+  three JSON artifacts are committed on purpose — they diff cleanly, and
+  `normalisation_map.json` is the record that lets a reviewer check a merge
+  without installing or running anything.

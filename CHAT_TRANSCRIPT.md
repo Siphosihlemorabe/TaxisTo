@@ -82,3 +82,29 @@ Wrote `scripts/normalise_places.py` as a re-runnable script rather than an ad-ho
 Result: **565 → 379 canonical place names**, 1,116 → 973 distinct O/D pairs, feature count unchanged at 1,417. The script flagged 12 merges spanning >1km — checked each and they're label/geometry mismatches (a route labelled `KILLARNEY` whose endpoint is 12km from Killarney), not bad merges, which is exactly what step 5 exists to catch.
 
 Updated `findings.md` with a "Pass 5" section, marked items 8–9 resolved, revised item 5 (`SANDRIFT` now merged but the correct spelling still unconfirmed), and added item 10 for the ~18 compound endpoint values (`KILLARNEY & DU NOON`, `MUIZENBERG-FISH HOEK`) left unsplit because the label can't say whether they mean one route serving both places or a whole route description in one field. Also recorded the settled naming decision in `CLAUDE.md`, which explicitly asks for the answer to be stated there.
+
+---
+
+## 2026-08-26 — Pass 6: the full pipeline
+
+**User:** "i want you to build the whole pipeline where you not only clean the data i want you to have a .json file for when you normalize the data so i can defend the change and see it and a way to revert when i need to"
+
+**Assistant:** Explored the repo, then measured the actual data before planning, which changed several answers. Asked four questions about the still-open decisions; user chose shortest-measured-length for parallel routes, 1,000 m label tolerance, ±10% length mismatch, and stripping the derived fields out of the source to make it pristine.
+
+Then came back with a fifth question, because measuring the data contradicted one of those answers: `MFULENI → KILLARNEY` carries routes of 387 m, 69,691 m and 71,410 m, and the 387 m one is an 11-point stub whose endpoint sits 23.9 km from Killarney. "Shortest wins" would have made that stub the route the journey planner recommends. User approved the refinement — **shortest of the *unflagged***, excluding routes steps 4–5 already flagged, with every exclusion recorded.
+
+Built the pipeline as `config/` (editable JSON inputs) + `scripts/pipeline/` (one module per step) + `scripts/clean_routes.py` (single CLI: `run` / `validate-config` / `explain` / `revert` / `diff`) + `tests/` (72 tests). Kept it pure standard library — `CLAUDE.md`'s pandas/shapely/networkx convention describes the routing engine, and none of the three are installed or needed here.
+
+**Three things the user asked for, and how each is delivered:**
+
+1. **The whole pipeline.** All seven `CLAUDE.md` steps now have code; previously only 2 and 3 did. Steps 2–3 reproduce Pass 5 exactly (565 → 379 canonical names, same 12 flagged merge groups), which is the proof that moving the alias tables from Python dict literals into `config/place_aliases.json` changed nothing.
+2. **A JSON file to defend and see the normalisation.** `output/normalisation_map.json` — all 565 raw names *including the 329 that changed nothing*, each with the ordered transform trace, the config entry responsible for every hop and the reason that entry gives, the geometry backing it, and the `OBJECTID`s it touched. Plus a reverse index by canonical place, a `suppressed` section for merges the pipeline declined to make, and `config_coverage` showing which entries never fired.
+3. **A way to revert.** Three tiers: `data/` is never written to; raw `ORGN`/`DSTN` survive on every output feature, and `revert --verify` reports **1417/1417 features reconstruct exactly**; and `keep_distinct` in the config JSON undoes any individual merge. Exercised end to end — adding a `SANDDRIFT` entry moved the count 379 → 380 with `diff` attributing the cause, and removing it restored the map byte-for-byte.
+
+**New findings from steps 4–6, which had never run:** `findings.md` Pass 2 undercounted the loop routes (5, not 4 — `MITCHELL'S PLAIN` was missed); one route (OBJECTID 1005) is turned into a self-loop *by* normalisation, where the railway-station rule collapses `MUTUAL STATION` → `MUTUAL RAILWAY STATION` into a no-op edge; 42 routes across 20 groups still share identical geometry under different labels, which Pass 1 missed because it only deduped identical labels *and* coords; and `Shape__Length` is confirmed trustworthy, agreeing with measured haversine length to within 0.212%.
+
+**Two design corrections made during the build.** Step 5 was judging endpoints against a consensus derived from those same endpoints — for the 213 places claimed by fewer than 3 routes the check was structurally incapable of failing, so those are now flagged `endpoint_consensus_unverifiable` (skipped, not passed). And `explain`'s revert suggestion originally offered a `keep_distinct` edit that would have silently done nothing for via-derived merges; it now distinguishes the three cases and says plainly when there is nothing to reverse because the members are the identical string after via-stripping.
+
+A test caught a genuine gap rather than being weakened to pass: formatting-only changes like `' CAPE TOWN CAPTOUR'` → `'CAPE TOWN CAPTOUR'` were reaching the audit with no recorded justification. Every changed name now carries one, and that is asserted by a test.
+
+Wrote a "Pass 6" section to `findings.md`, marked all four remaining open decisions SETTLED in `CLAUDE.md` pointing at `config/pipeline.json` as the live source of truth, and updated the conventions to match what was actually built.
