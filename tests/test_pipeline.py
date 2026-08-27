@@ -17,7 +17,8 @@ from pipeline.normalise import normalise
 from pipeline.parallel import resolve_parallel
 from pipeline.sourceio import load_source
 from pipeline.validate import (build_place_consensus, drop_unusable,
-                               validate_geometry, validate_labels)
+                               validate_geometry, validate_labels,
+                               withheld_from_clean)
 
 OUTPUT = None  # resolved from config in the fixture
 
@@ -173,6 +174,55 @@ class TestStep6:
         pairs = {d.pair for d in run["decisions"].values()}
         reversed_too = {p for p in pairs if (p[1], p[0]) in pairs and p[0] != p[1]}
         assert reversed_too, "A->B and B->A must stay separate services"
+
+    def test_canonical_is_never_a_withheld_route_when_one_survives(self, run):
+        """The defect this tier structure fixes.
+
+        Step 7 holds error-severity routes out of routes_clean.geojson. Crowning
+        one of those while an unwithheld route sits in the same group hands the
+        routing engine a pair whose representative it cannot see.
+        """
+        for oid, d in run["decisions"].items():
+            if not d.canonical or d.canonical_in_clean:
+                continue
+            survivors = [o for o in d.considered
+                         if not withheld_from_clean(run["facts"][o])]
+            assert not survivors, (
+                f"OBJECTID {oid} is canonical for {d.pair} and withheld, but "
+                f"{survivors} survive into routes_clean and should have won")
+
+    def test_canonical_in_clean_agrees_with_what_step_7_emits(self, run):
+        clean_ids = {f["properties"]["OBJECTID"] for f in run["clean"]}
+        for oid, d in run["decisions"].items():
+            if d.canonical:
+                assert d.canonical_in_clean == (oid in clean_ids), (
+                    f"OBJECTID {oid}: step 6 and step 7 disagree about whether the "
+                    f"canonical route for {d.pair} reaches routes_clean")
+
+    def test_only_sole_route_pairs_are_left_unserviceable(self, run):
+        """The 12 that cannot be fixed by re-picking, and why.
+
+        Each is the only route for its directed pair, so there is no alternative
+        to choose. If a multi-route pair ever lands here, step 6 gave up early.
+        """
+        stuck = [d for d in run["decisions"].values()
+                 if d.canonical and not d.canonical_in_clean]
+        assert len(stuck) == 12
+        assert all(d.reason == "sole_route" for d in stuck)
+        assert all(d.variants == 0 for d in stuck)
+
+    def test_every_pair_with_a_usable_route_has_a_usable_canonical(self, run):
+        clean_ids = {f["properties"]["OBJECTID"] for f in run["clean"]}
+        by_pair = {}
+        for oid, d in run["decisions"].items():
+            by_pair.setdefault(d.pair, []).append((oid, d))
+        for pair, members in by_pair.items():
+            if not any(oid in clean_ids for oid, _ in members):
+                continue  # nothing to serve; covered by the test above
+            winner = next(oid for oid, d in members if d.canonical)
+            assert winner in clean_ids, (
+                f"{pair} has routes in routes_clean but its canonical one is not "
+                f"among them")
 
 
 class TestArtifacts:

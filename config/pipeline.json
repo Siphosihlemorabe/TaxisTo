@@ -60,7 +60,8 @@
     ],
     "tie_break": ["measured_length_m", "OBJECTID"],
     "direction_sensitive": true,
-    "_rule_note": "Plain 'shortest wins' is wrong on this data: MFULENI -> KILLARNEY has routes of 387 m, 69,691 m and 71,410 m, and the 387 m one is an 11-point stub whose endpoint sits 23.9 km from Killarney. Routes already flagged by steps 4-5 are excluded first; the shortest of what survives wins. If every route in a group is flagged, the whole group is reconsidered and the choice is marked 'fallback_all_flagged'.",
+    "_rule_note": "Plain 'shortest wins' is wrong on this data: MFULENI -> KILLARNEY has routes of 387 m, 69,691 m and 71,410 m, and the 387 m one is an 11-point stub whose endpoint sits 23.9 km from Killarney. Routes already flagged by steps 4-5 are excluded first; the shortest of what survives wins.",
+    "_tier_note": "Selection is tiered, and every tier but the last is restricted to routes that survive into routes_clean.geojson - a canonical route step 7 withholds is one the routing engine never sees, so it is not a usable pick however short it is. (1) shortest unflagged route that reaches routes_clean; (2) 'fallback_all_flagged' - every route in the group is flagged, so take the shortest that still reaches routes_clean; (3) 'fallback_all_withheld' - every route carries an error, so take the shortest anyway to keep the pair represented, and set canonical_in_clean false. Those pairs are listed in the report under review_queue.unserviceable_pairs.",
     "_direction_note": "A -> B and B -> A are different services with different geometry and are never folded together."
   },
 

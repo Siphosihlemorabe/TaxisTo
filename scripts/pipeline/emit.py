@@ -16,7 +16,7 @@ from .config import PipelineConfig, PlaceConfig
 from .normalise import NormalisationResult
 from .parallel import ParallelDecision
 from .sourceio import SourceData, feature_collection
-from .validate import PlaceConsensus, RouteFacts
+from .validate import PlaceConsensus, RouteFacts, withheld_from_clean
 
 MAP_SCHEMA_VERSION = 1
 
@@ -270,7 +270,9 @@ def build_route_features(features: list[dict], norm: NormalisationResult,
 
         out = {"type": "Feature", "properties": props, "geometry": f["geometry"]}
 
-        if rf.worst_severity() != "error":
+        # same predicate step 6 selected against, so the canonical route is in
+        # this file whenever the pair has any route that can be in this file
+        if not withheld_from_clean(rf):
             clean.append(out)
 
         if rf.issues:

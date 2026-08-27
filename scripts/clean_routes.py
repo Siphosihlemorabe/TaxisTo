@@ -97,10 +97,14 @@ def cmd_run(args: argparse.Namespace) -> int:
     decisions = resolve_parallel(features, norm.canonical, facts, pcfg)
     multi = {d.pair for d in decisions.values() if d.variants}
     excluded = sum(len(d.excluded) for d in decisions.values() if d.canonical)
+    unusable = [d for d in decisions.values() if d.canonical and not d.canonical_in_clean]
     log(f"step 6  resolve parallel routes      "
         f"{len({d.pair for d in decisions.values()})} O/D pairs, {len(multi)} with "
         f"more than one route; {sum(1 for d in decisions.values() if d.canonical)} "
         f"canonical  ({excluded} candidate(s) excluded by flags)")
+    log(f"          {sum(1 for d in decisions.values() if d.canonical and d.canonical_in_clean)}"
+        f" of those reach routes_clean; {len(unusable)} pair(s) have no usable route "
+        f"at all")
 
     # --- step 7 -----------------------------------------------------------
     clean, flagged = build_route_features(features, norm, facts, decisions, pcfg)
@@ -166,6 +170,10 @@ def _print_review_summary(report: dict, log) -> None:
         f"centreline under different labels")
     log(f"  {len(rq['low_confidence_aliases'])} alias(es) resting on weak evidence")
     log(f"  {rq['low_support_place_count']} place(s) with too few routes to verify")
+    if rq["unserviceable_pair_count"]:
+        log(f"  {rq['unserviceable_pair_count']} O/D pair(s) with no usable route -- "
+            f"every route they have is withheld, so the routing engine cannot serve "
+            f"them at all")
     log("\n  full detail: output/quality_report.json -> review_queue")
     log("  why a name changed: python scripts/clean_routes.py explain \"<NAME>\"")
 

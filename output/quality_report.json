@@ -1,9 +1,9 @@
 {
   "artifact_sha256": {
-    "normalisation_map.json": "d55e45de1fc479a2305b147b93c7d33c52466c3486899b234e4b9fc20630e778",
+    "normalisation_map.json": "1d2c99e9bb82585f1824713890e00ad7af383b482900ca90a1ce32e4a17ebbf8",
     "places.json": "bc80fc8f441eb6b4fca93c4b3d366933a61c9b16b7486b46b8edfbe2c66d7822",
-    "routes_clean.geojson": "f3470c1ca48ef4864bd7e572641ca890bcc5d8561fc5f5d01667d04cf0e50a91",
-    "routes_flagged.geojson": "5ceff8c6d6718b4fde724ea35951e756b893b96f9ae1b072023fbb6d61bc2baf"
+    "routes_clean.geojson": "cf9684f9a094d68346ddbe4090a1a5fb404cfe8f70abb35b95d7a16ed25c6e71",
+    "routes_flagged.geojson": "36b0dcef68f85aedb695fd3756e2819f82c3a0ea8d7d1369a0a4a2606df3362d"
   },
   "artifacts": {
     "normalisation_map": "output/normalisation_map.json -- per-name audit of every place-name decision, with the config entry and reason behind each one",
@@ -100,7 +100,9 @@
       "step": 5
     },
     {
+      "_tier_note": "Selection is tiered: the shortest unflagged route that also survives into routes_clean, else the shortest surviving route, else -- only when every route for the pair carries an error -- the shortest of those, marked canonical_in_clean false. A canonical route the routing engine never sees is no canonical route, so the withholding rule of step 7 is applied here too rather than discovered afterwards.",
       "canonical_routes": 973,
+      "canonical_routes_in_clean": 961,
       "fallback_all_flagged_pairs": [
         [
           "ATLANTIS",
@@ -158,10 +160,146 @@
       "name": "resolve_parallel_routes",
       "origin_destination_pairs": 973,
       "pairs_with_multiple_routes": 254,
+      "pairs_with_no_route_in_clean": 12,
+      "routes_excluded_as_withheld": 24,
       "routes_excluded_by_flags": 110,
       "routes_in_multi_route_pairs": 698,
       "rule": "shortest_unflagged",
-      "step": 6
+      "step": 6,
+      "unserviceable_pairs": [
+        {
+          "pair": [
+            "BELLVILLE",
+            "ATLANTIS"
+          ],
+          "reason": "sole_route",
+          "routes": [
+            727
+          ],
+          "why": "sole route for this pair and it carries an error"
+        },
+        {
+          "pair": [
+            "CAPE TOWN STATION DECK",
+            "MELKBOSSTRAND"
+          ],
+          "reason": "sole_route",
+          "routes": [
+            1293
+          ],
+          "why": "sole route for this pair and it carries an error"
+        },
+        {
+          "pair": [
+            "KHAYELITSHA",
+            "PANORAMA"
+          ],
+          "reason": "sole_route",
+          "routes": [
+            1067
+          ],
+          "why": "sole route for this pair and it carries an error"
+        },
+        {
+          "pair": [
+            "KHAYELITSHA",
+            "SOMERSET WEST"
+          ],
+          "reason": "sole_route",
+          "routes": [
+            528
+          ],
+          "why": "sole route for this pair and it carries an error"
+        },
+        {
+          "pair": [
+            "MACASSAR",
+            "SIR LOWRYS PASS TOWN"
+          ],
+          "reason": "sole_route",
+          "routes": [
+            447
+          ],
+          "why": "sole route for this pair and it carries an error"
+        },
+        {
+          "pair": [
+            "MAMRE",
+            "DARLING"
+          ],
+          "reason": "sole_route",
+          "routes": [
+            188
+          ],
+          "why": "sole route for this pair and it carries an error"
+        },
+        {
+          "pair": [
+            "MELKBOSSTRAND",
+            "CAPE TOWN"
+          ],
+          "reason": "sole_route",
+          "routes": [
+            1216
+          ],
+          "why": "sole route for this pair and it carries an error"
+        },
+        {
+          "pair": [
+            "MELTON ROSE",
+            "ELSIES RIVER"
+          ],
+          "reason": "sole_route",
+          "routes": [
+            54
+          ],
+          "why": "sole route for this pair and it carries an error"
+        },
+        {
+          "pair": [
+            "MUTUAL STATION",
+            "BELLVILLE"
+          ],
+          "reason": "sole_route",
+          "routes": [
+            981
+          ],
+          "why": "sole route for this pair and it carries an error"
+        },
+        {
+          "pair": [
+            "STEENBERG",
+            "MONTAGUE GARDENS"
+          ],
+          "reason": "sole_route",
+          "routes": [
+            350
+          ],
+          "why": "sole route for this pair and it carries an error"
+        },
+        {
+          "pair": [
+            "VRYGROND",
+            "KHAYELITSHA"
+          ],
+          "reason": "sole_route",
+          "routes": [
+            1423
+          ],
+          "why": "sole route for this pair and it carries an error"
+        },
+        {
+          "pair": [
+            "WYNBERG",
+            "KHAYELITSHA"
+          ],
+          "reason": "sole_route",
+          "routes": [
+            17
+          ],
+          "why": "sole route for this pair and it carries an error"
+        }
+      ]
     },
     {
       "name": "emit",
@@ -2921,6 +3059,141 @@
       }
     ],
     "unresolvable_place_names": [],
+    "unserviceable_pair_count": 12,
+    "unserviceable_pairs": [
+      {
+        "pair": [
+          "BELLVILLE",
+          "ATLANTIS"
+        ],
+        "reason": "sole_route",
+        "routes": [
+          727
+        ],
+        "why": "sole route for this pair and it carries an error"
+      },
+      {
+        "pair": [
+          "CAPE TOWN STATION DECK",
+          "MELKBOSSTRAND"
+        ],
+        "reason": "sole_route",
+        "routes": [
+          1293
+        ],
+        "why": "sole route for this pair and it carries an error"
+      },
+      {
+        "pair": [
+          "KHAYELITSHA",
+          "PANORAMA"
+        ],
+        "reason": "sole_route",
+        "routes": [
+          1067
+        ],
+        "why": "sole route for this pair and it carries an error"
+      },
+      {
+        "pair": [
+          "KHAYELITSHA",
+          "SOMERSET WEST"
+        ],
+        "reason": "sole_route",
+        "routes": [
+          528
+        ],
+        "why": "sole route for this pair and it carries an error"
+      },
+      {
+        "pair": [
+          "MACASSAR",
+          "SIR LOWRYS PASS TOWN"
+        ],
+        "reason": "sole_route",
+        "routes": [
+          447
+        ],
+        "why": "sole route for this pair and it carries an error"
+      },
+      {
+        "pair": [
+          "MAMRE",
+          "DARLING"
+        ],
+        "reason": "sole_route",
+        "routes": [
+          188
+        ],
+        "why": "sole route for this pair and it carries an error"
+      },
+      {
+        "pair": [
+          "MELKBOSSTRAND",
+          "CAPE TOWN"
+        ],
+        "reason": "sole_route",
+        "routes": [
+          1216
+        ],
+        "why": "sole route for this pair and it carries an error"
+      },
+      {
+        "pair": [
+          "MELTON ROSE",
+          "ELSIES RIVER"
+        ],
+        "reason": "sole_route",
+        "routes": [
+          54
+        ],
+        "why": "sole route for this pair and it carries an error"
+      },
+      {
+        "pair": [
+          "MUTUAL STATION",
+          "BELLVILLE"
+        ],
+        "reason": "sole_route",
+        "routes": [
+          981
+        ],
+        "why": "sole route for this pair and it carries an error"
+      },
+      {
+        "pair": [
+          "STEENBERG",
+          "MONTAGUE GARDENS"
+        ],
+        "reason": "sole_route",
+        "routes": [
+          350
+        ],
+        "why": "sole route for this pair and it carries an error"
+      },
+      {
+        "pair": [
+          "VRYGROND",
+          "KHAYELITSHA"
+        ],
+        "reason": "sole_route",
+        "routes": [
+          1423
+        ],
+        "why": "sole route for this pair and it carries an error"
+      },
+      {
+        "pair": [
+          "WYNBERG",
+          "KHAYELITSHA"
+        ],
+        "reason": "sole_route",
+        "routes": [
+          17
+        ],
+        "why": "sole route for this pair and it carries an error"
+      }
+    ],
     "via_clause_truncated": [
       "SOMERSET WEST (VIA"
     ]
@@ -2930,8 +3203,8 @@
       "run",
       "--quiet"
     ],
-    "generated_at": "2026-08-26T19:39:26+00:00",
-    "pipeline_config_sha256": "e4c70d4f592167264cd5599a51bf2b5878244c5138319ee4246e37ce87a64c52",
+    "generated_at": "2026-08-27T16:23:14+00:00",
+    "pipeline_config_sha256": "f7e0d588eea70d1f82c81a1623d74e6e5ab89c7181499a15940ea391f90c94e3",
     "place_config_sha256": "d28864aaddb2d8afcfb4c82a6b8952fae38cf1126ad61484892c235d95afbd8c",
     "platform": "Windows-10-10.0.26200-SP0",
     "python": "3.11.9",
@@ -2978,7 +3251,8 @@
     },
     "parallel": {
       "_direction_note": "A -> B and B -> A are different services with different geometry and are never folded together.",
-      "_rule_note": "Plain 'shortest wins' is wrong on this data: MFULENI -> KILLARNEY has routes of 387 m, 69,691 m and 71,410 m, and the 387 m one is an 11-point stub whose endpoint sits 23.9 km from Killarney. Routes already flagged by steps 4-5 are excluded first; the shortest of what survives wins. If every route in a group is flagged, the whole group is reconsidered and the choice is marked 'fallback_all_flagged'.",
+      "_rule_note": "Plain 'shortest wins' is wrong on this data: MFULENI -> KILLARNEY has routes of 387 m, 69,691 m and 71,410 m, and the 387 m one is an 11-point stub whose endpoint sits 23.9 km from Killarney. Routes already flagged by steps 4-5 are excluded first; the shortest of what survives wins.",
+      "_tier_note": "Selection is tiered, and every tier but the last is restricted to routes that survive into routes_clean.geojson - a canonical route step 7 withholds is one the routing engine never sees, so it is not a usable pick however short it is. (1) shortest unflagged route that reaches routes_clean; (2) 'fallback_all_flagged' - every route in the group is flagged, so take the shortest that still reaches routes_clean; (3) 'fallback_all_withheld' - every route carries an error, so take the shortest anyway to keep the pair represented, and set canonical_in_clean false. Those pairs are listed in the report under review_queue.unserviceable_pairs.",
       "blocking_issues": [
         "short_stub",
         "endpoint_far_from_consensus",

@@ -64,6 +64,16 @@ class RouteFacts:
         return max((i.severity for i in self.issues), key=lambda s: SEVERITY_RANK[s])
 
 
+def withheld_from_clean(rf: RouteFacts) -> bool:
+    """Will step 7 hold this route out of `routes_clean.geojson`?
+
+    Steps 6 and 7 both need this answer and must not disagree: a canonical route
+    the routing engine never sees is no canonical route at all. Defining the rule
+    once is what stops step 6 crowning a route that step 7 then withholds.
+    """
+    return rf.worst_severity() == "error"
+
+
 # --------------------------------------------------------------------------
 # step 1
 # --------------------------------------------------------------------------

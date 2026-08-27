@@ -18,7 +18,7 @@ from .config import PipelineConfig, PlaceConfig
 from .normalise import NormalisationResult
 from .parallel import ParallelDecision
 from .sourceio import SourceData
-from .validate import PlaceConsensus, RouteFacts
+from .validate import PlaceConsensus, RouteFacts, withheld_from_clean
 
 REPORT_SCHEMA_VERSION = 1
 
@@ -142,13 +142,29 @@ def build_report(*, src: SourceData, place_cfg: PlaceConfig, pcfg: PipelineConfi
         {"objectid": oid,
          "codes": sorted(i.code for i in facts[oid].issues if i.severity == "error"),
          "detail": [i.as_dict() for i in facts[oid].issues if i.severity == "error"]}
-        for oid in sorted(facts) if facts[oid].worst_severity() == "error"
+        for oid in sorted(facts) if withheld_from_clean(facts[oid])
     ]
 
     # --- funnel ------------------------------------------------------------
     multi = {d.pair for d in decisions.values() if d.variants}
     fallback = {d.pair for d in decisions.values() if d.reason == "fallback_all_flagged"}
     merges = [g for g in norm.groups.values() if len(g.members) > 1]
+
+    # Pairs with no usable route at all. Every route they have is withheld, so
+    # the canonical one is a bookkeeping entry rather than something the routing
+    # engine can serve. Step 6 can no longer paper over this by picking a
+    # withheld route when a surviving one exists -- these are the residue.
+    unserviceable = sorted(
+        ({"pair": list(d.pair),
+          "routes": sorted(d.considered),
+          "reason": d.reason,
+          "why": "sole route for this pair and it carries an error"
+                 if d.reason == "sole_route" else
+                 "every route for this pair carries an error"}
+         for d in decisions.values() if d.canonical and not d.canonical_in_clean),
+        key=lambda e: e["pair"])
+    review_queue["unserviceable_pairs"] = unserviceable
+    review_queue["unserviceable_pair_count"] = len(unserviceable)
 
     funnel = [
         {"step": 1, "name": "drop_unusable_geometry",
@@ -193,7 +209,20 @@ def build_report(*, src: SourceData, place_cfg: PlaceConfig, pcfg: PipelineConfi
          "canonical_routes": sum(1 for d in decisions.values() if d.canonical),
          "routes_excluded_by_flags": sum(
              len(d.excluded) for d in decisions.values() if d.canonical),
-         "fallback_all_flagged_pairs": sorted(list(p) for p in fallback)},
+         "routes_excluded_as_withheld": sum(
+             len(d.withheld) for d in decisions.values() if d.canonical),
+         "fallback_all_flagged_pairs": sorted(list(p) for p in fallback),
+         "canonical_routes_in_clean": sum(
+             1 for d in decisions.values() if d.canonical and d.canonical_in_clean),
+         "pairs_with_no_route_in_clean": len(unserviceable),
+         "unserviceable_pairs": unserviceable,
+         "_tier_note": "Selection is tiered: the shortest unflagged route that also "
+                       "survives into routes_clean, else the shortest surviving route, "
+                       "else -- only when every route for the pair carries an error -- "
+                       "the shortest of those, marked canonical_in_clean false. A "
+                       "canonical route the routing engine never sees is no canonical "
+                       "route, so the withholding rule of step 7 is applied here too "
+                       "rather than discovered afterwards."},
         {"step": 7, "name": "emit",
          "routes_clean": clean_count, "routes_flagged": flagged_count,
          "overlap": clean_count + flagged_count - len(facts)
