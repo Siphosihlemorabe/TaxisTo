@@ -82,3 +82,71 @@ Wrote `scripts/normalise_places.py` as a re-runnable script rather than an ad-ho
 Result: **565 → 379 canonical place names**, 1,116 → 973 distinct O/D pairs, feature count unchanged at 1,417. The script flagged 12 merges spanning >1km — checked each and they're label/geometry mismatches (a route labelled `KILLARNEY` whose endpoint is 12km from Killarney), not bad merges, which is exactly what step 5 exists to catch.
 
 Updated `findings.md` with a "Pass 5" section, marked items 8–9 resolved, revised item 5 (`SANDRIFT` now merged but the correct spelling still unconfirmed), and added item 10 for the ~18 compound endpoint values (`KILLARNEY & DU NOON`, `MUIZENBERG-FISH HOEK`) left unsplit because the label can't say whether they mean one route serving both places or a whole route description in one field. Also recorded the settled naming decision in `CLAUDE.md`, which explicitly asks for the answer to be stated there.
+
+---
+
+## 2026-08-26 — Pass 6: the full pipeline
+
+**User:** "i want you to build the whole pipeline where you not only clean the data i want you to have a .json file for when you normalize the data so i can defend the change and see it and a way to revert when i need to"
+
+**Assistant:** Explored the repo, then measured the actual data before planning, which changed several answers. Asked four questions about the still-open decisions; user chose shortest-measured-length for parallel routes, 1,000 m label tolerance, ±10% length mismatch, and stripping the derived fields out of the source to make it pristine.
+
+Then came back with a fifth question, because measuring the data contradicted one of those answers: `MFULENI → KILLARNEY` carries routes of 387 m, 69,691 m and 71,410 m, and the 387 m one is an 11-point stub whose endpoint sits 23.9 km from Killarney. "Shortest wins" would have made that stub the route the journey planner recommends. User approved the refinement — **shortest of the *unflagged***, excluding routes steps 4–5 already flagged, with every exclusion recorded.
+
+Built the pipeline as `config/` (editable JSON inputs) + `scripts/pipeline/` (one module per step) + `scripts/clean_routes.py` (single CLI: `run` / `validate-config` / `explain` / `revert` / `diff`) + `tests/` (72 tests). Kept it pure standard library — `CLAUDE.md`'s pandas/shapely/networkx convention describes the routing engine, and none of the three are installed or needed here.
+
+**Three things the user asked for, and how each is delivered:**
+
+1. **The whole pipeline.** All seven `CLAUDE.md` steps now have code; previously only 2 and 3 did. Steps 2–3 reproduce Pass 5 exactly (565 → 379 canonical names, same 12 flagged merge groups), which is the proof that moving the alias tables from Python dict literals into `config/place_aliases.json` changed nothing.
+2. **A JSON file to defend and see the normalisation.** `output/normalisation_map.json` — all 565 raw names *including the 329 that changed nothing*, each with the ordered transform trace, the config entry responsible for every hop and the reason that entry gives, the geometry backing it, and the `OBJECTID`s it touched. Plus a reverse index by canonical place, a `suppressed` section for merges the pipeline declined to make, and `config_coverage` showing which entries never fired.
+3. **A way to revert.** Three tiers: `data/` is never written to; raw `ORGN`/`DSTN` survive on every output feature, and `revert --verify` reports **1417/1417 features reconstruct exactly**; and `keep_distinct` in the config JSON undoes any individual merge. Exercised end to end — adding a `SANDDRIFT` entry moved the count 379 → 380 with `diff` attributing the cause, and removing it restored the map byte-for-byte.
+
+**New findings from steps 4–6, which had never run:** `findings.md` Pass 2 undercounted the loop routes (5, not 4 — `MITCHELL'S PLAIN` was missed); one route (OBJECTID 1005) is turned into a self-loop *by* normalisation, where the railway-station rule collapses `MUTUAL STATION` → `MUTUAL RAILWAY STATION` into a no-op edge; 42 routes across 20 groups still share identical geometry under different labels, which Pass 1 missed because it only deduped identical labels *and* coords; and `Shape__Length` is confirmed trustworthy, agreeing with measured haversine length to within 0.212%.
+
+**Two design corrections made during the build.** Step 5 was judging endpoints against a consensus derived from those same endpoints — for the 213 places claimed by fewer than 3 routes the check was structurally incapable of failing, so those are now flagged `endpoint_consensus_unverifiable` (skipped, not passed). And `explain`'s revert suggestion originally offered a `keep_distinct` edit that would have silently done nothing for via-derived merges; it now distinguishes the three cases and says plainly when there is nothing to reverse because the members are the identical string after via-stripping.
+
+A test caught a genuine gap rather than being weakened to pass: formatting-only changes like `' CAPE TOWN CAPTOUR'` → `'CAPE TOWN CAPTOUR'` were reaching the audit with no recorded justification. Every changed name now carries one, and that is asserted by a test.
+
+Wrote a "Pass 6" section to `findings.md`, marked all four remaining open decisions SETTLED in `CLAUDE.md` pointing at `config/pipeline.json` as the live source of truth, and updated the conventions to match what was actually built.
+
+---
+
+## 2026-08-27
+
+**User:** "run the pipeline and tell me what data we have versus what we had after cleaning"
+
+**Assistant:** Ran `python scripts/clean_routes.py run`. It completed all seven steps and reproduced the committed run exactly — the only diff in `output/quality_report.json` was the `generated_at` timestamp and `argv`, and the `artifact_sha256` block covering the other four artifacts was unchanged, so determinism holds. Also ran `revert --verify`: **1417/1417 features reconstruct exactly**.
+
+Profiled the source directly for the comparison rather than quoting the report at itself. Input: 12.44 MB, 1,417 LineStrings, 561,584 coordinate points, 4 properties (`OBJECTID`, `ORGN`, `DSTN`, `Shape__Length`), no nulls or blanks, 565 distinct place names, 1,116 O/D pairs. Noted that `OBJECTID` runs 1–1466 while only 1,417 rows exist — the "~1,466" figure in `CLAUDE.md` is the max ID, not the row count; the gaps are the Pass 1–2 removals.
+
+Output: same 1,417 routes (step 1 dropped nothing — every feature already had ≥11 coordinates), 12 properties, 379 canonical places, 973 O/D pairs. 1,393 routes in `routes_clean.geojson`, 457 in `routes_flagged.geojson`, 24 held out of clean for error-severity issues but present in full in the flagged file. Gains: 8 derived fields, 146 names with via-metadata split out, 236 names changed with per-name justification, and `Shape__Length` confirmed as metres (agrees with measured haversine to within 0.212% across all 1,417).
+
+What the run established is wrong with the source: 457 routes (32%) carry at least one issue against 960 entirely clean; 178 endpoints sit over 1 km from their claimed place's consensus (25 over 5 km, worst being OBJECTID 727 ending 46.6 km from `ATLANTIS`); 42 routes in 20 groups share identical geometry under different labels; 20 self-loops; and 213 of 379 places have too few routes for the consensus check to mean anything.
+
+Flagged one thing not previously noticed: 15 of the 24 withheld routes were the *canonical* pick for their O/D pair, so `routes_clean.geojson` has 958 canonical routes against 973 pairs — 15 pairs have other routes present but no designated best one. Raised it as a real design decision (should step 6 re-pick after step 7 withholds?) rather than patching it unasked.
+
+**User:** "fix step 6 to re-pick canonical after withholding"
+
+**Assistant:** Started on it, was interrupted twice for questions (below), then finished.
+
+Root cause: steps 6 and 7 were using two different disqualification rules and neither knew about the other. Step 6 excluded routes whose issue codes appear in `parallel.blocking_issues`; step 7 withheld routes whose worst issue is *error* severity. When every route in a group was flagged, step 6's `fallback_all_flagged` reconsidered the whole group — including routes step 7 would then withhold — so three pairs were crowned with a route absent from `routes_clean.geojson`.
+
+The fix defines the withholding rule once, as `withheld_from_clean()` in `validate.py`, and has both steps import it, so they cannot drift again. Step 6's selection became three tiers, with every tier but the last restricted to routes that survive into `routes_clean`: (1) `shortest_unflagged`; (2) `fallback_all_flagged` — all flagged, so take the shortest that still reaches clean; (3) `fallback_all_withheld` — every route carries an error, so take the shortest anyway to keep the pair represented and set `canonical_in_clean: false`.
+
+Result: canonical routes reaching `routes_clean` went **958 → 961**, and pairs present in clean without a canonical route went **3 → 0**. The remaining 12 are structurally unfixable and now say so instead of pretending, listed in the report under `review_queue.unserviceable_pairs` and surfaced in the CLI summary.
+
+Added four tests: that a withheld route is never canonical while a survivor exists in its group, that steps 6 and 7 agree on `canonical_in_clean`, that only sole-route pairs are left unserviceable, and that every pair with a usable route has a usable canonical. 76 tests pass. One pre-existing determinism test failed first — it hashes `normalisation_map.json`, re-runs, and compares, and the map embeds `pipeline_config_sha256`, which the config-note edit changed; regenerating the artifacts resolved it.
+
+**User:** "after cleaning how many routes do we have and how many of them are unique and not just back and forth"
+
+**Assistant:** Answered at three levels, since "how many routes" has three honest answers: **1,393** route rows in the clean file (1,417 survivors, 24 withheld); **961** distinct directed O/D pairs (432 rows are parallel variants of a pair already counted); **795** undirected corridors. The back-and-forth number: 166 corridors are published in both directions, accounting for 332 of the 961 directed pairs; 625 are published one-way only, and cautioned that this is a publishing artifact rather than evidence of one-way service — a taxi that runs Khayelitsha→Cape Town runs back too. Also 4 self-loops, and 38 clean routes sharing a centreline with another (1,373 distinct centrelines across 1,393 rows), so the corridor count is by label, not geometry.
+
+**User:** "explain the 12 unfixable ones"
+
+**Assistant:** All 12 share one structural reason — each is the only route for its directed pair, and a group of one has no alternative to choose. But measuring each route's path length against the straight-line gap between the two places it claims split them into three real groups:
+
+- **Truncated geometry (6)** — the line is physically too short to be the trip its labels describe, so the label is probably right and the geometry is a fragment. OBJECTID 727 `BELLVILLE → ATLANTIS` is 3.0 km of line for a 40.1 km trip; 981 `MUTUAL STATION → BELLVILLE` has 6.4 km of line whose own endpoints are 0.5 km apart, doubling back on itself.
+- **Round trip in one feature (1)** — OBJECTID 1423 `VRYGROND → KHAYELITSHA`, 70.3 km of line whose first and last points are 0.0 km apart. Neither label nor geometry is wrong; the record holds both legs where the schema assumes one.
+- **Endpoint drift on plausible geometry (5)** — where the consensus deserves as much suspicion as the route. 1067 rests on Panorama's support of exactly 3 (the minimum); 188 on Darling's support of 4; 1216 and 1293 are off by *identically* 13.8 km because they share the same Melkbosstrand endpoint, so that is one fact and not two; 17 is 5.8 km, just past the 5 km error line, inside a township that is legitimately that large.
+
+Also noted what is actually lost: 10 of the 12 corridors have no reverse-direction route either, so withholding removes the connection entirely; only `KHAYELITSHA → WYNBERG` (3 clean routes) and `SIR LOWRYS PASS TOWN → MACASSAR` (1) survive by the back way. A threshold change would return several of group C, but groups A and B cannot be tuned back into usefulness — a 3 km line is not a 40 km trip at any tolerance.

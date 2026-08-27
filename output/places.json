@@ -1,0 +1,5120 @@
+{
+  "_doc": "Canonical places derived from route endpoints. 'consensus' is the component-wise median of every endpoint claiming the place; 'support' is how many endpoints that is. A low_support place has too few to verify against, so its location is asserted by a single route rather than agreed by several.",
+  "count": 379,
+  "places": {
+    "3RD STEEN BIG BAY": {
+      "consensus": [
+        18.453661,
+        -33.78361
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "3RD STEEN BIG BAY (VIA PAARDEN EILAND)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "3RD/7TH AVE MITCHELLS PLAIN": {
+      "consensus": [
+        18.619164,
+        -34.048953
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "3RD /7TH AVE MITCHELLS PLAIN"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "7TH & 11TH AVE, RETREAT": {
+      "consensus": [
+        18.462742,
+        -34.059864
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "7TH & 11TH AVE,RETREAT"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "7TH AVENUE MITCHELLS PLAIN": {
+      "consensus": [
+        18.620776,
+        -34.048422
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "7TH AVENUE MITCHELLS PLAIN"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "ADVANCED MEDICAL TECHNOLOGY (SOMERSET WEST)": {
+      "consensus": [
+        18.819036,
+        -34.090232
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "ADVANCED MEDICAL TECHNOLOGY(SOMERSET WEST)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "AE & CI STRAND": {
+      "consensus": [
+        18.819815,
+        -34.084974
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "AE & CI STRAND"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "ATHLONE": {
+      "consensus": [
+        18.503308,
+        -33.96127
+      ],
+      "low_support": false,
+      "route_count": 33,
+      "source_names": [
+        "ATHLONE",
+        "ATHLONE (VIA KLIP RD, PLANTATION, WETTON, LANSDOWNE & JAN SMUTS DR)",
+        "ATHLONE (VIA M5 & KLIPFONTEIN RD)",
+        "ATHLONE (VIA M5, OTTERY RD, ROSMEAD, MILNER & KLIPFONTEIN)"
+      ],
+      "spread_m": 306.7,
+      "support": 33
+    },
+    "ATLANTIS": {
+      "consensus": [
+        18.493638,
+        -33.562458
+      ],
+      "low_support": false,
+      "route_count": 32,
+      "source_names": [
+        "ATLANTIS",
+        "ATLANTIS (VIA TABLE VIEW)",
+        "ATLANTIS VIA HOOP SINGEL",
+        "ATLANTIS VIA REYGERSDAL"
+      ],
+      "spread_m": 48320.9,
+      "support": 32
+    },
+    "ATLANTIS (WESFLEUR)": {
+      "consensus": [
+        18.493638,
+        -33.562458
+      ],
+      "low_support": false,
+      "route_count": 7,
+      "source_names": [
+        "ATLANTIS(WESFLEUR)"
+      ],
+      "spread_m": 99.5,
+      "support": 7
+    },
+    "BEACON VALLEY": {
+      "consensus": [
+        18.636772,
+        -34.04899
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "BEACON VALLEY"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "BEACON VALLEY (CALYPSO SQUARE)": {
+      "consensus": [
+        18.626833,
+        -34.039628
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "BEACON VALLEY(CALYPSO SQUARE)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "BELHAR": {
+      "consensus": [
+        18.650558,
+        -33.944866
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "BELHAR"
+      ],
+      "spread_m": 721.9,
+      "support": 3
+    },
+    "BELHAR DELFT": {
+      "consensus": [
+        18.644676,
+        -33.969181
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "BELHAR DELFT"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "BELLVILLE": {
+      "consensus": [
+        18.629837,
+        -33.904826
+      ],
+      "low_support": false,
+      "route_count": 104,
+      "source_names": [
+        "BELLVILLE",
+        "BELLVILLE (VIA N2, CAPE TOWN, N1, & DURBAN RD)",
+        "BELLVILLE (VIA N2, CAPE TOWN, N1, VANGUARD DR & VOORTREKKER RD)",
+        "BELLVILLE (VIA CAPE TOWN, N1 & DURBAN RD)",
+        "BELLVILLE (VIA CAPE TOWN, N1, VANGUARD DR & VOORTREKKER RD)",
+        "BELLVILLE (VIA WALLACEDENE)"
+      ],
+      "spread_m": 18504.2,
+      "support": 104
+    },
+    "BELLVILLE SOUTH": {
+      "consensus": [
+        18.647963,
+        -33.917831
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "BELLVILLE SOUTH"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "BELLVILLE STATION": {
+      "consensus": [
+        18.629662,
+        -33.905274
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "BELLVILLE RAILWAY STATION",
+        "BELLVILLE STATION"
+      ],
+      "spread_m": 104.7,
+      "support": 2
+    },
+    "BISHOP LAVIS": {
+      "consensus": [
+        18.58043,
+        -33.947208
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "BISHOP LAVIS"
+      ],
+      "spread_m": 150.3,
+      "support": 5
+    },
+    "BISHOPSCOURT": {
+      "consensus": [
+        18.453979,
+        -33.998927
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "BISHOPSCOURT"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "BLAAUWBERG": {
+      "consensus": [
+        18.450609,
+        -33.763582
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "BLAAUWBERG"
+      ],
+      "spread_m": 7385.0,
+      "support": 4
+    },
+    "BLACKHEATH": {
+      "consensus": [
+        18.700401,
+        -33.964603
+      ],
+      "low_support": false,
+      "route_count": 9,
+      "source_names": [
+        "BLACKHEATH"
+      ],
+      "spread_m": 2370.5,
+      "support": 9
+    },
+    "BLACKHEATH STATION": {
+      "consensus": [
+        18.700401,
+        -33.964603
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "BLACKHEATH RAILWAY STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "BLOEKOMBOS": {
+      "consensus": [
+        18.750429,
+        -33.842749
+      ],
+      "low_support": false,
+      "route_count": 23,
+      "source_names": [
+        "BLOEKOMBOS",
+        "BLOEKOMBOS (VIA WALLACEDENE)"
+      ],
+      "spread_m": 2822.1,
+      "support": 23
+    },
+    "BLOUBERGSTRAND": {
+      "consensus": [
+        18.459157,
+        -33.796021
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "BLOUBERGSTRAND",
+        "BLOUBERG STRAND"
+      ],
+      "spread_m": 106.0,
+      "support": 3
+    },
+    "BLUE DOWNS": {
+      "consensus": [
+        18.703448,
+        -33.997617
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "BLUE DOWNS"
+      ],
+      "spread_m": 2553.3,
+      "support": 3
+    },
+    "BLUE ROUTE, TOKAI": {
+      "consensus": [
+        18.451396,
+        -34.064808
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "BLUE ROUTE,TOKAI"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "BONTEHEUWEL": {
+      "consensus": [
+        18.552532,
+        -33.952053
+      ],
+      "low_support": false,
+      "route_count": 13,
+      "source_names": [
+        "BONTEHEUWEL"
+      ],
+      "spread_m": 1196.1,
+      "support": 13
+    },
+    "BOTFONTEIN - BOTLARY FARMS": {
+      "consensus": [
+        18.746006,
+        -33.887551
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "BOTFONTEIN - BOTLARY FARMS"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "BOTHASIG": {
+      "consensus": [
+        18.541642,
+        -33.861531
+      ],
+      "low_support": false,
+      "route_count": 12,
+      "source_names": [
+        "BOTHASIG"
+      ],
+      "spread_m": 2238.4,
+      "support": 12
+    },
+    "BOTTELARY RD, KUILSRIVER": {
+      "consensus": [
+        18.814012,
+        -33.874885
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "BOTTELARY RD,KUILSRIVER"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "BRACKENFELL": {
+      "consensus": [
+        18.687042,
+        -33.881649
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "BRACKENFELL"
+      ],
+      "spread_m": 0.0,
+      "support": 5
+    },
+    "BRACKENFELL (HYPERMARKET)": {
+      "consensus": [
+        18.685347,
+        -33.879578
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "BRACKENFELL (HYPERMARKET)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "BRACKENFELL STATION": {
+      "consensus": [
+        18.687042,
+        -33.881649
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "BRACKENFELL STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 5
+    },
+    "BRENTWOOD PARK": {
+      "consensus": [
+        18.654485,
+        -33.986436
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "BRENTWOOD PARK"
+      ],
+      "spread_m": 0.0,
+      "support": 3
+    },
+    "BRIDGETOWN": {
+      "consensus": [
+        18.527474,
+        -33.954839
+      ],
+      "low_support": false,
+      "route_count": 17,
+      "source_names": [
+        "BRIDGETOWN",
+        "BRIDGETOWN (VIA VANGATE MALL)"
+      ],
+      "spread_m": 1360.5,
+      "support": 17
+    },
+    "CABLE WAY STATION": {
+      "consensus": [
+        18.439743,
+        -33.945836
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "CABLE WAY STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 3
+    },
+    "CAMBRIDGE": {
+      "consensus": [
+        18.495888,
+        -33.8829
+      ],
+      "low_support": false,
+      "route_count": 6,
+      "source_names": [
+        "CAMBRIDGE",
+        "CAMBRIDGE (VIA BROOKLYN & RUGBY)"
+      ],
+      "spread_m": 137.3,
+      "support": 6
+    },
+    "CAMPS BAY": {
+      "consensus": [
+        18.377035,
+        -33.953353
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "CAMPS BAY",
+        "CAMPS BAY (VIA HIGH LEVEL RD)",
+        "CAMPS BAY (VIA KLOOF RD)",
+        "CAMPS BAY (VIA MAIN RD)",
+        "CAMPS BAY (VIA WESTERN BLVD)"
+      ],
+      "spread_m": 0.0,
+      "support": 5
+    },
+    "CAPE GATE": {
+      "consensus": [
+        18.699011,
+        -33.854838
+      ],
+      "low_support": false,
+      "route_count": 9,
+      "source_names": [
+        "CAPE GATE",
+        "CAPE GATE (VIA MAROELA RD & N1)",
+        "CAPE GATE (VIA PROTEA HEIGHTS)"
+      ],
+      "spread_m": 415.1,
+      "support": 9
+    },
+    "CAPE TOWN": {
+      "consensus": [
+        18.428626,
+        -33.922778
+      ],
+      "low_support": false,
+      "route_count": 158,
+      "source_names": [
+        "CAPE TOWN",
+        "CAPE TOWN (VIA MOWBRAY)",
+        "CAPE TOWN (VIA N2, EASTERN BLVD)",
+        "CAPE TOWN (VIA PAARDEN EILAND)",
+        "CAPE TOWN (VIA BORCHERDS QUARRY & N2)",
+        "CAPE TOWN (VIA FREEWAY)",
+        "CAPE TOWN (VIA KILLARNEY)",
+        "CAPE TOWN (VIA KROMBOOM PARKWAY)",
+        "CAPE TOWN (VIA KROMBOOM)",
+        "CAPE TOWN (VIA MELKBOS STRAND)",
+        "CAPE TOWN (VIA MELKBOSSTRAND)",
+        "CAPE TOWN (VIA MERRYDALE)",
+        "CAPE TOWN (VIA N1 CITY)",
+        "CAPE TOWN (VIA N2 & MAIN RD)",
+        "CAPE TOWN (VIA N2, LIESBEECK PRKWY, STATION RD, MAIN RD)",
+        "CAPE TOWN (VIA SAMORA MACHEL, VANGUARD, N2)",
+        "CAPE TOWN (VIA SETTLERS WAY)",
+        "CAPE TOWN (VIA VOORTREKKER ROAD)",
+        "VIA BELGRAVIA - CAPE TOWN",
+        "VIA MERRYDALE - CAPE TOWN",
+        "VIA MOWBRAY - CAPE TOWN"
+      ],
+      "spread_m": 8464.2,
+      "support": 158
+    },
+    "CAPE TOWN (HIGHLANDS DR, VANGUARD, N2)": {
+      "consensus": [
+        18.428626,
+        -33.922778
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "CAPE TOWN (HIGHLANDS DR, VANGUARD, N2)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "CAPE TOWN CAPTOUR": {
+      "consensus": [
+        18.424522,
+        -33.920993
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        " CAPE TOWN CAPTOUR"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "CAPE TOWN INTERNATIONAL AIRPORT": {
+      "consensus": [
+        18.592827,
+        -33.967378
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "CAPE TOWN INTERNATIONAL AIRPORT"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "CAPE TOWN INTERSITE": {
+      "consensus": [
+        18.42577,
+        -33.920146
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "CAPE TOWN INTERSITE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "CAPE TOWN OLD MARINE RD": {
+      "consensus": [
+        18.427207,
+        -33.921612
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "CAPE TOWN OLD MARINE RD"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "CAPE TOWN STATION": {
+      "consensus": [
+        18.428626,
+        -33.922778
+      ],
+      "low_support": false,
+      "route_count": 8,
+      "source_names": [
+        "CAPE TOWN STATION",
+        "CAPE TOWN STATION (VIA SANDRIFT)",
+        "CAPE TOWN STATION (VIA TABLEVIEW)"
+      ],
+      "spread_m": 0.0,
+      "support": 8
+    },
+    "CAPE TOWN STATION DECK": {
+      "consensus": [
+        18.428626,
+        -33.922778
+      ],
+      "low_support": false,
+      "route_count": 12,
+      "source_names": [
+        "CAPE TOWN (STATION DECK)",
+        "CAPE TOWN STATION DECK",
+        "CAPE TOWN(STATION DECK)"
+      ],
+      "spread_m": 0.0,
+      "support": 12
+    },
+    "CAPRICORN, RETREAT": {
+      "consensus": [
+        18.462731,
+        -34.059674
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "CAPRICORN,RETREAT"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "CASSABLANCA": {
+      "consensus": [
+        18.860879,
+        -34.136648
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "CASSA BLANCA (STRAND)",
+        "CASSABLANCA"
+      ],
+      "spread_m": 743.2,
+      "support": 3
+    },
+    "CENTURY CITY": {
+      "consensus": [
+        18.505753,
+        -33.891598
+      ],
+      "low_support": false,
+      "route_count": 18,
+      "source_names": [
+        "CENTURY CITY",
+        "CENTURY CITY (VIA BOSMANSDAM ROAD)",
+        "CENTURY CITY (VIA N1 - SABLE ROAD)",
+        "CENTURY CITY (VIA N1)",
+        "CENTURY CITY (VIA VOORTREKKER RD)"
+      ],
+      "spread_m": 128.9,
+      "support": 18
+    },
+    "CENTURY CITY (RATANGA)": {
+      "consensus": [
+        18.505753,
+        -33.891598
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "CENTURY CITY(RATANGA)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "CLAREMONT": {
+      "consensus": [
+        18.466646,
+        -33.981323
+      ],
+      "low_support": false,
+      "route_count": 35,
+      "source_names": [
+        "CLAREMONT",
+        "CLAREMONT (VIA WYNBERG)",
+        "CLAREMONT(VIA WYNBERG)",
+        "CLAREMONT (VIA CROSS ROADS)",
+        "CLAREMONT (VIA GUGULETU)",
+        "CLAREMONT (VIA MERRYDALE, DUINEFONTEIN & PHILIPPI RING RD)",
+        "CLAREMONT (VIA MERRYDALE, LANSDOWNE, JAN SMUTS DR & TURFHALL)",
+        "CLAREMONT (VIA PHILIPPI)",
+        "CLAREMONT (VIA ROCKLANDS, WESTGATE MALL, OLD LANSDOWNE, HEINS & TURFHALL)"
+      ],
+      "spread_m": 8718.8,
+      "support": 35
+    },
+    "CLAREMONT (GUGULETU)": {
+      "consensus": [
+        18.46657,
+        -33.980899
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "CLAREMONT (GUGULETU)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "CLAREMONT (LANSDOWNE RD, JAN SMUTS DR & TURFHALL RD)": {
+      "consensus": [
+        18.466649,
+        -33.981582
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "CLAREMONT (LANSDOWNE RD, JAN SMUTS DR & TURFHALL RD)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "CONSTANTIA": {
+      "consensus": [
+        18.445269,
+        -34.020024
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "CONSTANTIA"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "CONSTANTIA (SWEET VALLEY)": {
+      "consensus": [
+        18.433493,
+        -34.061567
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "CONSTANTIA (SWEET VALLEY)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "CONSTANTIA - WYNBERG": {
+      "consensus": [
+        18.469224,
+        -34.004788
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "CONSTANTIA - WYNBERG"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "CRAMMIX RD, BRACKENFELL": {
+      "consensus": [
+        18.712348,
+        -33.888389
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "CRAMMIX RD,BRACKENFELL"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "CROSS ROADS": {
+      "consensus": [
+        18.605966,
+        -34.00784
+      ],
+      "low_support": false,
+      "route_count": 7,
+      "source_names": [
+        "CROSS ROADS"
+      ],
+      "spread_m": 1585.9,
+      "support": 7
+    },
+    "CROSS ROADS (JO-BURG STORES)": {
+      "consensus": [
+        18.583606,
+        -34.001326
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "CROSS ROADS (JO-BURG STORES)",
+        "CROSS ROADS(JO-BURG STORES)"
+      ],
+      "spread_m": 0.0,
+      "support": 5
+    },
+    "DARLING": {
+      "consensus": [
+        18.534746,
+        -33.521507
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "DARLING"
+      ],
+      "spread_m": 23155.7,
+      "support": 4
+    },
+    "DE LA REY": {
+      "consensus": [
+        18.597566,
+        -33.90635
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "DE LA REY"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "DE NOVA": {
+      "consensus": [
+        18.797109,
+        -33.834018
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "DE NOVA"
+      ],
+      "spread_m": 0.0,
+      "support": 3
+    },
+    "DELFT": {
+      "consensus": [
+        18.62991,
+        -33.991566
+      ],
+      "low_support": false,
+      "route_count": 17,
+      "source_names": [
+        "DELFT"
+      ],
+      "spread_m": 3775.8,
+      "support": 17
+    },
+    "DELFT SOUTH": {
+      "consensus": [
+        18.626818,
+        -33.991566
+      ],
+      "low_support": false,
+      "route_count": 13,
+      "source_names": [
+        "DELFT SOUTH"
+      ],
+      "spread_m": 0.0,
+      "support": 13
+    },
+    "DENNEGEUR": {
+      "consensus": [
+        18.71196,
+        -33.981861
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "DENNEGEUR"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "DEVON PARK": {
+      "consensus": [
+        18.730454,
+        -34.015464
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "DEVON PARK"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "DIAZ STREET (SOMERSET WEST)": {
+      "consensus": [
+        18.858458,
+        -34.092047
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "DIAZ STREET(SOMERSET WEST)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "DOCK RD, CAPE TOWN": {
+      "consensus": [
+        18.417995,
+        -33.904061
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "DOCK RD,CAPE TOWN"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "DOLPHIN BEACH": {
+      "consensus": [
+        18.483309,
+        -33.832869
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "DOLPHIN BEACH"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "DRAMA STREET (SOMERSET WEST)": {
+      "consensus": [
+        18.869183,
+        -34.079715
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "DRAMA STREET(SOMERSET WEST)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "DU NOON": {
+      "consensus": [
+        18.537008,
+        -33.816272
+      ],
+      "low_support": false,
+      "route_count": 33,
+      "source_names": [
+        "DU NOON",
+        "DU NOON ( VIA TABLEVIEW)"
+      ],
+      "spread_m": 637.0,
+      "support": 33
+    },
+    "DUINEFONTEIN MELKBOS STRAND": {
+      "consensus": [
+        18.442062,
+        -33.731144
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "DUINEFONTEIN MELKBOS STRAND"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "DURBANVILLE": {
+      "consensus": [
+        18.651699,
+        -33.828034
+      ],
+      "low_support": false,
+      "route_count": 20,
+      "source_names": [
+        "DURBANVILLE"
+      ],
+      "spread_m": 7837.2,
+      "support": 20
+    },
+    "DURBANVILLE (ZAND DAM PLAAS)": {
+      "consensus": [
+        18.71955,
+        -33.474287
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "DURBANVILLE(ZAND DAM PLAAS)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "EDGEMEAD": {
+      "consensus": [
+        18.548246,
+        -33.870301
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "EDGEMEAD"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "EERSTE RIVER": {
+      "consensus": [
+        18.73157,
+        -34.001557
+      ],
+      "low_support": false,
+      "route_count": 26,
+      "source_names": [
+        "EERSTE RIVER",
+        "EERSTERIVIER",
+        "EERSTERIVER"
+      ],
+      "spread_m": 2000.4,
+      "support": 27
+    },
+    "EERSTE RIVER STATION": {
+      "consensus": [
+        18.73074,
+        -34.001062
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "EERSTE RIVIER STASIE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "EIKENFONTEIN": {
+      "consensus": [
+        18.711801,
+        -33.857362
+      ],
+      "low_support": false,
+      "route_count": 8,
+      "source_names": [
+        "EIKENFONTEIN"
+      ],
+      "spread_m": 0.0,
+      "support": 8
+    },
+    "EINDHOVEN": {
+      "consensus": [
+        18.644114,
+        -33.979354
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "EINDHOVEN"
+      ],
+      "spread_m": 107.7,
+      "support": 5
+    },
+    "EINDHOVEN, DELFT": {
+      "consensus": [
+        18.644114,
+        -33.979354
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "EINDHOVEN DELFT",
+        "EINDHOVEN,DELFT"
+      ],
+      "spread_m": 0.0,
+      "support": 5
+    },
+    "ELECTRIC CITY": {
+      "consensus": [
+        18.730454,
+        -34.015464
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "ELECTRIC CITY"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "ELSIES RIVER": {
+      "consensus": [
+        18.568125,
+        -33.911197
+      ],
+      "low_support": false,
+      "route_count": 44,
+      "source_names": [
+        "ELSIES RIVER"
+      ],
+      "spread_m": 17770.4,
+      "support": 44
+    },
+    "ELSIES RIVER STATION": {
+      "consensus": [
+        18.568125,
+        -33.911197
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "ELSIES RIVER STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "EPPING": {
+      "consensus": [
+        18.549513,
+        -33.940884
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "EPPING (VIA 35TH STREET & OWEN ROAD)",
+        "EPPING (VIA MODDERDAM ROAD)"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "EPPING 2": {
+      "consensus": [
+        18.550935,
+        -33.92739
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "EPPING 2"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "EVERSDAL": {
+      "consensus": [
+        18.661356,
+        -33.847501
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "EVERSDAL"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "EXTENSION 3": {
+      "consensus": [
+        18.6819,
+        -34.013654
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "EXTENSION 3"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "EYONA": {
+      "consensus": [
+        18.565215,
+        -33.987644
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "EYONA"
+      ],
+      "spread_m": 112.3,
+      "support": 3
+    },
+    "FABRIEKS AREA, ATLANTIS": {
+      "consensus": [
+        18.471676,
+        -33.593956
+      ],
+      "low_support": false,
+      "route_count": 9,
+      "source_names": [
+        "FABRIEKS AREA ATLANTIS",
+        "FABRIEKS AREA,ATLANTIS",
+        "FABRIEKS AREA ATLANTIS (VIA ATLANTIS)"
+      ],
+      "spread_m": 0.0,
+      "support": 9
+    },
+    "FACTRETON": {
+      "consensus": [
+        18.522533,
+        -33.904911
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "FACTRETON"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "FALSE BAY": {
+      "consensus": [
+        18.46817,
+        -34.102362
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "FALSE BAY"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "FARMS (ATLANTIS)": {
+      "consensus": [
+        18.473564,
+        -33.508733
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "FARMS(ATLANTIS)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "FEZEKA": {
+      "consensus": [
+        18.566892,
+        -34.002476
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "FEZEKA"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "FIRGROVE": {
+      "consensus": [
+        18.791792,
+        -34.054793
+      ],
+      "low_support": false,
+      "route_count": 13,
+      "source_names": [
+        "FIRGROVE",
+        "FIRGROVE (VIA R102)"
+      ],
+      "spread_m": 0.0,
+      "support": 13
+    },
+    "FIRGROVE (R102)": {
+      "consensus": [
+        18.791792,
+        -34.054793
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "FIRGROVE (R102)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "FISANTEKRAAL": {
+      "consensus": [
+        18.719679,
+        -33.779224
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "FISANTEKRAAL"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "FISH HOEK": {
+      "consensus": [
+        18.43211,
+        -34.137035
+      ],
+      "low_support": false,
+      "route_count": 17,
+      "source_names": [
+        "FISH HOEK"
+      ],
+      "spread_m": 27429.2,
+      "support": 17
+    },
+    "FOREST HEIGHTS": {
+      "consensus": [
+        18.733104,
+        -34.008205
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "FOREST HEIGHTS"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "FRANKDALE": {
+      "consensus": [
+        18.546248,
+        -33.749243
+      ],
+      "low_support": false,
+      "route_count": 6,
+      "source_names": [
+        "FRANKDALE"
+      ],
+      "spread_m": 2630.7,
+      "support": 6
+    },
+    "GARDENS": {
+      "consensus": [
+        18.402417,
+        -33.93681
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "GARDENS"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "GATESVILLE": {
+      "consensus": [
+        18.534147,
+        -33.968608
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "GATESVILLE"
+      ],
+      "spread_m": 0.0,
+      "support": 3
+    },
+    "GOLIATH ESTATE": {
+      "consensus": [
+        18.71107,
+        -33.830554
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "GOLIATH ESTATE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "GOODWOOD": {
+      "consensus": [
+        18.546693,
+        -33.914234
+      ],
+      "low_support": false,
+      "route_count": 12,
+      "source_names": [
+        "GOODWOOD"
+      ],
+      "spread_m": 506.9,
+      "support": 12
+    },
+    "GOODWOOD STATION": {
+      "consensus": [
+        18.546693,
+        -33.914234
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "GOODWOOD STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 4
+    },
+    "GOODWOOD-MAITLAND-KILLARNEY": {
+      "consensus": [
+        18.525309,
+        -33.833719
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "GOODWOOD-MAITLAND-KILLARNEY"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "GORDONS BAY": {
+      "consensus": [
+        18.866453,
+        -34.153702
+      ],
+      "low_support": false,
+      "route_count": 7,
+      "source_names": [
+        "GORDONS BAY"
+      ],
+      "spread_m": 1810.5,
+      "support": 7
+    },
+    "GRASSY PARK": {
+      "consensus": [
+        18.496418,
+        -34.049129
+      ],
+      "low_support": false,
+      "route_count": 16,
+      "source_names": [
+        "GRASSY PARK"
+      ],
+      "spread_m": 626.4,
+      "support": 16
+    },
+    "GREEN POINT": {
+      "consensus": [
+        18.417938,
+        -33.903982
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "GREEN POINT"
+      ],
+      "spread_m": 20.3,
+      "support": 2
+    },
+    "GROOTE SCHUUR HOSPITAL": {
+      "consensus": [
+        18.462305,
+        -33.940384
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "GROOTE SCHUUR HOSPITAL"
+      ],
+      "spread_m": 3842.8,
+      "support": 5
+    },
+    "GUGULETHU": {
+      "consensus": [
+        18.566421,
+        -33.987501
+      ],
+      "low_support": false,
+      "route_count": 28,
+      "source_names": [
+        "GUGULETU",
+        "GUGULETHU",
+        "GUGULETU (VIA MELKBOSSTRAND)"
+      ],
+      "spread_m": 2645.1,
+      "support": 28
+    },
+    "HANOVER PARK": {
+      "consensus": [
+        18.527495,
+        -33.994542
+      ],
+      "low_support": false,
+      "route_count": 33,
+      "source_names": [
+        "HANOVER PARK"
+      ],
+      "spread_m": 135.3,
+      "support": 33
+    },
+    "HAPPY VALLEY": {
+      "consensus": [
+        18.6853,
+        -33.973817
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "HAPPY VALLEY"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "HAPPY VALLEY, BLACKHEATH": {
+      "consensus": [
+        18.6853,
+        -33.973817
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "HAPPY VALLEY ,BLACKHEATH"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "HARARE": {
+      "consensus": [
+        18.680692,
+        -34.059151
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "HARARE"
+      ],
+      "spread_m": 872.1,
+      "support": 2
+    },
+    "HAZELDENE": {
+      "consensus": [
+        18.61862,
+        -34.050787
+      ],
+      "low_support": false,
+      "route_count": 8,
+      "source_names": [
+        "HAZELDENE"
+      ],
+      "spread_m": 0.0,
+      "support": 8
+    },
+    "HEIDEVELD": {
+      "consensus": [
+        18.561031,
+        -33.969654
+      ],
+      "low_support": false,
+      "route_count": 15,
+      "source_names": [
+        "HEIDEVELD"
+      ],
+      "spread_m": 1744.2,
+      "support": 15
+    },
+    "HEIDEVELD STATION": {
+      "consensus": [
+        18.562514,
+        -33.97014
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "HEIDEVELD STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "HELDERBERG": {
+      "consensus": [
+        18.864557,
+        -34.119095
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "HELDERBERG (VIA HELDERVUE)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "HELDERVUE (SOMERSET WES)": {
+      "consensus": [
+        18.82239,
+        -34.061552
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "HELDERVUE (SOMERSET WES)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "HELDERVUE (SOMERSET WEST)": {
+      "consensus": [
+        18.829607,
+        -34.053015
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "HELDERVUE (SOMERSET WEST)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "HILLVIEW": {
+      "consensus": [
+        18.484655,
+        -34.074949
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "HILLVIEW"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "HOTTENTOTS HOLLAND HOSPITAL": {
+      "consensus": [
+        18.841361,
+        -34.057983
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "HOTTENTOTS HOLLAND HOSPITAL"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "HOUT BAY": {
+      "consensus": [
+        18.360114,
+        -34.045117
+      ],
+      "low_support": false,
+      "route_count": 10,
+      "source_names": [
+        "HOUT BAY",
+        "HOUT BAY (VIA HIGH LEVEL RD)",
+        "HOUT BAY (VIA KLOOF RD)",
+        "HOUT BAY (VIA MAIN RD)",
+        "HOUT BAY (VIA VICTORIA HOSPITAL)",
+        "HOUT BAY (VIA WESTERN BLVD)",
+        "HOUTBAY"
+      ],
+      "spread_m": 2039.5,
+      "support": 10
+    },
+    "HOUT BAY DAY HOSPITAL": {
+      "consensus": [
+        18.34151,
+        -34.054082
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "HOUT BAY DAY HOSPITAL"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "HYPERAMA PAROW": {
+      "consensus": [
+        18.60098,
+        -33.905039
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "HYPERAMA PAROW"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "IMIZAMO YETHU": {
+      "consensus": [
+        18.359564,
+        -34.0303
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "IMIZAMO YETHU"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "INDUSTRIAL AREA": {
+      "consensus": [
+        18.688911,
+        -33.943333
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "INDUSTRIAL AREA"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "INDUSTRIAL AREA, KUILSRIVER": {
+      "consensus": [
+        18.688911,
+        -33.943333
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "INDUSTRIAL AREA,KUILSRIVER"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "JOE SLOVO PARK": {
+      "consensus": [
+        18.495696,
+        -33.883106
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "JOE SLOVO PARK"
+      ],
+      "spread_m": 14.0,
+      "support": 2
+    },
+    "JOHANNES MEINTJIES LENTEGEUR": {
+      "consensus": [
+        18.598162,
+        -34.023503
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "JOHANNES MEINTJIES LENTEGEUR"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "JOOSTENBERG VLAKTE": {
+      "consensus": [
+        18.651699,
+        -33.828034
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "JOOSTENBERG VLAKTE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KALKFONTEIN": {
+      "consensus": [
+        18.663687,
+        -33.945844
+      ],
+      "low_support": false,
+      "route_count": 7,
+      "source_names": [
+        "KALKFONTEIN"
+      ],
+      "spread_m": 853.4,
+      "support": 7
+    },
+    "KARL BREMER HOSPITAL": {
+      "consensus": [
+        18.608485,
+        -33.893314
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KARL BREMER HOSPITAL"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KENILWORTH CENTRE": {
+      "consensus": [
+        18.484046,
+        -33.989633
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KENILWORTH CENTRE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KENSINGTON": {
+      "consensus": [
+        18.511093,
+        -33.908902
+      ],
+      "low_support": false,
+      "route_count": 8,
+      "source_names": [
+        "KENSINGTON"
+      ],
+      "spread_m": 1340.2,
+      "support": 8
+    },
+    "KHAYELITSHA": {
+      "consensus": [
+        18.648256,
+        -34.01618
+      ],
+      "low_support": false,
+      "route_count": 63,
+      "source_names": [
+        "KHAYELITSHA",
+        "KHAYELITSHA (VIA MAITLAND & GOODWOOD)",
+        "KHAYELITSHA (VIA MELKBOSSTRAND)"
+      ],
+      "spread_m": 20212.0,
+      "support": 63
+    },
+    "KHAYELITSHA (HARARE)": {
+      "consensus": [
+        18.670858,
+        -34.057247
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KHAYELITSHA (HARARE)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KHAYELITSHA (KUWAIT)": {
+      "consensus": [
+        18.648256,
+        -34.01618
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "KHAYELITSHA (KUWAIT)"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "KHAYELITSHA (LUZUKO RANK)": {
+      "consensus": [
+        18.626704,
+        -34.003202
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KHAYELITSHA (LUZUKO RANK)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KHAYELITSHA (MAKAYA)": {
+      "consensus": [
+        18.704969,
+        -34.046178
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KHAYELITSHA (MAKAYA)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KHAYELITSHA (MAKHAZA)": {
+      "consensus": [
+        18.710127,
+        -34.049813
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KHAYELITSHA (MAKHAZA)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KHAYELITSHA (SITE B)": {
+      "consensus": [
+        18.664433,
+        -34.027428
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KHAYELITSHA (SITE B)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KHAYELITSHA (TOWN 2)": {
+      "consensus": [
+        18.669997,
+        -34.049057
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KHAYELITSHA (TOWN 2)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KHAYELITSHA SITE C": {
+      "consensus": [
+        18.650693,
+        -34.01531
+      ],
+      "low_support": false,
+      "route_count": 10,
+      "source_names": [
+        "KHAYELITSHA SITE C"
+      ],
+      "spread_m": 244.6,
+      "support": 10
+    },
+    "KILLARNEY": {
+      "consensus": [
+        18.525309,
+        -33.833719
+      ],
+      "low_support": false,
+      "route_count": 64,
+      "source_names": [
+        "KILLARNEY",
+        "KILLARNEY (VIA MELKBOSSTRAND)",
+        "KILLARNEY (VIA PLATTEKLOOF, BLAAUWBERG, MELKBOSSTRAND, POTSDAM)",
+        "KILLARNEY (VIA N1, N7 & MONTAGUE GARDENS)",
+        "KILLARNEY (VIA SANDOWN)",
+        "KILLARNEY (VIA SUMMER GREENS & MONTAGUE GARDENS)"
+      ],
+      "spread_m": 24020.3,
+      "support": 64
+    },
+    "KILLARNEY & DU NOON": {
+      "consensus": [
+        18.537917,
+        -33.816681
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "KILLARNEY & DU NOON (VIA KOEBERG ROAD)",
+        "KILLARNEY & DU NOON (VIA N1 & N7)"
+      ],
+      "spread_m": 250.8,
+      "support": 2
+    },
+    "KILLARNEY GARDENS": {
+      "consensus": [
+        18.525309,
+        -33.833719
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KILLARNEY GARDENS"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KLEINVLEI": {
+      "consensus": [
+        18.716096,
+        -33.996365
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KLEINVLEI"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KLIPHEUWEL": {
+      "consensus": [
+        18.71955,
+        -33.474287
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KLIPHEUWEL"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KLIPHEUWEL RD, DURBANVILLE": {
+      "consensus": [
+        18.697182,
+        -33.708066
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KLIPHEUWEL RD,DURBANVILLE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KOEBERG": {
+      "consensus": [
+        18.478805,
+        -33.925418
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "KOEBERG"
+      ],
+      "spread_m": 0.0,
+      "support": 3
+    },
+    "KOEBERG POWER STATION": {
+      "consensus": [
+        18.44194,
+        -33.676856
+      ],
+      "low_support": false,
+      "route_count": 8,
+      "source_names": [
+        "KOEBERG POWER STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 8
+    },
+    "KOEBERG POWER STATION/MELKBOS": {
+      "consensus": [
+        18.44194,
+        -33.676856
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KOEBERG POWER STATION/MELKBOS"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KOEBERG STATION": {
+      "consensus": [
+        18.478805,
+        -33.925418
+      ],
+      "low_support": false,
+      "route_count": 86,
+      "source_names": [
+        "KOEBERG STATION",
+        "KOEBERG RAILWAY STATION",
+        "KOEBERG STATION (VIA TABLEVIEW)",
+        "KOEBERG STATION (VIA PLATTEKLOOF, N7 & N1)"
+      ],
+      "spread_m": 57.7,
+      "support": 86
+    },
+    "KOGGELBAAI": {
+      "consensus": [
+        18.845567,
+        -34.270537
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KOGGELBAAI"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KOMMETJIE": {
+      "consensus": [
+        18.321254,
+        -34.145779
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "KOMMETJIE"
+      ],
+      "spread_m": 855.5,
+      "support": 3
+    },
+    "KRAAIFONTEIN": {
+      "consensus": [
+        18.723794,
+        -33.847837
+      ],
+      "low_support": false,
+      "route_count": 19,
+      "source_names": [
+        "KRAAIFONTEIN"
+      ],
+      "spread_m": 2602.9,
+      "support": 19
+    },
+    "KRAAIFONTEIN (SHOPRITE)": {
+      "consensus": [
+        18.722627,
+        -33.846592
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KRAAIFONTEIN (SHOPRITE)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KRAAIFONTEIN STATION": {
+      "consensus": [
+        18.723794,
+        -33.847837
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KRAAIFONTEIN STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KRAMAT": {
+      "consensus": [
+        18.747793,
+        -34.055062
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "KRAMAT"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "KRAMAT WAY (MACASSAR)": {
+      "consensus": [
+        18.747793,
+        -34.055062
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "KRAMAT WAY(MACASSAR)",
+        "KRAMAT WAY,MACASSAR"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "KUILSRIVER": {
+      "consensus": [
+        18.677493,
+        -33.927108
+      ],
+      "low_support": false,
+      "route_count": 19,
+      "source_names": [
+        "KUILSRIVER"
+      ],
+      "spread_m": 2367.0,
+      "support": 19
+    },
+    "KUILSRIVER STATION": {
+      "consensus": [
+        18.6764,
+        -33.933078
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "KUILSRIVER STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 5
+    },
+    "KUWAIT": {
+      "consensus": [
+        18.648256,
+        -34.01618
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "KUWAIT"
+      ],
+      "spread_m": 0.0,
+      "support": 3
+    },
+    "LAMBERTSBAAI": {
+      "consensus": [
+        18.137206,
+        -33.138295
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "LAMBERTSBAAI"
+      ],
+      "spread_m": 0.0,
+      "support": 4
+    },
+    "LANGA": {
+      "consensus": [
+        18.536198,
+        -33.94555
+      ],
+      "low_support": false,
+      "route_count": 40,
+      "source_names": [
+        "LANGA"
+      ],
+      "spread_m": 724.4,
+      "support": 40
+    },
+    "LANGA (BHUNGA)": {
+      "consensus": [
+        18.536198,
+        -33.94555
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "LANGA (BHUNGA)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "LANGA STATION": {
+      "consensus": [
+        18.542866,
+        -33.944774
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "LANGA STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "LANGA/EPPING": {
+      "consensus": [
+        18.536198,
+        -33.94555
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "LANGA/EPPING"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "LANSDOWNE": {
+      "consensus": [
+        18.504244,
+        -33.987709
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "LANSDOWNE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "LAVENDER HILL": {
+      "consensus": [
+        18.484572,
+        -34.067044
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "LAVENDER HILL"
+      ],
+      "spread_m": 2521.2,
+      "support": 3
+    },
+    "LEIDEN": {
+      "consensus": [
+        18.63547,
+        -33.965832
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "LEIDEN"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "LEIDEN, DELFT": {
+      "consensus": [
+        18.63547,
+        -33.965989
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "LEIDEN DELFT",
+        "LEIDEN,DELFT"
+      ],
+      "spread_m": 553.7,
+      "support": 3
+    },
+    "LENTEGEUR STATION": {
+      "consensus": [
+        18.611039,
+        -34.035664
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "LENTEGEUR STATION"
+      ],
+      "spread_m": 153.9,
+      "support": 4
+    },
+    "LINK AVENUE WAY (MACASSAR)": {
+      "consensus": [
+        18.75507,
+        -34.058021
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "LINK AVENUE WAY(MACASSAR)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "LONDON VILLAGE": {
+      "consensus": [
+        18.586099,
+        -34.024619
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "LONDON VILLAGE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "LONDON VILLAGE, MITCHELLS PLAIN": {
+      "consensus": [
+        18.586099,
+        -34.024619
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "LONDON VILLAGE,MITCHELLS PLAIN"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "LOST CITY": {
+      "consensus": [
+        18.650833,
+        -34.064482
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "LOST CITY"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "LOTUS RIVER": {
+      "consensus": [
+        18.519523,
+        -34.040064
+      ],
+      "low_support": false,
+      "route_count": 10,
+      "source_names": [
+        "LOTUS RIVER"
+      ],
+      "spread_m": 62.0,
+      "support": 10
+    },
+    "LOURENS STREET (SOMERSET WEST)": {
+      "consensus": [
+        18.839277,
+        -34.092559
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "LOURENS STREET(SOMERSET WEST)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "LOURENSFORD": {
+      "consensus": [
+        18.882321,
+        -34.053122
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "LOURENSFORD"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "LOURENSFORD & VERGELEGEN": {
+      "consensus": [
+        18.882321,
+        -34.053122
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "LOURENSFORD & VERGELEGEN"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "LOURENSFORD FARM": {
+      "consensus": [
+        18.882321,
+        -34.053122
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "LOURENSFORD FARM"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "LOURENSFORD PLAAS": {
+      "consensus": [
+        18.887943,
+        -34.073809
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "LOURENSFORD PLAAS"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "LOURENSFORD, SOMERSET WEST": {
+      "consensus": [
+        18.868127,
+        -34.066034
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "LOURENSFORD(SOMERSET WEST)",
+        "LOURENSFORD,SOMERSET WEST"
+      ],
+      "spread_m": 4236.6,
+      "support": 2
+    },
+    "LOWER CROSS ROADS": {
+      "consensus": [
+        18.608618,
+        -34.003764
+      ],
+      "low_support": false,
+      "route_count": 9,
+      "source_names": [
+        "LOWER CROSS ROADS",
+        "LOWER CROSSROADS"
+      ],
+      "spread_m": 6737.5,
+      "support": 9
+    },
+    "LWANDLE": {
+      "consensus": [
+        18.868328,
+        -34.119638
+      ],
+      "low_support": false,
+      "route_count": 23,
+      "source_names": [
+        "LWANDLE"
+      ],
+      "spread_m": 347.6,
+      "support": 23
+    },
+    "MACASSAR": {
+      "consensus": [
+        18.774896,
+        -34.062198
+      ],
+      "low_support": false,
+      "route_count": 26,
+      "source_names": [
+        "MACASSAR",
+        "VIA ALBATROS MACASSAR",
+        "VIA MUSICA MACASSAR"
+      ],
+      "spread_m": 4453.7,
+      "support": 26
+    },
+    "MAITLAND": {
+      "consensus": [
+        18.484855,
+        -33.924396
+      ],
+      "low_support": false,
+      "route_count": 24,
+      "source_names": [
+        "MAITLAND"
+      ],
+      "spread_m": 127.7,
+      "support": 24
+    },
+    "MAITLAND STATION": {
+      "consensus": [
+        18.484855,
+        -33.924396
+      ],
+      "low_support": false,
+      "route_count": 11,
+      "source_names": [
+        "MAITLAND STATION",
+        "MAITLAND RAILWAY STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 11
+    },
+    "MAKHAZA": {
+      "consensus": [
+        18.710588,
+        -34.049813
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "MAKHAZA"
+      ],
+      "spread_m": 406.1,
+      "support": 3
+    },
+    "MAKHAZA KHAYELITSHA": {
+      "consensus": [
+        18.704969,
+        -34.046178
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "MAKHAZA KHAYELITSHA"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "MALIBU": {
+      "consensus": [
+        18.690722,
+        -33.990956
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "MALIBU"
+      ],
+      "spread_m": 238.9,
+      "support": 4
+    },
+    "MALIBU VILLAGE": {
+      "consensus": [
+        18.690722,
+        -33.990956
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "MALIBU VILLAGE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "MALMESBURY": {
+      "consensus": [
+        18.717723,
+        -33.465744
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "MALMESBURY"
+      ],
+      "spread_m": 134.8,
+      "support": 2
+    },
+    "MAMRE": {
+      "consensus": [
+        18.475876,
+        -33.513639
+      ],
+      "low_support": false,
+      "route_count": 12,
+      "source_names": [
+        "MAMRE",
+        "MAMRE (VIA KILLARNEY)"
+      ],
+      "spread_m": 110.9,
+      "support": 12
+    },
+    "MANDALAY": {
+      "consensus": [
+        18.624548,
+        -34.018685
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "MANDALAY"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "MANENBERG": {
+      "consensus": [
+        18.554843,
+        -33.993405
+      ],
+      "low_support": false,
+      "route_count": 11,
+      "source_names": [
+        "MANENBERG"
+      ],
+      "spread_m": 424.0,
+      "support": 11
+    },
+    "MASIPHUMELELE": {
+      "consensus": [
+        18.380516,
+        -34.13269
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "MASIPHUMELELE"
+      ],
+      "spread_m": 55.6,
+      "support": 5
+    },
+    "MATROOSFONTEIN": {
+      "consensus": [
+        18.572712,
+        -33.940948
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "MATROOSFONTEIN"
+      ],
+      "spread_m": 242.8,
+      "support": 4
+    },
+    "MELKBOSSTRAND": {
+      "consensus": [
+        18.442062,
+        -33.731144
+      ],
+      "low_support": false,
+      "route_count": 20,
+      "source_names": [
+        "MELKBOSSTRAND",
+        "MELKBOS STRAND",
+        "MELKBOS"
+      ],
+      "spread_m": 17135.8,
+      "support": 20
+    },
+    "MELKBOSSTRAND - KILLARNEY": {
+      "consensus": [
+        18.525309,
+        -33.833719
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "MELKBOSSTRAND - KILLARNEY"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "MELTON ROSE": {
+      "consensus": [
+        18.720217,
+        -33.989271
+      ],
+      "low_support": false,
+      "route_count": 16,
+      "source_names": [
+        "MELTON ROSE"
+      ],
+      "spread_m": 503.1,
+      "support": 16
+    },
+    "METRO": {
+      "consensus": [
+        18.484811,
+        -33.893323
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "METRO"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "METRO INDUSTRY (PAARDEN EILAND)": {
+      "consensus": [
+        18.484811,
+        -33.893323
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "METRO INDUSTRY (PAARDEN EILAND)",
+        "METRO INDUSTRY(PAARDEN EILAND)"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "MFULENI": {
+      "consensus": [
+        18.680288,
+        -34.003225
+      ],
+      "low_support": false,
+      "route_count": 31,
+      "source_names": [
+        "MFULENI",
+        "MFULENI (VIA MELKBOSSTRAND & MONTAGUE GARDENS)",
+        "MFULENI (VIA MELKBOSSTRAND & PLATTEKLOOF)"
+      ],
+      "spread_m": 364.6,
+      "support": 31
+    },
+    "MFULENI RANK": {
+      "consensus": [
+        18.680288,
+        -34.003225
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "MFULENI RANK"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "MILNERTON": {
+      "consensus": [
+        18.501696,
+        -33.86329
+      ],
+      "low_support": false,
+      "route_count": 12,
+      "source_names": [
+        "MILNERTON"
+      ],
+      "spread_m": 3573.6,
+      "support": 12
+    },
+    "MILNERTON RIDGE": {
+      "consensus": [
+        18.516537,
+        -33.852605
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "MILNERTON RIDGE",
+        "MILNERTON RIDGE (VIA ASCOT VILLAGE)"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "MITCHELLS PLAIN": {
+      "consensus": [
+        18.620776,
+        -34.048594
+      ],
+      "low_support": false,
+      "route_count": 93,
+      "source_names": [
+        "MITCHELLS PLAIN",
+        "MITCHELL'S PLAIN",
+        "MITCHELLS PLAIN (VIA FEZEKA)",
+        "MITCHELLS PLAIN (VIA LEIDEN, HINDLE, R300 & AZ BERMAN DR)",
+        "MITCHELLS PLAIN (VIA LOWER CROSS ROADS)"
+      ],
+      "spread_m": 4935.8,
+      "support": 94
+    },
+    "MITCHELLS PLAIN (CALYPSO SQUARE)": {
+      "consensus": [
+        18.620861,
+        -34.048594
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "MITCHELLS PLAIN (CALYPSO SQUARE)",
+        "MITCHELLS PLAIN(CALYPSO SQUARE)"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "MITCHELLS PLAIN (TOWN CENTRE)": {
+      "consensus": [
+        18.620818,
+        -34.048508
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "MITCHELLS PLAIN - TOWN CENTRE",
+        "MITCHELLS PLAIN(TOWN CENTRE)"
+      ],
+      "spread_m": 20.7,
+      "support": 2
+    },
+    "MITCHELLS PLAIN 3RD/7TH AVENUE": {
+      "consensus": [
+        18.619164,
+        -34.048953
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "MITCHELLS PLAIN 3RD/7TH AVENUE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "MONTAGUE GARDENS": {
+      "consensus": [
+        18.521086,
+        -33.873987
+      ],
+      "low_support": false,
+      "route_count": 30,
+      "source_names": [
+        "MONTAGUE GARDENS",
+        "MONTAGUE GARDENS (VIA SANDRIF)"
+      ],
+      "spread_m": 24512.0,
+      "support": 30
+    },
+    "MONTAGUE VILLAGE": {
+      "consensus": [
+        18.462731,
+        -34.059674
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "MONTAGUE VILLAGE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "MONTANA": {
+      "consensus": [
+        18.568496,
+        -33.96111
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "MONTANA"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "MONTE VISTA": {
+      "consensus": [
+        18.54063,
+        -33.859586
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "MONTE VISTA"
+      ],
+      "spread_m": 465.7,
+      "support": 2
+    },
+    "MONTROSE PARK": {
+      "consensus": [
+        18.630127,
+        -34.025781
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "MONTROSE PARK"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "MORNINGSTAR": {
+      "consensus": [
+        18.545577,
+        -33.749275
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "MORNINGSTAR"
+      ],
+      "spread_m": 147.1,
+      "support": 4
+    },
+    "MOWBRAY": {
+      "consensus": [
+        18.473647,
+        -33.948773
+      ],
+      "low_support": false,
+      "route_count": 33,
+      "source_names": [
+        "MOWBRAY",
+        "MOWBRAY (VIA WYNBERG)"
+      ],
+      "spread_m": 7698.2,
+      "support": 33
+    },
+    "MUIZENBERG": {
+      "consensus": [
+        18.468137,
+        -34.109489
+      ],
+      "low_support": false,
+      "route_count": 7,
+      "source_names": [
+        "MUIZENBERG"
+      ],
+      "spread_m": 256.5,
+      "support": 7
+    },
+    "MUIZENBERG-FISH HOEK": {
+      "consensus": [
+        18.43211,
+        -34.137035
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "MUIZENBERG-FISH HOEK"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "MURDOCK VALLEY": {
+      "consensus": [
+        18.461605,
+        -34.210247
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "MURDOCK VALLEY"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "MUTUAL": {
+      "consensus": [
+        18.514809,
+        -33.922408
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "MUTUAL"
+      ],
+      "spread_m": 0.0,
+      "support": 4
+    },
+    "MUTUAL STATION": {
+      "consensus": [
+        18.514809,
+        -33.922408
+      ],
+      "low_support": false,
+      "route_count": 10,
+      "source_names": [
+        "MUTUAL STATION",
+        "MUTUAL RAILWAY STATION",
+        "MUTUAL RAILWAY STATION (VIA PINELANDS, FOREST DR & RINGWOOD DR)"
+      ],
+      "spread_m": 417.6,
+      "support": 11
+    },
+    "N1 CITY": {
+      "consensus": [
+        18.558416,
+        -33.892333
+      ],
+      "low_support": false,
+      "route_count": 11,
+      "source_names": [
+        "N1 CITY"
+      ],
+      "spread_m": 224.6,
+      "support": 11
+    },
+    "NETREG": {
+      "consensus": [
+        18.564175,
+        -33.952806
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "NETREG"
+      ],
+      "spread_m": 0.0,
+      "support": 3
+    },
+    "NETREG STATION": {
+      "consensus": [
+        18.564175,
+        -33.952806
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "NETREG STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "NEW LENTEGEUR": {
+      "consensus": [
+        18.608089,
+        -34.022402
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "NEW LENTEGEUR",
+        "NEW LENTEGEUR (VIA HENGELAAR)"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "NOORDHOEK": {
+      "consensus": [
+        18.358685,
+        -34.097886
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "NOORDHOEK"
+      ],
+      "spread_m": 3943.6,
+      "support": 3
+    },
+    "NORTHPINE": {
+      "consensus": [
+        18.710973,
+        -33.870698
+      ],
+      "low_support": false,
+      "route_count": 15,
+      "source_names": [
+        "NORTHPINE"
+      ],
+      "spread_m": 396.7,
+      "support": 15
+    },
+    "NORTHWOOD": {
+      "consensus": [
+        18.598162,
+        -34.023503
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "NORTHWOOD"
+      ],
+      "spread_m": 0.0,
+      "support": 3
+    },
+    "NORWOOD": {
+      "consensus": [
+        18.579727,
+        -33.92799
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "NORWOOD"
+      ],
+      "spread_m": 1091.9,
+      "support": 3
+    },
+    "NYANGA": {
+      "consensus": [
+        18.583569,
+        -33.992459
+      ],
+      "low_support": false,
+      "route_count": 93,
+      "source_names": [
+        "NYANGA",
+        "NYANGA (VIA SAMORA MACHEL)"
+      ],
+      "spread_m": 2195.6,
+      "support": 93
+    },
+    "NYANGA JUNCTION": {
+      "consensus": [
+        18.560633,
+        -33.992088
+      ],
+      "low_support": false,
+      "route_count": 11,
+      "source_names": [
+        "NYANGA JUNCTION"
+      ],
+      "spread_m": 133.0,
+      "support": 11
+    },
+    "NYANGA STATION": {
+      "consensus": [
+        18.560633,
+        -33.992088
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "NYANGA STATION",
+        "NYANGA STATION PUBLIC TRANSPORT INTERCHANGE"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "NYANGA TAXI RANK": {
+      "consensus": [
+        18.583569,
+        -33.992459
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "NYANGA TAXI RANK"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "NYANGA TERMINUS": {
+      "consensus": [
+        18.583569,
+        -33.992459
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "NYANGA TERM",
+        "NYANGA TERMINUS"
+      ],
+      "spread_m": 0.0,
+      "support": 3
+    },
+    "OCEAN VIEW": {
+      "consensus": [
+        18.355535,
+        -34.151925
+      ],
+      "low_support": false,
+      "route_count": 7,
+      "source_names": [
+        "OCEAN VIEW"
+      ],
+      "spread_m": 62.4,
+      "support": 7
+    },
+    "ORANJEZICHT": {
+      "consensus": [
+        18.412777,
+        -33.945721
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "ORANJEZICHT"
+      ],
+      "spread_m": 199.6,
+      "support": 5
+    },
+    "OTTERY": {
+      "consensus": [
+        18.509388,
+        -34.021017
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "OTTERY"
+      ],
+      "spread_m": 2961.3,
+      "support": 2
+    },
+    "PAARDEN EILAND": {
+      "consensus": [
+        18.480358,
+        -33.905692
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "PAARDEN EILAND"
+      ],
+      "spread_m": 2870.8,
+      "support": 4
+    },
+    "PANORAMA": {
+      "consensus": [
+        18.575555,
+        -33.875915
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "PANORAMA",
+        "PANORAMA (VIA ELSIES RIVER)"
+      ],
+      "spread_m": 9428.0,
+      "support": 3
+    },
+    "PARKLANDS": {
+      "consensus": [
+        18.489975,
+        -33.813668
+      ],
+      "low_support": false,
+      "route_count": 22,
+      "source_names": [
+        "PARKLANDS",
+        "PARKLANDS (VIA KOEBERG ROAD)"
+      ],
+      "spread_m": 7004.2,
+      "support": 22
+    },
+    "PARKWOOD": {
+      "consensus": [
+        18.494351,
+        -34.02982
+      ],
+      "low_support": false,
+      "route_count": 6,
+      "source_names": [
+        "PARKWOOD"
+      ],
+      "spread_m": 1094.6,
+      "support": 6
+    },
+    "PAROW": {
+      "consensus": [
+        18.58612,
+        -33.910151
+      ],
+      "low_support": false,
+      "route_count": 21,
+      "source_names": [
+        "PAROW"
+      ],
+      "spread_m": 1858.6,
+      "support": 21
+    },
+    "PAROW (PLATTEKLOOF ROAD)": {
+      "consensus": [
+        18.58612,
+        -33.909157
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "PAROW (PLATTEKLOOF ROAD)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "PAROW SANLAM CENTRE": {
+      "consensus": [
+        18.595498,
+        -33.912104
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "PAROW SANLAM CENTRE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "PAROW STATION": {
+      "consensus": [
+        18.585692,
+        -33.910151
+      ],
+      "low_support": false,
+      "route_count": 7,
+      "source_names": [
+        "PAROW STATION",
+        "PAROW RAILWAY STATION"
+      ],
+      "spread_m": 117.4,
+      "support": 7
+    },
+    "PELLA": {
+      "consensus": [
+        18.521365,
+        -33.529376
+      ],
+      "low_support": false,
+      "route_count": 11,
+      "source_names": [
+        "PELLA"
+      ],
+      "spread_m": 0.0,
+      "support": 11
+    },
+    "PENTECH": {
+      "consensus": [
+        18.645461,
+        -33.935862
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "PENTECH"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "PENTECH STATION": {
+      "consensus": [
+        18.64368,
+        -33.935586
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "PENTECH RAILWAY STATION",
+        "PENTECH STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "PHILIPPI": {
+      "consensus": [
+        18.58557,
+        -34.012518
+      ],
+      "low_support": false,
+      "route_count": 28,
+      "source_names": [
+        "PHILIPPI"
+      ],
+      "spread_m": 151.1,
+      "support": 28
+    },
+    "PHILIPPI - LOWER CROSS ROADS": {
+      "consensus": [
+        18.606815,
+        -34.013774
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "PHILIPPI - LOWER CROSS ROADS"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "PHILIPPI STATION": {
+      "consensus": [
+        18.58557,
+        -34.012518
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "PHILIPPI STATION",
+        "PHILIPPI STATION TRANSPORT INTERCHANGE"
+      ],
+      "spread_m": 0.0,
+      "support": 3
+    },
+    "PINEPLACE": {
+      "consensus": [
+        18.711582,
+        -33.998513
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "PINEPLACE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "PLATTEKLOOF": {
+      "consensus": [
+        18.525257,
+        -33.838209
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "PLATTEKLOOF"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "PLUMSTEAD": {
+      "consensus": [
+        18.473625,
+        -34.026318
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "PLUMSTEAD"
+      ],
+      "spread_m": 2172.2,
+      "support": 2
+    },
+    "POLLSMOOR": {
+      "consensus": [
+        18.431433,
+        -34.068516
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "POLLSMOOR"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "RATANGA JUNCTION": {
+      "consensus": [
+        18.506058,
+        -33.892729
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "RATANGA JUNCTION",
+        "RATANGA JUNCTION (VIA SUMMER GREENS & MONTAGUE GARDENS)"
+      ],
+      "spread_m": 176.2,
+      "support": 5
+    },
+    "RATANGA JUNCTION CENTURY CITY": {
+      "consensus": [
+        18.506214,
+        -33.892341
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "RATANGA JUNCTION CENTURY CITY"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "RAVENSMEAD": {
+      "consensus": [
+        18.602991,
+        -33.924524
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "RAVENSMEAD"
+      ],
+      "spread_m": 1197.0,
+      "support": 5
+    },
+    "RED CROSS HOSPITAL": {
+      "consensus": [
+        18.488969,
+        -33.953561
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "RED CROSS HOSPITAL"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "RETREAT": {
+      "consensus": [
+        18.462742,
+        -34.059864
+      ],
+      "low_support": false,
+      "route_count": 37,
+      "source_names": [
+        "RETREAT"
+      ],
+      "spread_m": 2080.5,
+      "support": 40
+    },
+    "RETREAT STATION": {
+      "consensus": [
+        18.463578,
+        -34.059395
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "RETREAT STATION"
+      ],
+      "spread_m": 118.4,
+      "support": 3
+    },
+    "RICHWOOD": {
+      "consensus": [
+        18.539768,
+        -33.833013
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "RICHWOOD"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "RIVERTON STREET (SOMERSET WEST)": {
+      "consensus": [
+        18.833709,
+        -34.092943
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "RIVERTON STREET(SOMERSET WEST)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "ROCKLANDS": {
+      "consensus": [
+        18.603921,
+        -34.05895
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "ROCKLANDS"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "ROOSENDAL": {
+      "consensus": [
+        18.63547,
+        -33.965832
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "ROOSENDAL"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "RUE MOUNT PELLAR (SOMERSET WEST)": {
+      "consensus": [
+        18.85079,
+        -34.065462
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "RUE MOUNT PELLAR(SOMERSET WEST)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "RUSTHOF": {
+      "consensus": [
+        18.847375,
+        -34.130292
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "RUSTHOF"
+      ],
+      "spread_m": 2856.5,
+      "support": 4
+    },
+    "RUSTHOF (STRAND)": {
+      "consensus": [
+        18.84778,
+        -34.129552
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "RUSTHOF (STRAND)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "RUYTERWACHT": {
+      "consensus": [
+        18.552087,
+        -33.91358
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "RUYTERWACHT (VIA GARDEN VILLAGE)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SALDANHA": {
+      "consensus": [
+        18.137206,
+        -33.138295
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "SALDANHA"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "SALT RIVER": {
+      "consensus": [
+        18.457037,
+        -33.935083
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SALT RIVER"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SAMORA MACHEL": {
+      "consensus": [
+        18.57476,
+        -34.017769
+      ],
+      "low_support": false,
+      "route_count": 17,
+      "source_names": [
+        "SAMORA MACHEL",
+        "SAMORA MACHEL (VIA MELKBOSSTRAND)"
+      ],
+      "spread_m": 198.4,
+      "support": 17
+    },
+    "SANDRIFT": {
+      "consensus": [
+        18.504002,
+        -33.883282
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "SANDRIFT",
+        "SANDDRIFT",
+        "SANDRIF"
+      ],
+      "spread_m": 389.3,
+      "support": 4
+    },
+    "SANDRIFT - MONTAGUE GARDENS": {
+      "consensus": [
+        18.518205,
+        -33.855483
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SANDRIFT - MONTAGUE GARDENS"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SANDVLEI": {
+      "consensus": [
+        18.78086,
+        -34.060172
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SANDVLEI"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SANLAM CENTRE, PAROW": {
+      "consensus": [
+        18.600668,
+        -33.908788
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "SANLAM CENTRE,PAROW",
+        "SANLAM CENTRE ,PAROW",
+        "SANLAM CENTRE PAROW"
+      ],
+      "spread_m": 663.6,
+      "support": 4
+    },
+    "SAREPTA": {
+      "consensus": [
+        18.66506,
+        -33.938485
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "SAREPTA"
+      ],
+      "spread_m": 0.0,
+      "support": 5
+    },
+    "SAXON WORLD": {
+      "consensus": [
+        18.48874,
+        -33.550592
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "SAXON WORLD"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "SAXONSEA ATLANTIS": {
+      "consensus": [
+        18.483055,
+        -33.546977
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "SAXON SEA ATLANTIS",
+        "SAXONSEA ATLANTIS",
+        "SAXONSEA ATLANTIS (VIA PAARDEN EILAND)",
+        "SAXONSEA ATLANTIS (VIA TABLEVIEW)"
+      ],
+      "spread_m": 0.0,
+      "support": 4
+    },
+    "SAXONWOLD": {
+      "consensus": [
+        18.548128,
+        -33.554812
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SAXONWOLD"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SCOTTSDENE": {
+      "consensus": [
+        18.7234,
+        -33.86087
+      ],
+      "low_support": false,
+      "route_count": 12,
+      "source_names": [
+        "SCOTTSDENE"
+      ],
+      "spread_m": 1217.6,
+      "support": 12
+    },
+    "SCOTTSVILLE": {
+      "consensus": [
+        18.709202,
+        -33.85578
+      ],
+      "low_support": false,
+      "route_count": 8,
+      "source_names": [
+        "SCOTTSVILLE"
+      ],
+      "spread_m": 2291.5,
+      "support": 8
+    },
+    "SCOTTSVILLE - BRACKENFELL": {
+      "consensus": [
+        18.68679,
+        -33.878095
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SCOTTSVILLE  - BRACKENFELL"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SEA POINT": {
+      "consensus": [
+        18.379142,
+        -33.92123
+      ],
+      "low_support": false,
+      "route_count": 20,
+      "source_names": [
+        "SEA POINT"
+      ],
+      "spread_m": 0.0,
+      "support": 20
+    },
+    "SEA WINDS": {
+      "consensus": [
+        18.487128,
+        -34.074882
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SEA WINDS"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SEAFORTH": {
+      "consensus": [
+        18.446209,
+        -34.196216
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SEAFORTH"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SEAWINDS, RETREAT": {
+      "consensus": [
+        18.462731,
+        -34.059674
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SEAWINDS,RETREAT"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SHOPRITE HOUT BAY": {
+      "consensus": [
+        18.358131,
+        -34.043942
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SHOPRITE HOUT BAY"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SHOPRITE KUILSRIVER": {
+      "consensus": [
+        18.678227,
+        -33.926091
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "SHOPRITE KUILSRIVER"
+      ],
+      "spread_m": 104.2,
+      "support": 3
+    },
+    "SILVERSANDS": {
+      "consensus": [
+        18.667117,
+        -33.977184
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "SILVERSANDS"
+      ],
+      "spread_m": 1819.8,
+      "support": 2
+    },
+    "SILVERTOWN": {
+      "consensus": [
+        18.528713,
+        -33.965995
+      ],
+      "low_support": false,
+      "route_count": 11,
+      "source_names": [
+        "SILVERTOWN"
+      ],
+      "spread_m": 978.6,
+      "support": 11
+    },
+    "SIMONS TOWN": {
+      "consensus": [
+        18.443424,
+        -34.1987
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "SIMONS TOWN"
+      ],
+      "spread_m": 4216.5,
+      "support": 2
+    },
+    "SIR LOWRYS PASS": {
+      "consensus": [
+        18.907758,
+        -34.120589
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "SIR LOWRYS PASS",
+        "SIR LOWRY'S PASS"
+      ],
+      "spread_m": 559.0,
+      "support": 3
+    },
+    "SIR LOWRYS PASS TOWN": {
+      "consensus": [
+        18.907758,
+        -34.121619
+      ],
+      "low_support": false,
+      "route_count": 18,
+      "source_names": [
+        "SIR LOWRYS PASS TOWN"
+      ],
+      "spread_m": 7737.6,
+      "support": 18
+    },
+    "SOMERSET HOSPITAL": {
+      "consensus": [
+        18.417101,
+        -33.904209
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SOMERSET HOSPITAL"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SOMERSET MALL, SOMERSET WEST": {
+      "consensus": [
+        18.823929,
+        -34.083362
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "SOMERSET MALL,SOMERSET WEST"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "SOMERSET WEST": {
+      "consensus": [
+        18.850093,
+        -34.084431
+      ],
+      "low_support": false,
+      "route_count": 52,
+      "source_names": [
+        "SOMERSET WEST",
+        "SOMERSET WEST (VIA",
+        "SOMERSET WEST (VIA DE BEERS)",
+        "SOMERSET WEST (VIA DENNEGEUR)",
+        "SOMERSET WEST (VIA FIRGROVE)",
+        "SOMERSET WEST (VIA MADALABOS)",
+        "SOMERSET WEST (VIA MEDI CITY)",
+        "SOMERSET WEST (VIA R102)",
+        "SOMERSET WEST (VIA STEYNSRUS)",
+        "SOMERSET WEST (VIA ZANDVLIET RD)",
+        "SOMERSET WEST(VIA NOMZAMO)"
+      ],
+      "spread_m": 2454.8,
+      "support": 52
+    },
+    "SOMERSET WEST (HOTTENTOTS HOSPITAL)": {
+      "consensus": [
+        18.8563,
+        -34.076991
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SOMERSET WEST(HOTTENTOTS HOSPITAL)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SOMERSET WEST (SUID STREET WESTRIDGE)": {
+      "consensus": [
+        18.836,
+        -34.080667
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SOMERSET WEST (SUID STREET WESTRIDGE)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SOMERSET WEST MALL": {
+      "consensus": [
+        18.823929,
+        -34.083362
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "SOMERSET WEST MALL"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "SOMERSET WEST STATION": {
+      "consensus": [
+        18.842822,
+        -34.084827
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "SOMERSET WEST RAILWAY STATION",
+        "RAILWAY STATION(SOMERSET WEST)"
+      ],
+      "spread_m": 0.0,
+      "support": 3
+    },
+    "SOUTHFIELD": {
+      "consensus": [
+        18.481854,
+        -34.03331
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SOUTHFIELD"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SPINE RD MITCHELLS PLAIN": {
+      "consensus": [
+        18.601159,
+        -34.065908
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "SPINE RD MITCHELLS PLAIN"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "STEENBERG": {
+      "consensus": [
+        18.46419,
+        -34.077485
+      ],
+      "low_support": false,
+      "route_count": 16,
+      "source_names": [
+        "STEENBERG"
+      ],
+      "spread_m": 0.0,
+      "support": 16
+    },
+    "STEENBERG (HILLVIEW)": {
+      "consensus": [
+        18.462731,
+        -34.059674
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "STEENBERG(HILLVIEW)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "STELLENBOSCH": {
+      "consensus": [
+        18.858752,
+        -33.932248
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "STELLENBOSCH"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "STELLENBOSCH (DU TOIT STATION)": {
+      "consensus": [
+        18.854553,
+        -33.925172
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "STELLENBOSCH (DU TOIT STATION)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "STEYNRUST RD, SOMERSET WEST": {
+      "consensus": [
+        18.834405,
+        -34.065843
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "STEYNRUST RD,SOMERSET WEST"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "STRAND": {
+      "consensus": [
+        18.829478,
+        -34.116153
+      ],
+      "low_support": false,
+      "route_count": 27,
+      "source_names": [
+        "STRAND"
+      ],
+      "spread_m": 2464.0,
+      "support": 27
+    },
+    "STRAND (AE & CI)": {
+      "consensus": [
+        18.823929,
+        -34.083362
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "STRAND (AE &CI)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "STRAND NORTH": {
+      "consensus": [
+        18.829308,
+        -34.116497
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "STRAND NORTH"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "STRANDFONTEIN": {
+      "consensus": [
+        18.548148,
+        -34.077157
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "STRANDFONTEIN"
+      ],
+      "spread_m": 1979.3,
+      "support": 4
+    },
+    "STRATFORD": {
+      "consensus": [
+        18.725474,
+        -34.01772
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "STRATFORD"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "SUBURBAN BLISS": {
+      "consensus": [
+        18.626818,
+        -33.991566
+      ],
+      "low_support": false,
+      "route_count": 11,
+      "source_names": [
+        "SUBURBAN BLISS"
+      ],
+      "spread_m": 295.6,
+      "support": 11
+    },
+    "SUMMER GREENS": {
+      "consensus": [
+        18.52656,
+        -33.880949
+      ],
+      "low_support": false,
+      "route_count": 13,
+      "source_names": [
+        "SUMMER GREENS",
+        "SUMMERGREENS",
+        "SUMMER GREENS (VIA PHOENIX VILLAGE & JOE SLOVO)",
+        "SUMMER GREENS (VIA SANDRIFT)",
+        "SUMMER GREENS(VIA N1 FREEWAY)"
+      ],
+      "spread_m": 920.5,
+      "support": 13
+    },
+    "SUN VALLEY": {
+      "consensus": [
+        18.390273,
+        -34.125128
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "SUN VALLEY"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "TABLE VIEW": {
+      "consensus": [
+        18.488971,
+        -33.824695
+      ],
+      "low_support": false,
+      "route_count": 46,
+      "source_names": [
+        "TABLE VIEW",
+        "TABLEVIEW",
+        "TABLEVIEW (VIA BOUNDARY ROAD)",
+        "TABLEVIEW (VIA LOXTON ROAD)",
+        "TABLEVIEW (VIA N1 & MONTAGUE GARDENS)",
+        "TABLEVIEW (VIA N1, N7 & PLATTEKLOOF)",
+        "TABLEVIEW (VIA RACECOURSE)",
+        "TABLEVIEW (VIA SUMMER GREENS & MONTAGUE GARDENS)"
+      ],
+      "spread_m": 3834.6,
+      "support": 46
+    },
+    "TABLE VIEW - MELKBOSSTRAND": {
+      "consensus": [
+        18.442062,
+        -33.731144
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "TABLE VIEW - MELKBOSSTRAND"
+      ],
+      "spread_m": 12873.2,
+      "support": 3
+    },
+    "TABLEVIEW BAYSIDE CENTRE": {
+      "consensus": [
+        18.488971,
+        -33.824695
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "TABLEVIEW BAYSIDE CENTRE"
+      ],
+      "spread_m": 0.0,
+      "support": 3
+    },
+    "TAFELSIG": {
+      "consensus": [
+        18.638413,
+        -34.058037
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "TAFELSIG"
+      ],
+      "spread_m": 1406.2,
+      "support": 2
+    },
+    "TAMBO VILLAGE": {
+      "consensus": [
+        18.510739,
+        -33.977935
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "TAMBO VILLAGE"
+      ],
+      "spread_m": 8171.2,
+      "support": 2
+    },
+    "TEMPERANCE TOWN": {
+      "consensus": [
+        18.849183,
+        -34.169898
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "TEMPERANCE TOWN"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "TEMPERANCE TOWN (GORDONS BAY)": {
+      "consensus": [
+        18.883334,
+        -34.150755
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "TEMPERANCE TOWN (GORDONS BAY)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "THE HAGUE": {
+      "consensus": [
+        18.646851,
+        -33.960194
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "THE HAGUE"
+      ],
+      "spread_m": 402.1,
+      "support": 2
+    },
+    "THE HAGUE DELFT": {
+      "consensus": [
+        18.646956,
+        -33.962
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "THE HAGUE DELFT"
+      ],
+      "spread_m": 0.0,
+      "support": 5
+    },
+    "TOKAI": {
+      "consensus": [
+        18.458385,
+        -34.065255
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "TOKAI"
+      ],
+      "spread_m": 644.9,
+      "support": 2
+    },
+    "TOWN CENTRE (MITCHELLS PLAIN)": {
+      "consensus": [
+        18.619164,
+        -34.048953
+      ],
+      "low_support": false,
+      "route_count": 7,
+      "source_names": [
+        "TOWN CENTRE(MITCHELLS PLAIN)",
+        "TOWN CENTRE MITCHELLS PLAIN",
+        "TOWN CENTRE,MITCHELLS PLAIN"
+      ],
+      "spread_m": 159.8,
+      "support": 7
+    },
+    "TOWN CENTRE CALYPSO SQUARE MITCHELLS PLAIN": {
+      "consensus": [
+        18.620949,
+        -34.048773
+      ],
+      "low_support": false,
+      "route_count": 9,
+      "source_names": [
+        "TOWN CENTRE CALYPSO SQUARE MITCHELLS PLAIN"
+      ],
+      "spread_m": 0.0,
+      "support": 9
+    },
+    "TUSCANY GLEN": {
+      "consensus": [
+        18.701287,
+        -34.000009
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "TUSCANY GLEN"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "TYGERBERG": {
+      "consensus": [
+        18.597566,
+        -33.90635
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "TYGERBERG"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "TYGERBERG HOSPITAL": {
+      "consensus": [
+        18.614773,
+        -33.908712
+      ],
+      "low_support": false,
+      "route_count": 11,
+      "source_names": [
+        "TYGERBERG HOSPITAL"
+      ],
+      "spread_m": 8.7,
+      "support": 11
+    },
+    "TYGERBERG STATION": {
+      "consensus": [
+        18.602459,
+        -33.90775
+      ],
+      "low_support": false,
+      "route_count": 15,
+      "source_names": [
+        "TYGERBERG RAILWAY STATION",
+        "TYGERBERG STATION",
+        "TYGERBERG STATION (VIA TYGERBERG HOSPITAL)",
+        "TYGERBERG RAILWAY STATION (VIA ELSIES RIVER & PAROW)"
+      ],
+      "spread_m": 1611.4,
+      "support": 15
+    },
+    "TYGERVALLEY SHOPPING CENTRE": {
+      "consensus": [
+        18.636376,
+        -33.872178
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "TYGERVALLEY SHOPPING CENTRE",
+        "TYGERVALLEY CENTRE"
+      ],
+      "spread_m": 423.0,
+      "support": 3
+    },
+    "UITSIG": {
+      "consensus": [
+        18.591956,
+        -33.934949
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "UITSIG"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "UNIBELL": {
+      "consensus": [
+        18.627134,
+        -33.937878
+      ],
+      "low_support": false,
+      "route_count": 11,
+      "source_names": [
+        "UNIBELL"
+      ],
+      "spread_m": 0.0,
+      "support": 11
+    },
+    "UNIBELL STATION": {
+      "consensus": [
+        18.627134,
+        -33.937878
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "UNIBELL RAILWAY STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "UPPER MOUNTAIN STREET (SOMERSET WEST)": {
+      "consensus": [
+        18.867018,
+        -34.062765
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "UPPER MOUNTAIN STREET(SOMERSET WEST)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "V & A WATERFRONT": {
+      "consensus": [
+        18.417995,
+        -33.904061
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "V & A WATERFRONT"
+      ],
+      "spread_m": 0.0,
+      "support": 5
+    },
+    "VANDER STEL STATION": {
+      "consensus": [
+        18.852843,
+        -34.095749
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "VANDER STEL STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "VANGATE MALL": {
+      "consensus": [
+        18.54053,
+        -33.960032
+      ],
+      "low_support": false,
+      "route_count": 15,
+      "source_names": [
+        "VANGATE MALL",
+        "VANGATE MALL (VIA BRIDGETOWN)",
+        "VANGATE MALL (VIA BELGRAVIA RD)",
+        "VANGATE MALL (VIA DEVILS PEAK RD & KLIPFONTEIN RD)",
+        "VANGATE MALL (VIA HEIDEVELD & 5TH AVENUE)",
+        "VANGATE MALL (VIA HEIDEVELD)",
+        "VANGATE MALL (VIA N2)",
+        "VANGATE MALL (VIA NEWFIELDS)",
+        "VANGATE MALL (VIA VANGUARD DR)"
+      ],
+      "spread_m": 1034.1,
+      "support": 15
+    },
+    "VASCO": {
+      "consensus": [
+        18.558434,
+        -33.910728
+      ],
+      "low_support": false,
+      "route_count": 11,
+      "source_names": [
+        "VASCO",
+        "VASCO VIA N1 CITY"
+      ],
+      "spread_m": 81.4,
+      "support": 11
+    },
+    "VICTORIA PARK": {
+      "consensus": [
+        18.832503,
+        -34.092463
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "VICTORIA PARK"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "VISSERSHOK FARM": {
+      "consensus": [
+        18.585033,
+        -33.786553
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "VISSERSHOK FARM"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "VOORBRUG": {
+      "consensus": [
+        18.644676,
+        -33.969181
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "VOORBRUG"
+      ],
+      "spread_m": 606.5,
+      "support": 3
+    },
+    "VOORBRUG DELFT": {
+      "consensus": [
+        18.644676,
+        -33.969181
+      ],
+      "low_support": false,
+      "route_count": 6,
+      "source_names": [
+        "VOORBRUG DELFT"
+      ],
+      "spread_m": 0.0,
+      "support": 6
+    },
+    "VREDEHOEK": {
+      "consensus": [
+        18.426477,
+        -33.942431
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "VREDEHOEK"
+      ],
+      "spread_m": 1131.0,
+      "support": 2
+    },
+    "VREDENBURG": {
+      "consensus": [
+        18.137206,
+        -33.138295
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "VREDENBURG"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "VREDENDAL": {
+      "consensus": [
+        18.354892,
+        -33.058291
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "VREDENDAL"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "VRYGROND": {
+      "consensus": [
+        18.483687,
+        -34.083275
+      ],
+      "low_support": false,
+      "route_count": 5,
+      "source_names": [
+        "VRYGROND"
+      ],
+      "spread_m": 0.0,
+      "support": 5
+    },
+    "VRYGROND - STEENBERG": {
+      "consensus": [
+        18.462731,
+        -34.059674
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "VRYGROND - STEENBERG"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "WALLACEDENE": {
+      "consensus": [
+        18.72946,
+        -33.863693
+      ],
+      "low_support": false,
+      "route_count": 16,
+      "source_names": [
+        "WALLACEDENE"
+      ],
+      "spread_m": 296.5,
+      "support": 16
+    },
+    "WALMER ESTATE": {
+      "consensus": [
+        18.44874,
+        -33.937967
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "WALMER ESTATE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "WELGEMOED": {
+      "consensus": [
+        18.630946,
+        -33.862237
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "WELGEMOED"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "WESBANK": {
+      "consensus": [
+        18.657552,
+        -33.969109
+      ],
+      "low_support": false,
+      "route_count": 14,
+      "source_names": [
+        "WESBANK"
+      ],
+      "spread_m": 2246.0,
+      "support": 14
+    },
+    "WESFLEUR": {
+      "consensus": [
+        18.49456,
+        -33.562427
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "WESFLEUR"
+      ],
+      "spread_m": 171.0,
+      "support": 2
+    },
+    "WESFLEUR ATLANTIS": {
+      "consensus": [
+        18.493638,
+        -33.562458
+      ],
+      "low_support": false,
+      "route_count": 7,
+      "source_names": [
+        "WESFLEUR ATLANTIS",
+        "WESFLEUR ATLANTIS (VIA PAARDEN EILAND)"
+      ],
+      "spread_m": 0.0,
+      "support": 7
+    },
+    "WEST BEACH, SUNNINGDALE & PARKLANDS": {
+      "consensus": [
+        18.506876,
+        -33.813695
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "WEST BEACH, SUNNINGDALE & PARKLANDS"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "WESTGATE MALL": {
+      "consensus": [
+        18.586945,
+        -34.042251
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "WESTGATE MALL",
+        "WESTGATE MALL (VIA KAPTEINSKLIP)",
+        "WESTGATE MALL (VIA SILVERSANDS)"
+      ],
+      "spread_m": 0.0,
+      "support": 4
+    },
+    "WESTGATE MALL (MITCHELLS PLAIN)": {
+      "consensus": [
+        18.586945,
+        -34.042251
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "WESTGATE MALL(MITCHELLS PLAIN)"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "WESTGATE PALMS": {
+      "consensus": [
+        18.583046,
+        -34.0293
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "WESTGATE PALMS"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "WESTLAKE": {
+      "consensus": [
+        18.438156,
+        -34.07666
+      ],
+      "low_support": false,
+      "route_count": 3,
+      "source_names": [
+        "WESTLAKE"
+      ],
+      "spread_m": 328.5,
+      "support": 3
+    },
+    "WESTLAKE - BLUE ROUTE": {
+      "consensus": [
+        18.451396,
+        -34.064808
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "WESTLAKE - BLUE ROUTE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "WESTLAKE - RETREAT": {
+      "consensus": [
+        18.462731,
+        -34.059674
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "WESTLAKE - RETREAT"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "WESTLAKE - TOKAI": {
+      "consensus": [
+        18.462731,
+        -34.059674
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "WESTLAKE - TOKAI"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "WESTLAKE M3 - RETREAT": {
+      "consensus": [
+        18.462731,
+        -34.059674
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "WESTLAKE M3 - RETREAT"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "WESTRIDGE": {
+      "consensus": [
+        18.603921,
+        -34.05895
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "WESTRIDGE"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "WINERY RD": {
+      "consensus": [
+        18.819506,
+        -34.026622
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "WINERY RD"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "WITSAND": {
+      "consensus": [
+        18.506453,
+        -33.579975
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "WITSAND"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "WOODSTOCK": {
+      "consensus": [
+        18.444938,
+        -33.931773
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "WOODSTOCK"
+      ],
+      "spread_m": 1164.1,
+      "support": 2
+    },
+    "WYNBERG": {
+      "consensus": [
+        18.471283,
+        -34.004779
+      ],
+      "low_support": false,
+      "route_count": 82,
+      "source_names": [
+        "WYNBERG",
+        "WYNBERG (VIA CLAREMONT)",
+        "WYNBERG (VIA GUGULETU VIA CLAREMONT)",
+        "VIA BLACKBIRD WLK - WYNBERG",
+        "VIA KESTREL RD - WYNBERG",
+        "VIA LIME RD -WYNBERG",
+        "VIA PLANTATION RD - WYNBERG",
+        "VIA PLUMSTEAD - WYNBERG",
+        "VIA VICTORIA RD - WYNBERG",
+        "VIA WALMER RD - WYNBERG",
+        "WYNBERG (VIA CROSS ROADS)",
+        "WYNBERG (VIA GUGULETU)",
+        "WYNBERG (VIA LOWER CROSS ROADS VIA PHILIPPI)",
+        "WYNBERG (VIA M3)",
+        "WYNBERG (VIA PHILIPPI)"
+      ],
+      "spread_m": 2760.2,
+      "support": 82
+    },
+    "WYNBERG (CONSTANTIA)": {
+      "consensus": [
+        18.470837,
+        -34.004958
+      ],
+      "low_support": true,
+      "route_count": 2,
+      "source_names": [
+        "WYNBERG (CONSTANTIA)"
+      ],
+      "spread_m": 0.0,
+      "support": 2
+    },
+    "WYNBERG AND RETURN": {
+      "consensus": [
+        18.636214,
+        -33.991541
+      ],
+      "low_support": true,
+      "route_count": 1,
+      "source_names": [
+        "WYNBERG AND RETURN"
+      ],
+      "spread_m": 0.0,
+      "support": 1
+    },
+    "YSTERPLAAT": {
+      "consensus": [
+        18.475904,
+        -33.91806
+      ],
+      "low_support": false,
+      "route_count": 38,
+      "source_names": [
+        "YSTERPLAAT",
+        "YSTERPLAAT (VIA SANDRIFT)"
+      ],
+      "spread_m": 0.0,
+      "support": 38
+    },
+    "YSTERPLAAT STATION": {
+      "consensus": [
+        18.475904,
+        -33.91806
+      ],
+      "low_support": false,
+      "route_count": 12,
+      "source_names": [
+        "YSTERPLAAT RAILWAY STATION",
+        "YSTERPLAAT STATION"
+      ],
+      "spread_m": 0.0,
+      "support": 12
+    },
+    "ZEVENWACHT MALL": {
+      "consensus": [
+        18.702705,
+        -33.949285
+      ],
+      "low_support": false,
+      "route_count": 4,
+      "source_names": [
+        "ZEVENWACHT MALL"
+      ],
+      "spread_m": 0.0,
+      "support": 4
+    }
+  },
+  "schema_version": 1
+}

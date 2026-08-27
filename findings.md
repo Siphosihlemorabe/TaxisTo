@@ -219,6 +219,192 @@ isn't derivable from the file.
   route description stuffed into one field can't be settled from the label —
   see the new item 10 below.
 
+### Pass 6 — the full pipeline (CLAUDE.md steps 1–7)
+
+Requested explicitly: build the whole pipeline, not just the cleaning; produce a
+JSON record of the normalisation that can be shown and defended; and provide a
+way to revert.
+
+Passes 1–5 were one-off transforms recorded in prose, plus one script that
+**read and overwrote its own source file**. That left the work unreproducible
+(no path back to raw input — the derived fields were in `data/` *and* in git
+history), undefensible (the 565 → 379 collapse existed only as Python dict
+literals), and unrevertible (undoing one merge meant editing code).
+
+#### Structure
+
+```
+config/place_aliases.json   the 32 judgement calls, lifted out of Python, each with its reason
+config/pipeline.json        every threshold, with the evidence for the value chosen
+scripts/clean_routes.py     one entry point: run / validate-config / explain / revert / diff
+scripts/pipeline/           the seven steps, one module each
+output/                     five artifacts, all regenerated from data/ + config/
+tests/                      72 tests, including the acceptance counts below
+```
+
+`data/` is now **input only** — `sourceio.py` refuses to write under it. The
+source file was stripped back to `OBJECTID`, `ORGN`, `DSTN`, `Shape__Length` and
+`geometry`; the loader also strips derived fields at read time regardless, so a
+bug that read last run's `canonical_origin` cannot confirm itself.
+
+Pure standard library. CLAUDE.md's "pandas + shapely + networkx" convention
+describes the routing engine; none of the three are installed here and none are
+needed to sum haversine distances or take a median, so the pipeline runs on a
+bare interpreter with no `pip install`.
+
+#### Decisions settled before running
+
+| Decision | Value | Why this value |
+|---|---|---|
+| Out-of-bounds bbox | lon 17.6–19.4, lat −34.6 to −32.9 | Cape Town metro plus the Atlantis/Darling corridor. Data spans lon 18.137–18.911, lat −34.271 to −33.058, so this is a guard against a bad future export, not a filter on today's file. |
+| Length mismatch | ±10% | Observed ratio spans 0.9980–1.0021. 10% is ~48× the worst observed case. |
+| Label/geometry tolerance | 1,000 m warn, 5,000 m error | 1 km is roughly the width of the larger townships (`CROSS ROADS` spreads ~1.1 km on its own), so the 1–2 km band mixes real errors with place size. Past 5 km that ambiguity is gone. |
+| Consensus support floor | 3 endpoints | See below — this one is load-bearing. |
+| Parallel routes | shortest of the **unflagged** | See below — plain "shortest" is actively wrong here. |
+| Drop vs. flag | only step 1 drops | Unchanged from CLAUDE.md. |
+
+**Why the support floor exists.** Step 5 judges an endpoint against the
+consensus location of the place it claims. For a place claimed by one endpoint,
+the consensus *is* that endpoint, so the distance is always 0 and the check
+proves nothing; with two, the error splits evenly and both are flagged or
+neither. 213 of 379 canonical places fall below 3. Without the floor they would
+have passed silently. They are now flagged `endpoint_consensus_unverifiable` —
+the check was **skipped, not passed** — which is a materially different claim.
+
+**Why "shortest" needed refining.** `MFULENI → KILLARNEY` carries three routes:
+387 m, 69,691 m and 71,410 m. The 387 m one is an 11-point stub whose endpoint
+sits 23.9 km from Killarney's consensus, and the same geometry is reused by a
+second route to `FISH HOEK`. Plain "shortest wins" would have made that stub the
+route the journey planner recommends. Candidates already flagged by steps 4–5
+are now excluded first, and the shortest survivor wins; if every route in a
+group is flagged the whole group is reconsidered and the pick is marked
+`fallback_all_flagged` (13 pairs). Each group records what it excluded and why.
+
+#### Results
+
+Steps 2 and 3 reproduce Pass 5 exactly — 565 → 379 canonical names, 146 names
+carrying via metadata, the same 12 merge groups over the 1 km spread threshold —
+which is the evidence that moving the tables from Python to JSON changed
+nothing. Three of the 12 spreads are *larger* than Pass 5 reported (`TABLE VIEW`
+2,637 m not 2,585; `CLAREMONT` 2,623 m not 2,576; `MACASSAR` 1,564 m not 1,386),
+because the old script measured every member against the *first* member's
+location rather than taking the true maximum pairwise distance. The old figures
+understated the spread; the same 12 groups qualify either way.
+
+| Step | Result |
+|---|---|
+| 1 drop unusable geometry | **0 dropped**, 1,417 kept. Minimum point count in the file is 11, so nothing qualifies. |
+| 2 split via | 146 of 565 raw names carry route metadata, on 170 endpoint values |
+| 3 normalise | 565 → **379** canonical names, 75 merge groups, 236 names changed |
+| 4 validate geometry | 60 routes flagged |
+| 5 validate labels | 379 places; 178 endpoints over 1 km from the place they claim (25 over 5 km); 213 places below the support floor |
+| 6 resolve parallel | 973 O/D pairs, 254 with more than one route; 973 canonical; 110 candidates excluded by flags |
+| 7 emit | 1,393 clean, 457 flagged (the two overlap), 24 withheld |
+
+Issue counts:
+
+| code | count | severity |
+|---|---|---|
+| `endpoint_consensus_unverifiable` | 268 | info |
+| `endpoint_far_from_consensus` | 178 | 153 warn, 25 error |
+| `duplicate_geometry_secondary` | 22 | warn |
+| `duplicate_geometry_primary` | 20 | info |
+| `self_loop_geometry` | 14 | info |
+| `self_loop_label` | 5 | info |
+| `short_stub` | 2 | warn |
+| `self_loop_induced_by_normalisation` | 1 | warn |
+
+**Clean vs. flagged.** `routes_clean.geojson` is what the routing engine
+consumes; `routes_flagged.geojson` is a review queue. A route with non-blocking
+issues is in **both**, so the counts overlap and must not be added. 24 routes
+are held out of clean for an error-severity issue — routing on an endpoint 5+ km
+from its label gives a wrong answer. They are **not dropped**: they are in
+flagged in full and listed individually in
+`quality_report.json → funnel[step 7].withheld_from_clean`.
+
+#### New findings
+
+1. **`findings.md` Pass 2 undercounted the loop routes.** There are **5**, not 4
+   — `MITCHELL'S PLAIN` (OBJECTID 1415) was missed. All are informational; Pass 2
+   established circular services are legitimate.
+2. **One route is turned into a self-loop by normalisation.** OBJECTID 1005 runs
+   `MUTUAL STATION` → `MUTUAL RAILWAY STATION (VIA PINELANDS, FOREST DR &
+   RINGWOOD DR)`. The railway-station rule collapses the destination onto the
+   origin, so a real edge becomes a no-op. Flagged rather than fixed: whether
+   the two are one facility or two isn't derivable from the file. If they are
+   two, one `keep_distinct` entry blocks the rule for that pair, no code change.
+3. **42 routes across 20 groups still share identical geometry.** Pass 1 removed
+   only duplicates that shared their *labels* too. These have different labels on
+   one centreline, which may be two real services or a copy-paste error, so the
+   lowest OBJECTID is marked primary and the rest flagged.
+4. **`Shape__Length` is confirmed trustworthy.** Measured haversine length agrees
+   with it to within **0.212%** across all 1,417 routes, so it is already metres.
+   Zero length mismatches is the expected result, not a check that failed to fire.
+5. **`singularise_stations` is now a dead rule.** It never fires, because Pass 4
+   already corrected `KOEBERG RAILWAY STATIONS` at source. Kept as a cheap guard
+   and reported under `config_coverage` so it stays visible rather than forgotten.
+6. **The `preferred` table covers every ambiguous group.** No canonical name is
+   currently chosen by the plurality tiebreak, so no display form rests on an
+   unexplained rule. The fallback is unit-tested for when new data arrives.
+
+#### `output/normalisation_map.json` — the audit artifact
+
+1.7 MB, four sections, deterministic and diffable:
+
+- **`names`** — all 565 raw values, *including the 329 that changed nothing*. An
+  audit that lists only changes cannot show a name was considered. Each carries
+  the ordered transform trace, the config entry responsible for each hop and the
+  reason that entry gives, the geometry backing it, and the `OBJECTID`s it
+  touched — so the blast radius of a single alias is visible without re-running.
+- **`canonical_places`** — the reverse index: members, per-member distance from
+  the group consensus, spread, and how the display form was chosen.
+- **`suppressed`** — the negative space: merges the pipeline *declined* to make
+  and why.
+- **`config_coverage`** — which entries fired and which never did.
+
+Every changed name carries a recorded justification; this is asserted by a test,
+which is how the missing rationale for formatting-only changes (`' CAPE TOWN
+CAPTOUR'` → `'CAPE TOWN CAPTOUR'`) got caught and filled in.
+
+#### Reverting
+
+| Tier | Mechanism |
+|---|---|
+| Artifacts | `data/` is never written to — delete `output/` and re-run |
+| Field-level | raw `ORGN`/`DSTN` survive on every output feature, so a source-shaped file rebuilds from the outputs alone |
+| Decision-level | edit `config/place_aliases.json` and re-run; `diff --baseline` shows exactly what moved |
+
+`clean_routes.py revert --verify` reports **1417/1417 features reconstruct
+exactly** — same OBJECTIDs, byte-identical `ORGN`/`DSTN`, identical coordinates.
+That is the mechanical proof that normalisation is lossless, and it runs in the
+tests.
+
+The decision-level path was exercised end to end: adding a `keep_distinct` entry
+for `SANDDRIFT` moved the count 379 → 380, `diff` attributed the change to
+`aliases[SANDDRIFT] blocked by keep_distinct:…` and reported `SANDRIFT`'s spread
+dropping 389 m → 195 m; removing the entry restored `normalisation_map.json`
+byte-for-byte.
+
+`explain` gives the trace for any name and then the exact config edit that would
+undo it — correctly distinguishing the three cases, since offering an edit that
+silently does nothing would be worse than offering none:
+
+- rewritten by an alias or rule → `keep_distinct` blocks that rewrite;
+- grouped by punctuation-insensitive matching → `keep_distinct` splits the group;
+- identical after via-stripping → **nothing to reverse**, because the members are
+  the same string. A member far from the group consensus here is a
+  label-vs-geometry disagreement (step 5), not a bad merge.
+
+#### Not done in this pass
+
+- **The Stellenbosch GTFS feed is untouched.** CLAUDE.md says treat it as a
+  separate source and don't merge it without an explicit instruction.
+- **The 12 label/geometry mismatches are still unresolved**, as are the ~18
+  compound endpoint values (item 10) and the `weekdays` calendar (item 11). The
+  pipeline surfaces all of them as structured data in
+  `quality_report.json → review_queue` instead of prose, but each still needs a
+  decision that the file cannot supply.
+
 ## Issues found but left as-is (need a judgment call, not a mechanical fix)
 
 1. **224 `(ORGN, DSTN)` pairs occur more than once with genuinely different paths** (e.g. `LANGA → CAPE TOWN` appears 3 times). This is expected — multiple taxi routes/ranks can connect the same two places by different roads — so it was **not** treated as duplication. Flagging it so the routing logic doesn't assume one path per place-pair.

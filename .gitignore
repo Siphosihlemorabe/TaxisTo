@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+*.tmp
+
+# Pipeline artifacts.
+#
+# The two route geojsons are large (13 MB + 4 MB) and regenerate in seconds
+# from data/ + config/, so they stay out of git.
+#
+# The three JSON artifacts below are deliberately NOT ignored. They are small,
+# they diff cleanly, and normalisation_map.json in particular is the record of
+# why every place name changed -- keeping it in the repo means a reviewer can
+# check a merge without installing or running anything.
+output/routes_clean.geojson
+output/routes_flagged.geojson
+
+.venv/
+venv/
+.pytest_cache/
+.idea/
+.vscode/
