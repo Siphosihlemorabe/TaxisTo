@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "_doc": {
-    "purpose": "Every judgement call made about Cape Town taxi-route place names. Edited by hand; consumed by scripts/pipeline/places.py. Editing this file and re-running is the supported way to change or undo a merge.",
+    "purpose": "Every judgement call made about Cape Town taxi-route place names. Edited by hand; consumed by pipeline/places.py. Editing this file and re-running is the supported way to change or undo a merge.",
     "aliases": "Keyed on the POST-tidy() display string - spaces, commas and parentheses preserved, apostrophes already removed, uppercase. Value 'to' is the replacement, also a post-tidy() string.",
     "preferred": "Keyed on canonical_key() - A-Z and 0-9 only, no spaces or punctuation. Chooses the display form for a group whose members are all equally valid spellings. NOT interchangeable with 'aliases' keys.",
     "rules": "Regex transforms applied after the alias table, in sorted id order. Set enabled=false to switch one off.",
     "keep_distinct": "Hard block: no two members of a group may end up as the same canonical place. Blocks alias entries, regex rules and canonical_key grouping alike. This is the per-merge undo.",
-    "after_editing": "python scripts/clean_routes.py validate-config && python scripts/clean_routes.py run"
+    "after_editing": "python -m pipeline validate-config && python -m pipeline run"
   },
 
   "aliases": {

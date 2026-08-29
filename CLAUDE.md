@@ -1,11 +1,27 @@
-# CLAUDE.md — TaxisTo Route Data Cleaning
+# CLAUDE.md — TaxisTo
 
 ## Project context
 Cleaning `Taxi_Routes.geojson` (City of Cape Town open data portal, ~1,466
 minibus taxi routes) into a validated dataset for TaxisTo's routing engine,
 a WhatsApp journey planner for South African minibus taxis (Geekulcha 2026,
-team GenCode). This is the data layer only — no app code, no routing logic
-beyond what the engine already needs as input.
+team GenCode).
+
+## Repository layout
+
+```
+data/          input only — the pipeline refuses to write here
+config/        judgement calls as editable JSON
+pipeline/      the cleaning pipeline: seven steps + cli.py   (stdlib only)
+                 tests/  findings.md  requirements.txt  README.md
+output/        five artifacts, regenerated from data/ + config/
+```
+
+`pipeline/` is an importable top-level package that owns its own tests,
+requirements and docs. What stays at the root is what it does not own alone:
+`data/` (input), `config/` (judgement calls, deliberately outside code), and
+`output/` (the artifacts, which the routing engine will read).
+
+The pipeline is complete. See `pipeline/README.md`.
 
 A second, smaller dataset — a GTFS feed from the Stellenbosch Taxi
 Association (~10 vehicles, March 2023, no fare fields) — may also need
@@ -59,19 +75,20 @@ to do so.
 ## Running the pipeline
 
 ```
-python scripts/clean_routes.py run                  # all seven steps -> output/
-python scripts/clean_routes.py run --dry-run        # counts only, writes nothing
-python scripts/clean_routes.py validate-config      # check config/ after editing
-python scripts/clean_routes.py explain "GUGULETU"   # why did this name change?
-python scripts/clean_routes.py revert --verify      # prove normalisation is lossless
-python scripts/clean_routes.py diff --baseline <old normalisation_map.json>
+python -m pipeline run                  # all seven steps -> output/
+python -m pipeline run --dry-run        # counts only, writes nothing
+python -m pipeline validate-config      # check config/ after editing
+python -m pipeline explain "GUGULETU"   # why did this name change?
+python -m pipeline revert --verify      # prove normalisation is lossless
+python -m pipeline diff --baseline <old normalisation_map.json>
 ```
 
-Standard library only — no `pip install` needed. `requirements.txt` pins test
-tooling. `data/` is input only; the pipeline refuses to write under it.
+Standard library only — no `pip install` needed. `pipeline/requirements.txt`
+pins test tooling. `data/` is input only; the pipeline refuses to write under
+it. Tests live in `pipeline/tests/`.
 
 To change any place-name decision, edit `config/place_aliases.json` and re-run.
-Never edit the transforms in `scripts/pipeline/places.py` for a data fix — the
+Never edit the transforms in `pipeline/places.py` for a data fix — the
 whole point of the config file is that judgement calls live outside the code
 where they can be reviewed and reverted.
 
@@ -82,8 +99,8 @@ are a summary and the file carries the evidence for each. Changing any of them
 still means re-running everything downstream, since steps 4–6 feed each other.
 
 - **Naming — SETTLED: deterministic rules + an explicit alias table, not
-  fuzzy matching.** Implemented in `scripts/normalise_places.py`; see
-  findings.md Pass 5. Fuzzy matching was rejected because this dataset
+  fuzzy matching.** Implemented in `pipeline/places.py`; see
+  `pipeline/findings.md` Pass 5. Fuzzy matching was rejected because this dataset
   contains distinct places that are near-identical as strings:
   `NORWOOD`/`NORTHWOOD` are edit-distance 2 but 10.8 km apart, and
   `KOEBERG POWER STATION`/`KOEBERG STATION` are 27.8 km apart. Any cutoff
@@ -119,11 +136,12 @@ still means re-running everything downstream, since steps 4–6 feed each other.
   report, but routing on an endpoint 5+ km from its label gives a wrong answer.
 
 ## Conventions
-- Python, standard library only. The "pandas + shapely + networkx" convention
-  describes the **routing engine** that consumes this data; the cleaning
-  pipeline needs none of them (haversine, median, JSON, regex are all stdlib)
-  and none are installed here, so it runs on a bare interpreter. If the engine
-  wants a DataFrame it can read `output/routes_clean.geojson`.
+- **`pipeline/` is standard library only** and stays that way. The "pandas +
+  shapely + networkx" convention describes the **routing engine** that consumes
+  this data; the cleaning pipeline needs none of them (haversine, median, JSON,
+  regex are all stdlib), so it runs on a bare interpreter. Anything layered on
+  top may have dependencies of its own; that constraint stops at this package
+  boundary.
 - Judgement calls live in `config/`, never in code. A data fix is a JSON edit.
 - Never silently drop a row without logging it in the quality report —
   every removed or flagged route should be traceable and countable.

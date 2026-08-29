@@ -3,9 +3,10 @@
     step 2  split route metadata ("via ...") out of the published place name
     step 3  normalise the remainder into a canonical location
 
-`split_via`, `tidy` and `canonical_key` are carried over unchanged from
-`scripts/normalise_places.py`, which settled the naming decision in Pass 5:
-deterministic rules plus an explicit alias table, never fuzzy matching. Fuzzy
+`split_via`, `tidy` and `canonical_key` are carried over unchanged from the
+normalisation script this package replaced, which settled the naming decision
+in Pass 5 (see findings.md): deterministic rules plus an explicit alias table,
+never fuzzy matching. Fuzzy
 matching fails on this dataset -- NORWOOD / NORTHWOOD are edit-distance 2 but
 10.8 km apart, and KOEBERG POWER STATION / KOEBERG STATION are 27.8 km apart.
 

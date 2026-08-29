@@ -24,7 +24,9 @@ from typing import Iterable, Mapping
 from .geometry import BBox
 from .places import canonical_key, tidy
 
-ROOT = Path(__file__).resolve().parent.parent.parent
+# Repository root: this file is <ROOT>/pipeline/config.py, so two levels up.
+# Depth-sensitive -- moving this module changes it.
+ROOT = Path(__file__).resolve().parent.parent
 
 
 class ConfigError(Exception):

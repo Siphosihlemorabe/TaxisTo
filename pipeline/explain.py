@@ -146,7 +146,7 @@ def explain_name(nmap: dict, raw: str) -> list[str]:
 
 def _how_to_change(entry: dict, place: dict | None) -> list[str]:
     out = ["TO CHANGE  edit config/place_aliases.json, then re-run:",
-           "             python scripts/clean_routes.py run"]
+           "             python -m pipeline run"]
 
     # A merge is reversible in one of two ways, depending on what caused it.
     rewrite = next((h for h in entry["trace"]

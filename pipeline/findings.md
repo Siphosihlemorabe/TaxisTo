@@ -119,9 +119,11 @@ Result: **565 distinct place names, down from 576**; feature count unchanged at
 ### Pass 5 — place-name normalisation (CLAUDE.md steps 2 and 3)
 
 Requested explicitly: normalise the place-name variants left flagged in item 9
-below. Implemented as a re-runnable script, `scripts/normalise_places.py`,
-rather than an ad-hoc transform, because the settled decisions below force a
-re-run of everything downstream if any of them change.
+below. Implemented as a re-runnable script rather than an ad-hoc transform,
+because the settled decisions below force a re-run of everything downstream if
+any of them change. That script was later folded into this package — the
+transforms now live in `pipeline/places.py` and `pipeline/geometry.py`, and the
+alias table it held as Python literals moved to `config/place_aliases.json`.
 
 #### Open decisions settled before running
 
@@ -236,10 +238,10 @@ literals), and unrevertible (undoing one merge meant editing code).
 ```
 config/place_aliases.json   the 32 judgement calls, lifted out of Python, each with its reason
 config/pipeline.json        every threshold, with the evidence for the value chosen
-scripts/clean_routes.py     one entry point: run / validate-config / explain / revert / diff
-scripts/pipeline/           the seven steps, one module each
+pipeline/cli.py             one entry point: run / validate-config / explain / revert / diff
+pipeline/                   the seven steps, one module each
 output/                     five artifacts, all regenerated from data/ + config/
-tests/                      72 tests, including the acceptance counts below
+pipeline/tests/             76 tests, including the acceptance counts below
 ```
 
 `data/` is now **input only** — `sourceio.py` refuses to write under it. The
@@ -421,7 +423,7 @@ silently does nothing would be worse than offering none:
    `SANDRIFT` (the file's plurality). **Which spelling is actually correct is
    still unconfirmed** — the Milnerton suburb is commonly written *Sanddrift*.
    If a local check says otherwise, change the one entry in the alias table in
-   `scripts/normalise_places.py` and re-run; the raw `ORGN`/`DSTN` are intact,
+   `config/place_aliases.json` and re-run; the raw `ORGN`/`DSTN` are intact,
    so nothing is lost.
 
 6. **CPT: `HELDERVUE (SOMERSET WES)` vs `HELDERVUE (SOMERSET WEST)`** — one

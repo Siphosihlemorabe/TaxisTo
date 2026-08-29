@@ -29,9 +29,31 @@ WhatsApp-first. No app to install, no data cost to search or contribute — mess
 - **Messaging:** Twilio and/or the WhatsApp Business API
 - **Mapping:** Google Maps API
 
+## Repository
+
+```
+data/       input only — City of Cape Town route data, Stellenbosch GTFS feed
+config/     every judgement call, as editable JSON
+pipeline/   route-data cleaning: seven steps, standard library only
+output/     the cleaned dataset and its audit trail
+```
+
+`pipeline/` owns its own tests, requirements and README.
+
+```bash
+python -m pipeline run       # clean the route data (see pipeline/README.md)
+```
+
 ## Status
 
-Pre-build. This repository accompanies a Geekulcha 2026 hackathon submission — the routing approach, data pipeline, and fare-crowdsourcing mechanic have been designed and validated against real South African taxi route data, and this repo will hold the implementation once development starts.
+Hackathon build (Geekulcha 2026).
+
+**The data pipeline is done.** 1,466 published routes cleaned, normalised and
+validated against real geometry, with every place-name decision recorded in
+`output/normalisation_map.json` and provably reversible — `python -m pipeline
+revert --verify` reconstructs all 1,417 source features byte-for-byte.
+
+The application itself is not built yet.
 
 ## Team
 

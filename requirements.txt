@@ -1,6 +1,0 @@
-# The cleaning pipeline itself needs nothing beyond the Python 3.11 standard
-# library -- run it with `python scripts/clean_routes.py run` on a bare
-# interpreter. See scripts/pipeline/__init__.py for why.
-#
-# This file pins test tooling only.
-pytest>=8.0

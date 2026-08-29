@@ -5,13 +5,13 @@ Runs the seven cleaning steps from CLAUDE.md over
 `data/cpt/Taxi_Routes.geojson` and writes everything to `output/`. The source
 file is never written to.
 
-    python scripts/clean_routes.py run                  # clean, validate, emit
-    python scripts/clean_routes.py run --dry-run        # report only, write nothing
-    python scripts/clean_routes.py validate-config      # check the config files
-    python scripts/clean_routes.py explain "GUGULETU"   # why did this name change?
-    python scripts/clean_routes.py explain --place ATLANTIS
-    python scripts/clean_routes.py revert --verify      # prove normalisation is lossless
-    python scripts/clean_routes.py diff --baseline old/normalisation_map.json
+    python -m pipeline run                  # clean, validate, emit
+    python -m pipeline run --dry-run        # report only, write nothing
+    python -m pipeline validate-config      # check the config files
+    python -m pipeline explain "GUGULETU"   # why did this name change?
+    python -m pipeline explain --place ATLANTIS
+    python -m pipeline revert --verify      # prove normalisation is lossless
+    python -m pipeline diff --baseline old/normalisation_map.json
 
 Pure standard library -- no `pip install` required. See pipeline/__init__.py.
 """
@@ -21,20 +21,18 @@ import json
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-
-from pipeline import __version__
-from pipeline.config import (ConfigError, load_pipeline_config, load_place_config)
-from pipeline.emit import (assemble, build_normalisation_map, build_places,
-                           build_route_features)
-from pipeline.explain import (ExplainError, diff_maps, explain_name, explain_place,
-                              load_map, resolve, verify_revert, write_reverted)
-from pipeline.normalise import normalise
-from pipeline.parallel import resolve_parallel
-from pipeline.report import build_report
-from pipeline.sourceio import load_source, write_json
-from pipeline.validate import (build_place_consensus, drop_unusable,
-                               validate_geometry, validate_labels)
+from . import __version__
+from .config import ConfigError, load_pipeline_config, load_place_config
+from .emit import (assemble, build_normalisation_map, build_places,
+                   build_route_features)
+from .explain import (ExplainError, diff_maps, explain_name, explain_place,
+                      load_map, resolve, verify_revert, write_reverted)
+from .normalise import normalise
+from .parallel import resolve_parallel
+from .report import build_report
+from .sourceio import load_source, write_json
+from .validate import (build_place_consensus, drop_unusable, validate_geometry,
+                       validate_labels)
 
 
 # --------------------------------------------------------------------------
@@ -175,7 +173,7 @@ def _print_review_summary(report: dict, log) -> None:
             f"every route they have is withheld, so the routing engine cannot serve "
             f"them at all")
     log("\n  full detail: output/quality_report.json -> review_queue")
-    log("  why a name changed: python scripts/clean_routes.py explain \"<NAME>\"")
+    log("  why a name changed: python -m pipeline explain \"<NAME>\"")
 
 
 def _exit_code(report: dict, args: argparse.Namespace) -> int:
@@ -307,7 +305,7 @@ def cmd_diff(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(
-        prog="clean_routes.py",
+        prog="python -m pipeline",
         description=__doc__.split("\n\n")[0],
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="Editing config/place_aliases.json and re-running is the supported "
@@ -363,7 +361,3 @@ def main(argv: list[str] | None = None) -> int:
     except ExplainError as exc:
         print(f"\n{exc}", file=sys.stderr)
         return 2
-
-
-if __name__ == "__main__":
-    sys.exit(main())

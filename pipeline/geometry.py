@@ -3,9 +3,8 @@
 Coordinates are GeoJSON order throughout: ``(lon, lat)``. The source file is
 CRS84 and already rounded to 6 decimal places (~11 cm).
 
-`haversine` and `consensus` are carried over unchanged from
-`scripts/normalise_places.py`, where they were used across cleaning passes 4
-and 5.
+`haversine` and `consensus` are carried over unchanged from the Pass 4/5
+normalisation script this package replaced (see findings.md Pass 5).
 """
 
 import math

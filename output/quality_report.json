@@ -1,6 +1,6 @@
 {
   "artifact_sha256": {
-    "normalisation_map.json": "1d2c99e9bb82585f1824713890e00ad7af383b482900ca90a1ce32e4a17ebbf8",
+    "normalisation_map.json": "6fd9ed1c33e38a938a8817e50d195924446d867b467e8eb0dba0c61542b17bbf",
     "places.json": "bc80fc8f441eb6b4fca93c4b3d366933a61c9b16b7486b46b8edfbe2c66d7822",
     "routes_clean.geojson": "cf9684f9a094d68346ddbe4090a1a5fb404cfe8f70abb35b95d7a16ed25c6e71",
     "routes_flagged.geojson": "36b0dcef68f85aedb695fd3756e2819f82c3a0ea8d7d1369a0a4a2606df3362d"
@@ -3203,9 +3203,9 @@
       "run",
       "--quiet"
     ],
-    "generated_at": "2026-08-27T16:23:14+00:00",
+    "generated_at": "2026-08-29T12:07:42+00:00",
     "pipeline_config_sha256": "f7e0d588eea70d1f82c81a1623d74e6e5ab89c7181499a15940ea391f90c94e3",
-    "place_config_sha256": "d28864aaddb2d8afcfb4c82a6b8952fae38cf1126ad61484892c235d95afbd8c",
+    "place_config_sha256": "7fb2d8b4844d2f22529e27cfa47af10f885d285a6780e62ccfce48e483ba6f2d",
     "platform": "Windows-10-10.0.26200-SP0",
     "python": "3.11.9",
     "source_carried_derived_fields": [],

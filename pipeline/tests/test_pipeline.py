@@ -263,8 +263,8 @@ class TestDeterminism:
 
         import subprocess, sys
         from pipeline.config import ROOT
-        subprocess.run([sys.executable, str(ROOT / "scripts" / "clean_routes.py"),
-                        "run", "--quiet"], check=True, cwd=ROOT)
+        subprocess.run([sys.executable, "-m", "pipeline", "run", "--quiet"],
+                       check=True, cwd=ROOT)
         assert hashlib.sha256(path.read_bytes()).hexdigest() == first
 
     def test_no_timestamp_leaks_into_the_audit(self, run):

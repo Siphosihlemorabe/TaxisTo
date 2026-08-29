@@ -1,0 +1,10 @@
+# The cleaning pipeline needs nothing beyond the Python 3.11 standard library.
+# Run it on a bare interpreter, from the repo root:
+#
+#     python -m pipeline run
+#
+# See pipeline/__init__.py for why that constraint is kept.
+#
+# This file pins test tooling only. The backend has its own dependencies in
+# backend/requirements.txt; the standard-library rule stops at that boundary.
+pytest>=8.0
