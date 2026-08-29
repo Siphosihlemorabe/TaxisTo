@@ -19,3 +19,8 @@ venv/
 .pytest_cache/
 .idea/
 .vscode/
+
+# Backend settings overrides -- read by app/core/config.py. Holds the Twilio
+# auth token in any real deployment, so it must never be committed.
+.env
+

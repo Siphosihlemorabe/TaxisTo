@@ -1,0 +1,22 @@
+# Backend dependencies.
+#
+# The cleaning pipeline in pipeline/ needs none of these -- it is pure standard
+# library and runs on a bare interpreter. That constraint stops at the package
+# boundary; the API layer is free to have dependencies.
+#
+#     python -m venv .venv
+#     .venv/Scripts/activate          # Windows;  source .venv/bin/activate elsewhere
+#     pip install -r backend/requirements.txt
+#
+# Use a venv. There is currently a pydantic/pydantic_core version split between
+# the user and system site-packages on this machine that breaks `import fastapi`
+# outside one.
+
+fastapi>=0.115,<0.116
+uvicorn[standard]>=0.32,<0.33
+pydantic>=2.10,<3
+pydantic-settings>=2.7,<3
+
+# Testing
+pytest>=8.0
+httpx>=0.28          # required by fastapi.testclient

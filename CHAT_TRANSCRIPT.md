@@ -109,6 +109,7 @@ A test caught a genuine gap rather than being weakened to pass: formatting-only 
 
 Wrote a "Pass 6" section to `findings.md`, marked all four remaining open decisions SETTLED in `CLAUDE.md` pointing at `config/pipeline.json` as the live source of truth, and updated the conventions to match what was actually built.
 
+
 ---
 
 ## 2026-08-27
@@ -150,3 +151,53 @@ Added four tests: that a withheld route is never canonical while a survivor exis
 - **Endpoint drift on plausible geometry (5)** — where the consensus deserves as much suspicion as the route. 1067 rests on Panorama's support of exactly 3 (the minimum); 188 on Darling's support of 4; 1216 and 1293 are off by *identically* 13.8 km because they share the same Melkbosstrand endpoint, so that is one fact and not two; 17 is 5.8 km, just past the 5 km error line, inside a township that is legitimately that large.
 
 Also noted what is actually lost: 10 of the 12 corridors have no reverse-direction route either, so withholding removes the connection entirely; only `KHAYELITSHA → WYNBERG` (3 clean routes) and `SIR LOWRYS PASS TOWN → MACASSAR` (1) survive by the back way. A threshold change would return several of group C, but groups A and B cannot be tuned back into usefulness — a 3 km line is not a 40 km trip at any tolerance.
+
+**User:** "i want you to refactor the pipeline and add it under pipeline and create a new folder called backend where we are going to have the backend with feature based dev"
+
+**Assistant:** Asked two questions first, since both readings changed the work materially: how far the backend should go (chose **scaffold only**) and how it should reach the pipeline's data (chose **import `pipeline` as a package**, not read `output/` as files). Those two answers converge on one requirement — `pipeline/` has to be a real importable package at the repo root — so the refactor and the backend were the same job.
+
+Moved `scripts/pipeline/` → `pipeline/` and `scripts/clean_routes.py` → `pipeline/cli.py` with `git mv`, so history follows. The CLI became a package module: relative imports instead of the `sys.path` hack, `prog="python -m pipeline"`, and a new `__main__.py` so `python -m pipeline run` is the entry point. One depth-sensitive line needed fixing — `config.py`'s `ROOT` was `parent.parent.parent` from `scripts/pipeline/` and is now `parent.parent`, commented as depth-sensitive so the next move catches it. Left `scripts/clean_routes.py` as a labelled deprecation shim, since `CLAUDE.md`, `config/place_aliases.json` and shell history all named that path.
+
+Captured the four artifact hashes *before* touching anything and checked them after: byte-identical, `revert --verify` still 1417/1417, 76 tests still passing. The one artifact change in the whole refactor was `place_config_sha256` in `normalisation_map.json`, because updating the path strings inside `place_aliases.json`'s documentation block changes that file's sha256 — checked the diff to confirm no normalisation *decision* moved.
+
+`backend/` is FastAPI organised by feature, not by layer: `routes`, `places`, `fares`, `pickup`, `whatsapp`, `system`, each with `router.py` / `schemas.py` / `service.py`, plus `repository.py` only for `fares` and `pickup` — the two features holding state the pipeline does not own, since the pipeline is a pure function of `data/` + `config/` and fares accumulate from users.
+
+Three decisions worth recording. **Unimplemented endpoints return 501, never an empty 200** — every stub raises `NotImplementedError` carrying a `Needs:` note naming what it requires, which the error handler converts; an endpoint that isn't built must be distinguishable from one that found nothing, the same reasoning as the pipeline flagging rather than silently dropping. **The pipeline coupling is confined to one module**, `core/pipeline_gateway.py`; services take a `PipelineGateway`, so the coupling stays one import deep and swappable. **Features may import `app.core` but never each other** — and that rule is enforced by a test rather than left as a comment. Made `backend` a package so a single `sys.path` entry (the repo root) serves both it and `pipeline`.
+
+`/health` and `/ready` are fully implemented on purpose — `/ready` reports the live `pipeline.__version__` and both config sha256s, which is what proves the backend really imports the pipeline instead of just claiming to. Verified against a running server: the fingerprints it returned matched `python -m pipeline validate-config` exactly.
+
+Hit one environment problem worth flagging: `import fastapi` fails on this machine outside a venv, because `pydantic` 2.10.3 sits in the user site-packages while `pydantic_core` 2.46.4 sits in the system one. Built and verified everything in a `.venv`, and noted the reason in `backend/requirements.txt` and `backend/README.md` rather than modifying the global environment.
+
+**96 tests pass** (76 pipeline + 20 backend). The pipeline still runs on a bare interpreter with zero installs — that constraint now explicitly stops at the package boundary, documented in `CLAUDE.md` so nobody adds a dependency to `pipeline/` to serve the backend. Also corrected `CLAUDE.md`'s "this is the data layer only — no app code", which the backend made untrue.
+
+**User:** "the final plan is to not run the pipeline but rather compute from postgis so please do your reccomendation of reading artifact it is better"
+
+**Assistant:** Reversed the coupling decision from the previous turn. PostGIS as the destination makes the package import actively wrong, not merely tighter than needed: importing `pipeline` reports the version of the code *checked out on the API host*, which says nothing about an export generated weeks earlier and loaded into a database. The question a deployed API needs to answer is "which cleaning run produced these rows", and only the data can answer it.
+
+Deleted `pipeline_gateway.py` and replaced it with `core/datasource/` — a `RouteDataSource` interface, a working `ArtifactDataSource`, and a `PostgisDataSource` stub. Also cut the last hidden dependency: `core/config.py` had been importing `ROOT` from `pipeline.config`, which is exactly where that coupling would have crept back in. A test now enforces that no module under `backend/app/` imports `pipeline` at all.
+
+The design decision that actually determines whether the PostGIS swap works is that **the interface is query-shaped, not file-shaped**. There is no `load(artifact_name)` and no `output_dir` on `RouteDataSource` — a SQL implementation could not honour either without faking a file API, and the abstraction would leak the moment anyone tried. Every method is a question about the domain (`routes_for_pair`, `places_near`, `resolve_name`), so the artifact source answers from an in-memory index and PostGIS answers with a query. There is a test asserting the interface exposes no file concepts, and `postgis.py` carries a table-and-query sketch so whoever writes it is not starting cold.
+
+Implemented the artifact source fully rather than stubbing it, since it is infrastructure in the same way the gateway was, and verified it against real data: 1,393 routes, 961 directed pairs, 379 places, 565 names. Confirmed direction-sensitivity holds — `KHAYELITSHA → WYNBERG` returns 3 routes with the canonical one first, and the reverse returns 0 — and that `search_places("NORWOOD")` does not pull in `NORTHWOOD`, the two being 10.8 km apart.
+
+Caught two things while wiring it up. `RouteSummary` had a single `via` field, but the cleaned data carries `via_origin` and `via_destination` separately and they can differ on one route; fixed the schema to match. And I had been flattening each name's `trace` to strings, which destroyed the evidence — the entries are structured stage records, and the alias stage for `GUGULETU → GUGULETHU` carries `reason: "the official spelling carries the H"` and `source: findings.md#pass-5`. Kept them as dicts and added a test that the reason and source survive, since that trace is the whole reason a reviewer can check a merge over HTTP.
+
+Verified the swap is genuinely configuration-only: with `TAXISTO_DATA_SOURCE=postgis` the PostGIS stub is reached with no code change, and selecting it without a DSN gives a clear `configuration_error` rather than a confusing failure later. That test also exposed a flaw in my own `/ready` — it returned 501 under PostGIS because it asked for provenance unconditionally. A readiness probe that errors is useless to an orchestrator, so it now asks only once the source says it can answer, and reports `ready: false` otherwise.
+
+**108 tests pass** (76 pipeline + 32 backend). The pipeline is untouched by this change and still runs on a bare interpreter; the only artifact difference remains the single `place_config_sha256` line from the previous turn's config edit.
+
+**User:** "now please do a chore where you move the files that was previously in root to pipeline folder as the are part of it the commit"
+
+**Assistant:** Asked which files first, because one obvious candidate is technically impossible and two others would undo the previous turn's work. `config/` cannot become `pipeline/config/` — it would collide with `pipeline/config.py`, and Python cannot have both a module and a package of the same name; it also contradicts CLAUDE.md's rule that judgement calls live outside the code. `output/` is what `backend/` reads, so nesting it inside `pipeline/` would re-tangle the seam we had just separated. And `data/`'s path is recorded as `source_file` inside the committed artifacts, so moving it would force a re-run and an artifact diff for no benefit.
+
+Settled on moving what is genuinely pipeline-private: `tests/` → `pipeline/tests/`, `findings.md` → `pipeline/findings.md`, `requirements.txt` → `pipeline/requirements.txt`. The repo now reads symmetrically — `pipeline/` and `backend/` each own their tests, requirements and README, and only what they share stays at the root.
+
+Deleted both shims in `scripts/`, removing the directory. `scripts/clean_routes.py` existed so the *old path* kept working, so moving it into `pipeline/` would have destroyed its only purpose; nothing is released and every doc now says `python -m pipeline`, so it had no users to protect.
+
+Left the ~40 `"source": "findings.md#pass-5"` citations in `config/place_aliases.json` alone. They are document anchors rather than filesystem paths, and editing that file would change its sha256 and churn the committed artifacts a second time for no gain.
+
+Chased the references the move invalidated: `pipeline/geometry.py` and `pipeline/places.py` both cited the deleted `normalise_places.py` as provenance, and `findings.md` told a reader to edit an alias table in that file — which was doubly wrong, since the table moved to `config/place_aliases.json` when the pipeline was built. Also wrote `pipeline/README.md` to mirror `backend/README.md`.
+
+Verified nothing regressed: **108 tests pass**, the pipeline still runs on a bare interpreter, `revert --verify` is still 1417/1417, and all three stable artifacts hash identically to the pre-refactor baseline.
+
+Committed the whole restructure — the package move, the backend, and this chore — as one commit, since it is one continuous piece of work that was never committed and is verified as a unit.

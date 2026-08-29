@@ -36,12 +36,16 @@ data/       input only — City of Cape Town route data, Stellenbosch GTFS feed
 config/     every judgement call, as editable JSON
 pipeline/   route-data cleaning: seven steps, standard library only
 output/     the cleaned dataset and its audit trail
+backend/    FastAPI service, organised by feature
 ```
 
-`pipeline/` owns its own tests, requirements and README.
+`pipeline/` and `backend/` each own their tests, requirements and README.
+What stays at the root is only what they share: the input data, the config,
+and `output/` — the boundary the pipeline writes and the backend reads.
 
 ```bash
-python -m pipeline run       # clean the route data (see pipeline/README.md)
+python -m pipeline run                    # clean the route data (pipeline/README.md)
+uvicorn backend.app.main:app --reload     # serve the API      (backend/README.md)
 ```
 
 ## Status
@@ -53,7 +57,14 @@ validated against real geometry, with every place-name decision recorded in
 `output/normalisation_map.json` and provably reversible — `python -m pipeline
 revert --verify` reconstructs all 1,417 source features byte-for-byte.
 
-The application itself is not built yet.
+**The backend is a scaffold.** Feature structure, contracts and the data layer
+are in place; `/health` and `/ready` work, and every feature endpoint returns
+501 naming what it still needs. Route matching, fares and the WhatsApp webhook
+are next. Frontend not started.
+
+Cleaning is offline — the backend reads the pipeline's output and never runs
+it. That data is served through one interface, so moving from the JSON export
+to **PostGIS** is a configuration change rather than a rewrite.
 
 ## Team
 

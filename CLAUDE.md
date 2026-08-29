@@ -12,16 +12,28 @@ team GenCode).
 data/          input only — the pipeline refuses to write here
 config/        judgement calls as editable JSON
 pipeline/      the cleaning pipeline: seven steps + cli.py   (stdlib only)
-                 tests/  findings.md  requirements.txt  README.md
+                 tests/  findings.md  requirements.txt
 output/        five artifacts, regenerated from data/ + config/
+backend/       FastAPI service, organised by feature          (scaffold)
+                 tests/  README.md  requirements.txt
 ```
 
-`pipeline/` is an importable top-level package that owns its own tests,
-requirements and docs. What stays at the root is what it does not own alone:
-`data/` (input), `config/` (judgement calls, deliberately outside code), and
-`output/` (the artifacts, which the routing engine will read).
+Each of the two components owns its own tests, requirements and docs. Only
+what they share stays at the root: `data/` (pipeline input), `config/`
+(judgement calls, deliberately outside code), and `output/` (the boundary —
+the pipeline writes it, the backend reads it).
 
-The pipeline is complete. See `pipeline/README.md`.
+The **pipeline** is complete and is the mature part of this repo. The
+**backend** is a scaffold: the data layer, `/health` and `/ready` work; every
+feature endpoint returns 501 naming what it still needs. See
+`backend/README.md`.
+
+**The two do not import each other.** Cleaning is offline: the pipeline writes
+`output/`, the backend reads it, and neither knows the other's internals. This
+is deliberate and enforced by a test — the plan is to serve route data from
+**PostGIS**, computed there rather than by running the pipeline at request
+time, and any import would have to be unpicked at that point. See
+`backend/app/core/datasource/`.
 
 A second, smaller dataset — a GTFS feed from the Stellenbosch Taxi
 Association (~10 vehicles, March 2023, no fare fields) — may also need
@@ -85,7 +97,7 @@ python -m pipeline diff --baseline <old normalisation_map.json>
 
 Standard library only — no `pip install` needed. `pipeline/requirements.txt`
 pins test tooling. `data/` is input only; the pipeline refuses to write under
-it. Tests live in `pipeline/tests/`.
+it. Tests live in `pipeline/tests/`; `pytest` from the root runs both suites.
 
 To change any place-name decision, edit `config/place_aliases.json` and re-run.
 Never edit the transforms in `pipeline/places.py` for a data fix — the
@@ -139,9 +151,10 @@ still means re-running everything downstream, since steps 4–6 feed each other.
 - **`pipeline/` is standard library only** and stays that way. The "pandas +
   shapely + networkx" convention describes the **routing engine** that consumes
   this data; the cleaning pipeline needs none of them (haversine, median, JSON,
-  regex are all stdlib), so it runs on a bare interpreter. Anything layered on
-  top may have dependencies of its own; that constraint stops at this package
-  boundary.
+  regex are all stdlib), so it runs on a bare interpreter. That constraint
+  stops at the package boundary — `backend/` has its own
+  `backend/requirements.txt` and is free to add dependencies. Never add one to
+  `pipeline/` to serve the backend; put it in the gateway instead.
 - Judgement calls live in `config/`, never in code. A data fix is a JSON edit.
 - Never silently drop a row without logging it in the quality report —
   every removed or flagged route should be traceable and countable.
@@ -163,3 +176,34 @@ still means re-running everything downstream, since steps 4–6 feed each other.
   three JSON artifacts are committed on purpose — they diff cleanly, and
   `normalisation_map.json` is the record that lets a reviewer check a merge
   without installing or running anything.
+
+## Backend conventions
+Full detail in `backend/README.md`. The rules that matter when editing it:
+
+- **Feature-based, not layer-based.** One directory per feature under
+  `backend/app/features/`, each holding `router.py` (HTTP surface),
+  `schemas.py` (wire contracts), `service.py` (logic), and `repository.py`
+  only where the feature owns state the pipeline does not (`fares`, `pickup`).
+- **A feature may import from `app.core`, never from another feature.**
+  Anything two features both need moves into `core`. A test enforces this
+  (`test_no_feature_imports_another_feature`) — it is not just a guideline.
+- **Nothing in `backend/` may import `pipeline`.** Cleaned route data is
+  reached only through `core/datasource/`'s `RouteDataSource`. Enforced by
+  `test_no_backend_module_imports_pipeline`.
+- **`RouteDataSource` stays query-shaped.** Never add `load(filename)`,
+  `output_dir` or any other file concept to it — PostGIS cannot honour them,
+  and the interface exists precisely so `artifacts.py` and `postgis.py` are
+  interchangeable. Ask "could SQL answer this?" before adding a method.
+- **Provenance is read from the data, never from installed code.** `/ready`
+  reports the cleaning run behind the rows being served. Under PostGIS the
+  checked-out pipeline version says nothing useful about a months-old export.
+- **Unimplemented means 501, never an empty success.** Service stubs raise
+  `NotImplementedError` with a `Needs:` note; `core/errors.py` turns it into a
+  501. Same reasoning as the pipeline flagging rather than silently dropping —
+  a caller must be able to tell "not built" from "found nothing".
+- **The no-fabricated-data rule carries over.** An unknown fare is null with
+  `confidence: "unknown"`. The unconfigured repositories fail loudly rather
+  than pretending to store a commuter's report.
+- Run from the repo root; `backend` and `pipeline` are sibling top-level
+  packages. Use a venv — see `backend/README.md` for the pydantic split on
+  this machine.
