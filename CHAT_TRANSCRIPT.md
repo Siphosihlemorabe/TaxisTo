@@ -200,4 +200,6 @@ Chased the references the move invalidated: `pipeline/geometry.py` and `pipeline
 
 Verified nothing regressed: **108 tests pass**, the pipeline still runs on a bare interpreter, `revert --verify` is still 1417/1417, and all three stable artifacts hash identically to the pre-refactor baseline.
 
-Committed the whole restructure — the package move, the backend, and this chore — as one commit, since it is one continuous piece of work that was never committed and is verified as a unit.
+Committed initially as one commit, then redone at the user's request as two: `db79248` moves the pipeline into a top-level package (including this chore's colocation and the removal of `scripts/`), and `80ad7c8` adds the backend. Rebuilt non-destructively — tagged the original commit first, used a mixed reset so the working tree was never thrown away, reconstructed the intermediate `CLAUDE.md` and `README.md` with the backend sections stripped so the first commit does not describe code that does not exist in it yet, and verified each commit's tree independently (76 tests and matching artifacts at commit 1, 108 at commit 2).
+
+The check that mattered: `git diff <original> HEAD` across all 73 files came back to a single line — `generated_at` in `quality_report.json`, the one field the project documents as non-deterministic. The split history lands on byte-identical content.
